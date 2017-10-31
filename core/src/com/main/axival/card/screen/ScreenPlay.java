@@ -19,6 +19,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.main.axival.card.CardAction;
 import com.main.axival.card.CardPlay;
+import com.main.axival.card.MapPlay.MapScreen;
 import com.main.axival.card.RandomCard;
 import com.main.axival.card.UIplay;
 
@@ -56,6 +57,8 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private UIplay uIplay;
 
+    private MapScreen mapScreen;
+
     private final CardPlay cardPlay;
 
 
@@ -89,6 +92,7 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay);
+        this.mapScreen = new MapScreen(this.cardPlay);
     }
 
     @Override
@@ -432,9 +436,10 @@ public class ScreenPlay implements Screen, InputProcessor{
         update(delta);
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
         cardPlay.batch.begin();
-        cardPlay.batch.draw(textureBg,0,0);
+        //cardPlay.batch.draw(textureBg,0,0);
         //cardPlay.batch.draw(texture, rendexX, renderY);
         uIplay.runningDraw();
+        mapScreen.runner();
         cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
         prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
@@ -446,12 +451,14 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     public void update(float delta)
     {
+        mapScreen.update(delta);
         stage.act(delta);
         prototype.update(delta);
     }
 
     @Override
     public void resize(int width, int height) {
+        mapScreen.resize(width, height);
         stage.getViewport().update(width, height, false);
     }
 

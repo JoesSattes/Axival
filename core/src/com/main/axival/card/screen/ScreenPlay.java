@@ -22,6 +22,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.main.axival.card.CardAction;
 import com.main.axival.card.CardPlay;
 import com.main.axival.card.RandomCard;
+import com.main.axival.card.UIplay;
 
 public class ScreenPlay implements Screen, InputProcessor{
     private Stage stage;
@@ -54,6 +55,8 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private CardAction cardAction;
 
+    private UIplay uIplay;
+
     private final CardPlay cardPlay;
     public ScreenPlay(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
@@ -84,6 +87,7 @@ public class ScreenPlay implements Screen, InputProcessor{
 
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
+        this.uIplay = new UIplay(this.cardPlay);
     }
 
     @Override
@@ -428,7 +432,8 @@ public class ScreenPlay implements Screen, InputProcessor{
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
         cardPlay.batch.begin();
         cardPlay.batch.draw(textureBg,0,0);
-        cardPlay.batch.draw(texture, rendexX, renderY);
+        //cardPlay.batch.draw(texture, rendexX, renderY);
+        uIplay.runningDraw();
         cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
         prototype.draw(cardPlay.batch);
         cardPlay.batch.end();

@@ -206,8 +206,6 @@ public class CardAction {
                 Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
                         Actions.moveTo(1280 / 2.2f + 200, -50, 2f),
                         Actions.scaleTo(.17f, .17f, 2f))));
-        //cardHandIndex[5] = Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(5));
-        //cardHandActionDelIndex(5-1);
         screenPlay.cardDeck[currentCard-2].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f + 100, -50, 1f)));
         screenPlay.cardDeck[currentCard-3].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f, -50, 1f)));
         screenPlay.cardDeck[currentCard-4].addAction(Actions.sequence(Actions.moveTo(1280 / 2.2f - 100, -50, 1f)));
@@ -276,89 +274,6 @@ public class CardAction {
         screenPlay.cardDeck[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.moveTo(1280/2.2f+150, -50, 1f)));
     }
 
-    public void cardHandActionDelSecondInOne(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInTwo(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelThirthInOne(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelThirthInTwo(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelThirthInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelThirthInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelThirthInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelForthInOne(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelForthInTwo(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelForthInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelForthInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelForthInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelFifthInOne(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFifthInTwo(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFifthInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFifthInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFifthInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
 
     public void cardHandActionDel(int indexCard){
         if(screenPlay.randomCard.sizeCountCardInHand()==1){
@@ -376,92 +291,5 @@ public class CardAction {
         else if(screenPlay.randomCard.sizeCountCardInHand()==5){
             cardHandActionDelFirstInFive(indexCard);
         }
-        /*
-        if(indexCard==0){
-            if(screenPlay.randomCard.sizeCountCardInHand()==1){
-                cardHandActionDelFirstInOne(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==2){
-                cardHandActionDelFirstInTwo(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==3){
-                cardHandActionDelFirstInThree(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==4){
-                cardHandActionDelFirstInFour(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==5){
-                cardHandActionDelFirstInFive(indexCard);
-            }
-        }
-        else if(indexCard==1){
-            if(screenPlay.randomCard.sizeCountCardInHand()==1){
-                cardHandActionDelSecondInOne(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==2){
-                cardHandActionDelSecondInTwo(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==3){
-                cardHandActionDelSecondInThree(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==4){
-                cardHandActionDelSecondInFour(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==5){
-                cardHandActionDelSecondInFive(indexCard);
-            }
-        }
-        else if(indexCard==2){
-            if(screenPlay.randomCard.sizeCountCardInHand()==1){
-                cardHandActionDelThirthInOne(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==2){
-                cardHandActionDelThirthInTwo(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==3){
-                cardHandActionDelThirthInThree(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==4){
-                cardHandActionDelThirthInFour(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==5){
-                cardHandActionDelThirthInFive(indexCard);
-            }
-        }
-        else if(indexCard==3){
-            if(screenPlay.randomCard.sizeCountCardInHand()==1){
-                cardHandActionDelForthInOne(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==2){
-                cardHandActionDelForthInTwo(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==3){
-                cardHandActionDelForthInThree(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==4){
-                cardHandActionDelForthInFour(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==5){
-                cardHandActionDelForthInFive(indexCard);
-            }
-        }
-        else if(indexCard==4){
-            if(screenPlay.randomCard.sizeCountCardInHand()==1){
-                cardHandActionDelFifthInOne(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==2){
-                cardHandActionDelFifthInTwo(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==3){
-                cardHandActionDelFifthInThree(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==4){
-                cardHandActionDelFifthInFour(indexCard);
-            }
-            else if(screenPlay.randomCard.sizeCountCardInHand()==5){
-                cardHandActionDelFifthInFive(indexCard);
-            }
-        }
-        */
     }
 }

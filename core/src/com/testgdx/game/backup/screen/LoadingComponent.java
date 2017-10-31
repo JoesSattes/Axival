@@ -91,5 +91,8 @@ public class LoadingComponent implements Screen{
         cardPlay.assetManager.load("cursorImage2.png", Texture.class);
         cardPlay.assetManager.load("bg1.jpg", Texture.class);
         cardPlay.assetManager.load("effect01.party", ParticleEffect.class);
+
+        //UiPlay
+        cardPlay.assetManager.load("UI_Assets/Axival_UI_Assets/Overlay Bottom Left@1x.png", Texture.class);
     }
 }

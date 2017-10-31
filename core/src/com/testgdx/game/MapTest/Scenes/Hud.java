@@ -11,7 +11,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.testgdx.game.MapTest.Axivals;
 
-
 public class Hud {
     public Stage stage;
     private Viewport viewport;

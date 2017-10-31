@@ -121,7 +121,7 @@ public class PlayScreen implements Screen {
 //            gamecam.position.y -= 100 * dt;
 
         //Right-move control
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.getWalking() == 0) {
+        if (Gdx.input.isKeyPressed(Input.Keys.UP) && player.getWalking() == 0) {
             if (player.facing.compareTo(Hero.State.LEFT) == 0) {
                 player.setDes(board.map[player.row][player.col+1].corX, board.map[player.row][player.col].corX);
             }

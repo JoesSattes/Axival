@@ -32,6 +32,7 @@ public class MapScreen implements Screen {
     private Hero player;
 
     public MapScreen(CardPlay game) {
+        /*
         this.game = game;
         this.gamecam = new OrthographicCamera();
         this.gamePort = new FitViewport(1280.0F, 720.0F, this.gamecam);
@@ -44,10 +45,10 @@ public class MapScreen implements Screen {
         this.font = new BitmapFont();
         this.font.setColor(255.0F, 255.0F, 255.0F, 1.0F);
         MapProperties prop = this.hexes.getProperties();
-        int mapWidth = ((Integer) prop.get("width", Integer.class)).intValue();
-        int mapHeight = ((Integer) prop.get("height", Integer.class)).intValue();
-        int tilePixelWidth = ((Integer) prop.get("tilewidth", Integer.class)).intValue();
-        int tilePixelHeight = ((Integer) prop.get("tileheight", Integer.class)).intValue();
+        int mapWidth = (Integer) prop.get("width", Integer.class);
+        int mapHeight = (Integer) prop.get("height", Integer.class);
+        int tilePixelWidth = (Integer) prop.get("tilewidth", Integer.class);
+        int tilePixelHeight = (Integer) prop.get("tileheight", Integer.class);
         int mapPixelWidth = mapWidth * tilePixelWidth;
         int mapPixelHeight = mapHeight * tilePixelHeight;
         this.player = new Hero(this);
@@ -55,6 +56,55 @@ public class MapScreen implements Screen {
         this.player.setImg("hero-imgs/spritesheets/myspritesheet.png");
         this.player.setCoordinates((float) (tilePixelWidth - 12), (float) (Math.abs(2 * tilePixelHeight - mapPixelHeight) + 5));
         this.gamecam.position.set((float) (mapPixelWidth / 2 + 12), (float) (mapPixelHeight / 2 - 77), 0.0F);
+        */
+
+        this.game = game;
+        //create cam used to follow hero through cam world
+        gamecam = new OrthographicCamera();
+
+        //create a FitViewport to maintain virtual aspect ratio despite
+        gamePort = new FitViewport(SampleMain.V_WIDTH , SampleMain.V_HEIGHT, gamecam);
+
+        //create our game HUD for scores/timers/level info
+        hud = new Hud(game.batch);
+
+        //create map
+        map = new Texture("map-imgs/no-grid-map.png");
+
+        //Load our map and setup our map renderer
+        mapLoader = new TmxMapLoader();
+        hexes = mapLoader.load("tiled-maps/map.tmx");
+        renderer = new HexagonalTiledMapRenderer(hexes);
+
+        //create coordinate
+        screenCoordinates = new Vector3();
+
+        //create and set font
+        font = new BitmapFont();
+        font.setColor(255, 255, 255, 1);
+
+        // Get Width and Height from Map Properties
+        MapProperties prop = hexes.getProperties();
+
+        int mapWidth = prop.get("width", Integer.class);
+        int mapHeight = prop.get("height", Integer.class);
+        int tilePixelWidth = prop.get("tilewidth", Integer.class);
+        int tilePixelHeight = prop.get("tileheight", Integer.class);
+
+        int mapPixelWidth = mapWidth * tilePixelWidth;
+        int mapPixelHeight = mapHeight * tilePixelHeight;
+
+        //create hero and set spritesheet
+        player = new Hero(this);
+        player.setAtlas("hero-imgs/spritesheets/myspritesheet.atlas");
+        player.setImg("hero-imgs/spritesheets/myspritesheet.png");
+        player.setCoordinates(tilePixelWidth - 12, Math.abs(2*tilePixelHeight-mapPixelHeight) + 5);
+
+        //initially set our gamcam to be centered correctly at the start of map
+        gamecam.position.set(mapPixelWidth / 2 + 12, mapPixelHeight / 2 - 77, 0);
+    }
+
+    public MapScreen(SampleMain sampleMain) {
     }
 
     public void handleInput(float dt) {
@@ -119,14 +169,14 @@ public class MapScreen implements Screen {
     @Override
     public void render(float delta) {
         this.update(delta);
-        //Gdx.gl.glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
-        //Gdx.gl.glClear(16384);
+        Gdx.gl.glClearColor(0.0F, 0.0F, 0.0F, 1.0F);
+        Gdx.gl.glClear(16384);
         this.screenCoordinates.set((float)Gdx.input.getX(), (float)Gdx.input.getY(), 0.0F);
-        //this.game.batch.begin();
-        //this.game.batch.draw(this.map, 0.0F, 0.0F, 1280.0F, 720.0F);
-        //this.font.draw(this.game.batch, "Screen Coordinates", 155.0F, 660.0F);
-        //this.font.draw(this.game.batch, (int)this.screenCoordinates.x + " , " + (int)this.screenCoordinates.y, 190.0F, 635.0F);
-        //this.game.batch.end();
+        this.game.batch.begin();
+        this.game.batch.draw(this.map, 0.0F, 0.0F, 1280.0F, 720.0F);
+        this.font.draw(this.game.batch, "Screen Coordinates", 155.0F, 660.0F);
+        this.font.draw(this.game.batch, (int)this.screenCoordinates.x + " , " + (int)this.screenCoordinates.y, 190.0F, 635.0F);
+        this.game.batch.end();
         this.renderer.render();
         this.game.batch.setProjectionMatrix(this.hud.stage.getCamera().combined);
         this.hud.stage.draw();
@@ -148,9 +198,13 @@ public class MapScreen implements Screen {
         }
     }
 
+    public void hudRun(){
+        this.hud.stage.draw();
+    }
+
     @Override
     public void resize(int width, int height) {
-        this.gamePort.update(width, height);
+
     }
 
     @Override

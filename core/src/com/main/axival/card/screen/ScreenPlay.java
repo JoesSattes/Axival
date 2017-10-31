@@ -447,6 +447,7 @@ public class ScreenPlay implements Screen, InputProcessor{
         if(prototype.isComplete()){
             prototype.reset();
         }
+        mapScreen.hudRun();
     }
 
     public void update(float delta)

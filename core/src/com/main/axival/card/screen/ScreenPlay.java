@@ -439,7 +439,7 @@ public class ScreenPlay implements Screen, InputProcessor{
         //cardPlay.batch.draw(textureBg,0,0);
         //cardPlay.batch.draw(texture, rendexX, renderY);
         uIplay.runningDraw();
-        mapScreen.runner();
+        mapScreen.render(delta);
         cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
         prototype.draw(cardPlay.batch);
         cardPlay.batch.end();

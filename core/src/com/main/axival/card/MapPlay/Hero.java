@@ -7,23 +7,29 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 public class Hero extends TextureAtlas{
+    public enum State {STANDING, WALKING, ATTACKING1, ATTACKING2, ALERT, HIT, DEAD, LEFT, RIGHT};
     public String action;
-    public Hero.State facing;
-    public Hero.State currentState;
-    public Hero.State previousState;
+    public State facing;
+    public State currentState;
+    public State previousState;
     private Texture img;
-    private Animation<TextureRegion> animation;
-    private Vector2 coordinates = new Vector2();
-    private float coX;
-    private float coY;
     private TextureAtlas atlas;
+    private Animation<TextureRegion> animation;
+    private Vector2 coordinates, des;
+    public int col;
+    public int row;
     private float frameDuration;
-    private float elapsedTime = 1.0F;
+    private float elapsedTime = 1f;
+    private static int walking=0;
 
-    public Hero(MapScreen screen) {
-        this.facing = Hero.State.RIGHT;
-        this.currentState = Hero.State.STANDING;
-        this.previousState = Hero.State.STANDING;
+    public Hero(MapScreen screen, int row, int col) {
+        this.col = col;
+        this.row = row;
+        des = new Vector2(screen.board.map[row][col].corX, screen.board.map[row][col].corY);
+        coordinates = new Vector2();
+        facing = State.RIGHT;
+        currentState = State.STANDING;
+        previousState = State.STANDING;
     }
 
     public void update(float dt) {
@@ -31,22 +37,32 @@ public class Hero extends TextureAtlas{
     }
 
     public float getElapsedTime() {
-        return this.elapsedTime;
+        return elapsedTime;
     }
 
     public void setImg(String path) {
         this.img = new Texture(path);
     }
 
+    public void setWalking(int n) { this.walking = n; }
+
+    public int getWalking() { return walking; }
+
     public void setCoordinates(float x, float y) {
-        this.coordinates = this.coordinates.set(x, y);
-        this.coX = x;
-        this.coY = y;
+        this.coordinates = coordinates.set(x, y);
+    }
+    public void setRowCol(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+    public void setDes(float x, float y) {
+        this.des.set(x, y);
     }
 
     public Vector2 getCoordinates() {
         return this.coordinates;
     }
+    public Vector2 getDes() { return  this.des; }
 
     public void setAtlas(String path) {
         this.atlas = new TextureAtlas(path);
@@ -56,69 +72,38 @@ public class Hero extends TextureAtlas{
         this.elapsedTime = elapsedTime;
     }
 
-    public void setX(float x) {
-        this.coX = x;
-        this.coordinates = this.coordinates.set(x, this.coordinates.y);
-    }
-
-    public void setY(float y) {
-        this.coY = y;
-        this.coordinates = this.coordinates.set(this.coordinates.x, y);
-    }
-
     public Animation<TextureRegion> action() {
-        this.action = "stand";
-        float frameDuration = 0.3F;
-        if (this.currentState.compareTo(Hero.State.WALKING) == 0) {
-            this.action = "walk";
+        action = "stand";
+        float frameDuration=0.3f;
+        if (this.currentState.compareTo(State.WALKING) == 0) {
+            action = "walk"; }
+        if (this.currentState.compareTo(State.ATTACKING1) == 0) {
+            action = "swingO3";
+            frameDuration = 0.2f;
         }
-
-        if (this.currentState.compareTo(Hero.State.ATTACKING1) == 0) {
-            this.action = "swingO3";
-            frameDuration = 0.2F;
+        if (this.currentState.compareTo(State.ATTACKING2) == 0) {
+            action = "swingOF";
+            frameDuration = 0.15f;
         }
-
-        if (this.currentState.compareTo(Hero.State.ATTACKING2) == 0) {
-            this.action = "swingOF";
-            frameDuration = 0.15F;
+        if (this.currentState.compareTo(State.ALERT) == 0) {
+            action = "alert";
         }
-
-        if (this.currentState.compareTo(Hero.State.ALERT) == 0) {
-            this.action = "alert";
+        if (this.currentState.compareTo(State.HIT) == 0) {
+            action = "hit";
         }
-
-        if (this.currentState.compareTo(Hero.State.HIT) == 0) {
-            this.action = "hit";
+        if (this.currentState.compareTo(State.DEAD) == 0) {
+            action = "dead";
         }
+        return new Animation<TextureRegion>(frameDuration, this.atlas.findRegions(action));
 
-        if (this.currentState.compareTo(Hero.State.DEAD) == 0) {
-            this.action = "dead";
-        }
-
-        return new Animation(frameDuration, this.atlas.findRegions(this.action));
     }
 
-    public void setFacing(Hero.State facing) {
+    public void setFacing(State facing) {
         this.facing = facing;
     }
 
-    public void setCurrentState(Hero.State currentState) {
+    public void setCurrentState(State currentState) {
         this.previousState = this.currentState;
         this.currentState = currentState;
-    }
-
-    public static enum State {
-        STANDING,
-        WALKING,
-        ATTACKING1,
-        ATTACKING2,
-        ALERT,
-        HIT,
-        DEAD,
-        LEFT,
-        RIGHT;
-
-        private State() {
-        }
     }
 }

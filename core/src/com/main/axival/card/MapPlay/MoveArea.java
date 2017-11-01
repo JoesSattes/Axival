@@ -1,16 +1,16 @@
-package com.testgdx.game.MapTest.Maps;
+package com.main.axival.card.MapPlay;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 import java.util.List;
 
-public class MoveAea {
+public class MoveArea {
     private List<Vector2> area, ways;
     private List<Vector3> ranges;
     private Board board;
 
-    public MoveAea(Board board) {
+    public MoveArea(Board board) {
 
     }
 

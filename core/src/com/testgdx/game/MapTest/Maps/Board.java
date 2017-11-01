@@ -49,6 +49,7 @@ public class Board {
 
     public List<Vector2> getPath(int scrX, int scrY, int desX, int desY, int walk) {
         Vector2 temp;
+        areaChecker  = new MoveArea(this);
         area = areaChecker.getArea(scrX, scrY, walk, this);
         ranges = areaChecker.getRanges();
         list.add(new Vector2(scrX, scrY));

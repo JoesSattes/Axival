@@ -33,10 +33,10 @@ public class Board {
     private Node n;
 
     public Board(PlayScreen screen) {
-        int corX=-12,corY=631;
+        int corX=-12,corY=619;
         map = new Node[13][24];
         for (int y=0; y < 13; y++) {
-            corY -= 52;
+            corY -= 40;
             if (y%2 == 0) { corX = -12;}
             else {corX = -40;}
             for (int x=0; x < 24; x++) {
@@ -44,14 +44,14 @@ public class Board {
                 map[y][x] = new Node(x, y, corX, corY, detail[y][x]);
             }
         }
-        System.out.println(map[0][0].corX + " , " + map[0][0].corY);
+        System.out.println(map[1][1].corX + " , " + map[1][1].corY);
     }
 
     public List<Vector2> getPath(int scrX, int scrY, int desX, int desY, int walk) {
         Vector2 temp;
         area = areaChecker.getArea(scrX, scrY, walk, this);
         ranges = areaChecker.getRanges();
-            list.add(new Vector2(scrX, scrY));
+        list.add(new Vector2(scrX, scrY));
         do {
             temp = list.pop();
             list.addAll(areaChecker.getWays((int)temp.x, (int)temp.y, this));

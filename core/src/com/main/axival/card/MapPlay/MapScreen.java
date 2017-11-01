@@ -61,10 +61,11 @@ public class MapScreen implements Screen {
     public MapScreen(CardPlay game) {
         this.game = game;
         //create cam used to follow hero through cam world
-        gamecam = new OrthographicCamera();
+        //gamecam = new OrthographicCamera();
 
         //create a FitViewport to maintain virtual aspect ratio despite
-        gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, gamecam);
+        //gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, gamecam);
+        gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, game.camera);
 
         //create map
         map = new Texture("map-imgs/no-grid-map.png");
@@ -101,7 +102,8 @@ public class MapScreen implements Screen {
         player.setCoordinates(board.map[0][0].corX , board.map[0][0].corY); // x+w , y+0.75h
 
         //initially set our gamcam to be centered correctly at the start of map
-        gamecam.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
+        //gamecam.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
+        //game.camera.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
     }
 
     @Override
@@ -317,10 +319,10 @@ public class MapScreen implements Screen {
         player.update(dt);
 
         //update our gamecam with correct coordinates after changes
-        gamecam.update();
+        game.camera.update();
 
         //tell our renderer to draw only what our camera can see in our game world
-        renderer.setView(gamecam);
+        renderer.setView(game.camera);
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.main.axival.card.CardAction;
@@ -64,7 +65,7 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     public ScreenPlay(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
-        this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
+        this.stage = new Stage(new FitViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
@@ -435,11 +436,11 @@ public class ScreenPlay implements Screen, InputProcessor{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         update(delta);
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
+        mapScreen.render(delta);
         cardPlay.batch.begin();
         //cardPlay.batch.draw(textureBg,0,0);
         //cardPlay.batch.draw(texture, rendexX, renderY);
         uIplay.runningDraw();
-        mapScreen.render(delta);
         cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
         prototype.draw(cardPlay.batch);
         cardPlay.batch.end();

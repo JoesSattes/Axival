@@ -27,10 +27,6 @@ import com.main.axival.card.UIplay;
 
 public class ScreenPlay implements Screen, InputProcessor{
     private Stage stage;
-    private Image cardImg;
-    private TextureAtlas textureAtlas;
-    private TextureRegion textureRegion;
-    private Image cardImg2;
     private TextureRegion textureBg;
 
     private ParticleEffect prototype;
@@ -39,20 +35,14 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     public RandomCard randomCard;
 
-    public Image cardHandR;
-    public HorizontalGroup cardHandL;
 
     public boolean solveUp, solveDown, solveLeft, solveRight;
 
-    private int countCard=0;
     public Image[] cardDeck;
     private int maxCard=10, currentCard=0;
 
     public int cardInHand=0;
     public float cardCountPosY1;
-
-    public Texture texture;
-    public float rendexX, renderY;
 
     private CardAction cardAction;
 
@@ -65,14 +55,10 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     public ScreenPlay(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
-        this.stage = new Stage(new FitViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
+        this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
-
-        texture = new Texture("badlogic.jpg");
-        rendexX = 100;
-        renderY = 100;
 
         textureBg = new TextureRegion(cardPlay.assetManager.get("bg1.jpg", Texture.class));
         textureBg.setRegion(0,0, CardPlay.V_WIDTH,CardPlay.V_HEIGHT);
@@ -87,8 +73,6 @@ public class ScreenPlay implements Screen, InputProcessor{
         prototype.start();
 
         randomCard = new RandomCard(cardPlay);
-        //cardHandL = randomCard.cardHand(2,'l');
-        //stage.addActor(cardHandL);
 
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
@@ -100,297 +84,6 @@ public class ScreenPlay implements Screen, InputProcessor{
     public void show() {
         System.out.println("screen");
     }
-
-    /*
-    public void cardHandActionFirst(){
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.alpha(.7f),
-                Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/1.7f, -50, 2f),
-                        Actions.scaleTo(.17f,.17f,2f))));
-        cardCountPosY1 = cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getY();
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                System.out.println("Click 2: "+0);
-            }
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getX(),
-                        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getY()+100, .5f),
-                        Actions.scaleTo(.2f, .2f, .5f))));
-                System.out.println("Hover 2");
-            }
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getX(),
-                        CardPlay.V_HEIGHT-cardCountPosY1-50, .5f),
-                        Actions.scaleTo(.17f, .17f, .5f))));
-                System.out.println("exit Hover 2");
-            }
-        });
-        System.out.printf("PicX: %f, PicY: %f, Size: %fx%f\n", cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getX(),
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getY(),
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getWidth()*.05*.2,
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(0))].getHeight()*.05*.2);
-        cardInHand = 1;
-    }
-    public void cardHandActionSecond(){
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.alpha(.7f),
-                Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/1.7f, -50, 2f),
-                        Actions.scaleTo(.17f,.17f,2f))));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1-1))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f-50, -50, 1f)));
-        cardCountPosY1 = cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getY();
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                System.out.println("Click 3: "+1);
-            }
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getX(),
-                        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getY()+100, .5f),
-                        Actions.scaleTo(.2f, .2f, .5f))));
-                System.out.println("Hover 3");
-            }
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getX(),
-                        CardPlay.V_HEIGHT-cardCountPosY1-50, .5f),
-                        Actions.scaleTo(.17f, .17f, .5f))));
-                System.out.println("exit Hover 3");
-            }
-        });
-        System.out.printf("PicX: %f, PicY: %f, Size: %fx%f\n", cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getX(),
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getY(),
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getWidth()*.05*.2,
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(1))].getHeight()*.05*.2);
-        cardInHand = 2;
-    }
-    public void cardHandActionThirst(){
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.alpha(.7f),
-                Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/1.7f+100, -50, 2f),
-                        Actions.scaleTo(.17f,.17f,2f))));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2-1))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2-2))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f-100, -50, 1f)));
-        cardCountPosY1 = cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getY();
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                System.out.println("Click 4: "+2);
-            }
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getX(),
-                        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getY()+100, .5f),
-                        Actions.scaleTo(.2f, .2f, .5f))));
-                System.out.println("Hover 4");
-            }
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getX(),
-                        CardPlay.V_HEIGHT-cardCountPosY1-50, .5f),
-                        Actions.scaleTo(.17f, .17f, .5f))));
-                System.out.println("exit Hover 4");
-            }
-        });
-        System.out.printf("PicX: %f, PicY: %f, Size: %fx%f\n", cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getX(),
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getY(),
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getWidth()*.05*.2,
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(2))].getHeight()*.05*.2);
-        cardInHand = 3;
-    }
-    public void cardHandActionFourth() {
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.alpha(.7f),
-                Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280 / 1.7f + 150, -50, 2f),
-                        Actions.scaleTo(.17f, .17f, 2f))));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3 - 1))].addAction(Actions.sequence(Actions.moveTo(1280 / 1.7f + 50, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3 - 2))].addAction(Actions.sequence(Actions.moveTo(1280 / 1.7f - 50, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3 - 3))].addAction(Actions.sequence(Actions.moveTo(1280 / 1.7f - 150, -50, 1f)));
-        cardCountPosY1 = cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].getY();
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                System.out.println("Click 5: " + 3);
-            }
-
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].getX(),
-                        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].getY() + 100, .5f),
-                        Actions.scaleTo(.2f, .2f, .5f))));
-                System.out.println("Hover 5");
-            }
-
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(3))].getX(),
-                        CardPlay.V_HEIGHT - cardCountPosY1 - 50, .5f),
-                        Actions.scaleTo(.17f, .17f, .5f))));
-                System.out.println("exit Hover 5");
-            }
-        });
-        cardInHand = 4;
-    }
-    public void cardHandActionFifth(){
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addAction(Actions.sequence(Actions.alpha(.7f),
-                Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280/1.7f+200, -50, 2f),
-                        Actions.scaleTo(.17f,.17f,2f))));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4-1))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f+100, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4-2))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4-3))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f-100, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4-4))].addAction(Actions.sequence(Actions.moveTo(1280/1.7f-200, -50, 1f)));
-        cardCountPosY1 = cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getY();
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                System.out.println("Click 6: "+4);
-            }
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getX(),
-                        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getY()+100, .5f),
-                        Actions.scaleTo(.2f, .2f, .5f))));
-                System.out.println("Hover 6");
-            }
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getX(),
-                        CardPlay.V_HEIGHT-cardCountPosY1-50, .5f),
-                        Actions.scaleTo(.17f, .17f, .5f))));
-                System.out.println("exit Hover 6");
-            }
-        });
-        cardInHand = 5;
-    }
-
-    public void cardHandActionFull() {
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(5))].addAction(Actions.sequence(Actions.alpha(.7f),
-                Actions.parallel(Actions.fadeIn(3f, Interpolation.pow2),
-                        Actions.moveTo(1280 / 1.7f + 200, -50, 2f),
-                        Actions.scaleTo(.17f, .17f, 2f))));
-        //cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(5-1))].addAction(Actions.sequence(Actions.fadeOut(2f), Actions.scaleTo(.6f,.6f), Actions.removeActor()));
-        cardHandActionDelIndex(5-1);
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(5-2))].addAction(Actions.sequence(Actions.moveTo(1280 / 1.7f + 100, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(5-3))].addAction(Actions.sequence(Actions.moveTo(1280 / 1.7f, -50, 1f)));
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(5-4))].addAction(Actions.sequence(Actions.moveTo(1280 / 1.7f - 100, -50, 1f)));
-        randomCard.removeCardInHandIndex(Integer.parseInt(randomCard.getCountCardInHand().get(5-1)));
-        cardCountPosY1 = cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getY();
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                System.out.println("Click out : "+4);
-            }
-            @Override
-            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getX(),
-                        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getY()+100, .5f),
-                        Actions.scaleTo(.2f, .2f, .5f))));
-                System.out.println("Hover out");
-            }
-            @Override
-            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].addAction(Actions.sequence(Actions.parallel(Actions.moveTo(cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(4))].getX(),
-                        CardPlay.V_HEIGHT-cardCountPosY1-50, .5f),
-                        Actions.scaleTo(.17f, .17f, .5f))));
-                System.out.println("exit Hover out");
-            }
-        });
-        cardInHand = 4;
-    }
-
-    public void cardHandActionDel(int indexCard){
-        if(indexCard==0){
-            if(randomCard.sizeCountCardInHand()==1){
-                cardHandActionDelIndex(indexCard);
-            }
-        }
-        else if(indexCard==1){
-
-        }
-        else if(indexCard==2){
-
-        }
-        else if(indexCard==3){
-
-        }
-        else if(indexCard==4){
-
-        }
-    }
-
-    public void cardHandActionDelIndex(int indexCard){
-        cardDeck[Integer.parseInt(randomCard.getCountCardInHand().get(indexCard))].addAction(Actions.sequence(Actions.fadeOut(2f), Actions.scaleTo(.6f,.6f), Actions.removeActor()));
-    }
-
-    public void cardHandActionDelFirstInOne(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFirstInTwo(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFirstInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFirstInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelFirstInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelSecondInTwo(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelSecondInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelThirthInThree(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelThirthInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelThirthInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelForthInFour(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    public void cardHandActionDelForthInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-
-    public void cardHandActionDelFifthInFive(int indexCard){
-        cardHandActionDelIndex(indexCard);
-
-    }
-    */
 
     public void setCardHandR(int indexCard){
         stage.addActor(cardDeck[indexCard]);
@@ -438,8 +131,6 @@ public class ScreenPlay implements Screen, InputProcessor{
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
         mapScreen.render(delta);
         cardPlay.batch.begin();
-        //cardPlay.batch.draw(textureBg,0,0);
-        //cardPlay.batch.draw(texture, rendexX, renderY);
         uIplay.runningDraw();
         cardPlay.bitmapFont.draw(cardPlay.batch, "Screen: Playing..,", 100, 100);
         prototype.draw(cardPlay.batch);
@@ -497,14 +188,14 @@ public class ScreenPlay implements Screen, InputProcessor{
         if (keycode== Input.Keys.RIGHT){
             solveRight = true;
         }
-        if (keycode==Input.Keys.S){
+        if (keycode==Input.Keys.O){
             currentCard++;
             if (currentCard<maxCard-1){
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
             }
         }
-        if (keycode==Input.Keys.D){
+        if (keycode==Input.Keys.P){
             cardHandAction();
         }
         return false;

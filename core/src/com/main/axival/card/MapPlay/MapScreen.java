@@ -103,7 +103,9 @@ public class MapScreen implements Screen {
 
         //initially set our gamcam to be centered correctly at the start of map
         //gamecam.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
-        //game.camera.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
+        //game.camera.zoom += .05;
+        //game.camera.position.set(mapPixelWidth / 2+30, mapPixelHeight / 2 +15, 0);
+
     }
 
     @Override

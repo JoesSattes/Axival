@@ -61,11 +61,11 @@ public class MapScreen implements Screen {
     public MapScreen(CardPlay game) {
         this.game = game;
         //create cam used to follow hero through cam world
-        //gamecam = new OrthographicCamera();
+        gamecam = new OrthographicCamera();
 
         //create a FitViewport to maintain virtual aspect ratio despite
-        //gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, gamecam);
-        gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, game.camera);
+        gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, gamecam);
+        //gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, game.camera);
 
         //create map
         map = new Texture("map-imgs/no-grid-map.png");
@@ -102,7 +102,7 @@ public class MapScreen implements Screen {
         player.setCoordinates(board.map[0][0].corX , board.map[0][0].corY); // x+w , y+0.75h
 
         //initially set our gamcam to be centered correctly at the start of map
-        //gamecam.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
+        gamecam.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
         //game.camera.zoom += .05;
         //game.camera.position.set(mapPixelWidth / 2+30, mapPixelHeight / 2 +15, 0);
 
@@ -114,15 +114,17 @@ public class MapScreen implements Screen {
     }
 
     public void handleInput(float dt) {
+        /*
         //controll camera
-//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-//            gamecam.position.x += 100 * dt;
-//        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-//            gamecam.position.x -= 100 * dt;
-//        if (Gdx.input.isKeyPressed(Input.Keys.UP))
-//            gamecam.position.y += 100 * dt;
-//        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
-//            gamecam.position.y -= 100 * dt;
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+            game.camera.position.x += 100 * dt;
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+            game.camera.position.x -= 100 * dt;
+       if (Gdx.input.isKeyPressed(Input.Keys.UP))
+            game.camera.position.y += 100 * dt;
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+           game.camera.position.y -= 100 * dt;
+           */
 
         //Right-move control
         if (Gdx.input.isKeyPressed(Input.Keys.D) && player.getWalking() == 0) {
@@ -321,29 +323,30 @@ public class MapScreen implements Screen {
         player.update(dt);
 
         //update our gamecam with correct coordinates after changes
-        game.camera.update();
+        gamecam.update();
 
         //tell our renderer to draw only what our camera can see in our game world
-        renderer.setView(game.camera);
+        renderer.setView(gamecam);
     }
 
     @Override
     public void render(float delta) {
         //separate our update logic from render
-        update(delta);
+        //update(delta);
 
         //Clear the game screen with Black
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //Gdx.gl.glClearColor(0, 0, 0, 1);
+        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // get coordinates
-        screenCoordinates.set(Gdx.input.getX(), Gdx.input.getY(), 0);
+        //screenCoordinates.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 
         game.batch.begin();
 
         //render map
         game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT );
 
+        /*
         //render screen coordinates
         font.draw(game.batch, "Screen Coordinates", 155, 660);
         font.draw(game.batch, (int) screenCoordinates.x + " , " + (int) screenCoordinates.y, 190, 635);
@@ -367,10 +370,11 @@ public class MapScreen implements Screen {
         //animation
 //        game.batch.draw(player.action().getKeyFrame(player.getElapsedTime(), true),
 //                player.getCoordinates().x, player.getCoordinates().y);
-
+*/
         game.batch.end();
 
         //render our game map
+        //renderer.setView(game.camera.projection,0,0 ,500, 620);
         renderer.render();
 
         //render hero

@@ -2,127 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MoveAea.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MoveArea.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MoveAea.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MoveArea.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Board.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Node.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_ashley_ashley_1_7_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_ashley_ashley_1_7_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_box2dlights_box2dlights_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_box2dlights_box2dlights_1_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_ai_1_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_ai_1_8_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_headless_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_headless_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_lwjgl_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_lwjgl_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_platform_natives_desktop_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_platform_natives_desktop_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_bullet_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_bullet_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_bullet_platform_natives_desktop_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_bullet_platform_natives_desktop_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_platform_natives_desktop_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_platform_natives_desktop_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_platform_natives_desktop_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_platform_natives_desktop_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_tools_1_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_tools_1_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_jlayer_jlayer_1_0_1_gdx.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_jlayer_jlayer_1_0_1_gdx.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_2_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_2_0_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_linux_2_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_linux_2_0_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_osx_2_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_osx_2_0_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_windows_2_0_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jinput_jinput_platform_natives_windows_2_0_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jutils_jutils_1_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_jutils_jutils_1_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jcraft_jorbis_0_0_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jcraft_jorbis_0_0_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_2_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_linux_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_linux_2_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_osx_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_osx_2_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_windows_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_platform_natives_windows_2_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_util_2_9_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_lwjgl_lwjgl_lwjgl_util_2_9_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/core/core.iml" afterPath="$PROJECT_DIR$/.idea/modules/core/core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Axival.iml" afterPath="$PROJECT_DIR$/Axival.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/cardani/spritesheet/cardAni.atlas" afterPath="$PROJECT_DIR$/core/assets/cardani/spritesheet/cardAni.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/cardspritesheet/card.atlas" afterPath="$PROJECT_DIR$/core/assets/cardspritesheet/card.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/effect01.party" afterPath="$PROJECT_DIR$/core/assets/effect01.party" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/spritesheets/myspritesheet.atlas" afterPath="$PROJECT_DIR$/core/assets/hero-imgs/spritesheets/myspritesheet.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin/font-export.fnt" afterPath="$PROJECT_DIR$/core/assets/skin/font-export.fnt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin/font-over-export.fnt" afterPath="$PROJECT_DIR$/core/assets/skin/font-over-export.fnt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin/font-pressed-export.fnt" afterPath="$PROJECT_DIR$/core/assets/skin/font-pressed-export.fnt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin/neon-ui.atlas" afterPath="$PROJECT_DIR$/core/assets/skin/neon-ui.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin/neon-ui.json" afterPath="$PROJECT_DIR$/core/assets/skin/neon-ui.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin2/font-big-export.fnt" afterPath="$PROJECT_DIR$/core/assets/skin2/font-big-export.fnt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin2/font-export.fnt" afterPath="$PROJECT_DIR$/core/assets/skin2/font-export.fnt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin2/glassy-ui.atlas" afterPath="$PROJECT_DIR$/core/assets/skin2/glassy-ui.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/skin2/glassy-ui.json" afterPath="$PROJECT_DIR$/core/assets/skin2/glassy-ui.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/sprite/pack.json" afterPath="$PROJECT_DIR$/core/assets/sprite/pack.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/spritesheet/jetSprite.atlas" afterPath="$PROJECT_DIR$/core/assets/spritesheet/jetSprite.atlas" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/tiled-maps/hexagon.tsx" afterPath="$PROJECT_DIR$/core/assets/tiled-maps/hexagon.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/tiled-maps/map.tmx" afterPath="$PROJECT_DIR$/core/assets/tiled-maps/map.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build.gradle" afterPath="$PROJECT_DIR$/core/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/archive/edit/game/ArchiveAnimation.java" afterPath="$PROJECT_DIR$/core/src/com/archive/edit/game/ArchiveAnimation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/archive/edit/game/CameraTest.java" afterPath="$PROJECT_DIR$/core/src/com/archive/edit/game/CameraTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/CardHand.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/CardHand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Board.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hud.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hud.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Node.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/backend/Player.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/backend/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/AnimationTest.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/AnimationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Axivals.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Axivals.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/TestGdx.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/TestGdx.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardHand.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardHand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardPlay.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/Menu.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/RandomCard.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/RandomCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/screen/LoadingComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/screen/ScreenPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/button/ButtonTest.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/button/ButtonTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/CardSet.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/card/CardSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/hand/HandMain.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/card/hand/HandMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/hand/RandomCard.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/card/hand/RandomCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/screen/CardScreen.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/card/screen/CardScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/screen/LoadingScreen.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/card/screen/LoadingScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/group/test/GroupDemo.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/group/test/GroupDemo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/menu/BlackPoint2.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/menu/BlackPoint2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/menu/MenuTest.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/menu/MenuTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/screen/ActionTest.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/screen/ActionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/screen/screenin/SplashScreen.java" afterPath="$PROJECT_DIR$/core/src/com/testgdx/game/screen/screenin/SplashScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/build.gradle" afterPath="$PROJECT_DIR$/desktop/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/ActionRun.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/ActionRun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/AnimationRun.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/AnimationRun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/BackupTest.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/BackupTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/ButtonRun.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/ButtonRun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/CameraRun.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/CameraRun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/DesktopLauncher.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/DesktopLauncher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/GroupTest.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/GroupTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MainTest.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MainTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MapRun.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MapRun.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MenuTest.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MenuTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/RunArchive.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/RunArchive.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/RunCard.java" afterPath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/RunCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game2.iml" afterPath="$PROJECT_DIR$/game2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew" afterPath="$PROJECT_DIR$/gradlew" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -725,7 +606,12 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="9057847942000" />
+        <entry key="$PROJECT_DIR$" value="9057865364000" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="3677515961" />
+        <entry key="$PROJECT_DIR$/core/build.gradle" value="2971590108" />
+        <entry key="$PROJECT_DIR$/desktop/build.gradle" value="77379070" />
+        <entry key="$PROJECT_DIR$/gradle.properties" value="975134833" />
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="3808161812" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1042,7 +928,7 @@
     </configuration>
   </component>
   <component name="SbtLocalSettings">
-    <option name="lastUpdateTimestamp" value="1509644250632" />
+    <option name="lastUpdateTimestamp" value="1509644833151" />
     <option name="externalProjectsViewState">
       <projects_view />
     </option>
@@ -1060,30 +946,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509644233760</updated>
-      <workItem from="1509644236654" duration="61000" />
+      <workItem from="1509644236654" duration="617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61000" />
+    <option name="totallyTimeSpent" value="617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="33" width="1427" height="779" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24981949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24981949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />

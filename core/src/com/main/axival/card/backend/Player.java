@@ -11,7 +11,6 @@ public class Player {
 
     public void setStatus(String keyMap, String valueMap){
         if (valueMap.equals("true")){
-            status[keyMap] = true;
         }
     }
 }

@@ -2,15 +2,15 @@ package com.main.axival.card.MapPlay;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Node extends Vector2{
+public class Node extends Vector2 {
     public int row;
     public int col;
     public int corX;
     public int corY;
     public int parentX;
     public int parentY;
-    private int visit=0;
     private int obstacle;
+    private boolean visit=false;
     public Node(int row, int col, int corX, int corY, int obstacle) {
         this.row = row;
         this.col = col;
@@ -35,11 +35,9 @@ public class Node extends Vector2{
         return false;
     }
 
-    public void setVisit(int visit) {
+    public void setVisit(boolean visit) {
         this.visit = visit;
     }
 
-    public int getVisit() {
-        return visit;
-    }
+    public boolean isVisit() { return visit; }
 }

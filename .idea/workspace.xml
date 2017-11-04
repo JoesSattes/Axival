@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/RandomCard.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/RandomCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/screen/ScreenPlay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -79,8 +75,8 @@
       <file leaf-file-name="CardAction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="185">
+              <caret line="257" column="191" lean-forward="false" selection-start-line="257" selection-start-column="191" selection-end-line="257" selection-end-column="191" />
               <folding />
             </state>
           </provider>
@@ -95,6 +91,7 @@
       <find>2.2</find>
       <find>count</find>
       <find>cardDec</find>
+      <find>[currentCard]</find>
     </findStrings>
     <replaceStrings>
       <replace>new Image(new Texture</replace>
@@ -1074,12 +1071,12 @@
       <workItem from="1509699733456" duration="506000" />
       <workItem from="1509704064470" duration="1144000" />
       <workItem from="1509730601871" duration="3655000" />
-      <workItem from="1509781980366" duration="9756000" />
+      <workItem from="1509781980366" duration="10328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16654000" />
+    <option name="totallyTimeSpent" value="17226000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1447,8 +1444,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+        <state relative-caret-position="185">
+          <caret line="257" column="191" lean-forward="false" selection-start-line="257" selection-start-column="191" selection-end-line="257" selection-end-column="191" />
           <folding />
         </state>
       </provider>

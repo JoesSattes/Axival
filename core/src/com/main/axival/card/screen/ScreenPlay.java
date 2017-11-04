@@ -60,8 +60,8 @@ public class ScreenPlay implements Screen, InputProcessor{
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
-        textureBg = new TextureRegion(cardPlay.assetManager.get("bg1.jpg", Texture.class));
-        textureBg.setRegion(0,0, CardPlay.V_WIDTH,CardPlay.V_HEIGHT);
+        //textureBg = new TextureRegion(cardPlay.assetManager.get("bg1.jpg", Texture.class));
+        //textureBg.setRegion(0,0, CardPlay.V_WIDTH,CardPlay.V_HEIGHT);
 
         Pixmap pm = new Pixmap(Gdx.files.internal("cursorImage2.png"));
         Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth()/2, pm.getHeight()/2));
@@ -190,12 +190,12 @@ public class ScreenPlay implements Screen, InputProcessor{
         }
         if (keycode==Input.Keys.O){
             currentCard++;
-            if (currentCard<maxCard-1){
+            if (currentCard<maxCard){
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
             }
         }
-        if (keycode==Input.Keys.P){
+        if (keycode==Input.Keys.P && currentCard<maxCard){
             cardHandAction();
         }
         return false;

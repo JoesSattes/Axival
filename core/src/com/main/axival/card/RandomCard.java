@@ -17,6 +17,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class RandomCard{
@@ -26,6 +27,7 @@ public class RandomCard{
     private HorizontalGroup hand;
     private Image[] cardPack;
     private Stage stage;
+    private int[] idenCardAll;
 
     private TextureRegionDrawable textureRegionDrawable;
     private Image image;
@@ -73,10 +75,13 @@ public class RandomCard{
 
     public Image[] allCardDeck(int maxCard){
         Image[] cardDeck = new Image[maxCard];
+        idenCardAll = new int[maxCard];
         for(int i=0;i<maxCard;i++){
-            cardDeck[i] = getCard(generateRandom(1,7));
+            randResult = generateRandom(1,7);
+            cardDeck[i] = getCard(randResult);
             cardDeck[i].setScale(.05f);
             cardDeck[i].setPosition(640-cardDeck[i].getWidth()/10, 700);
+            idenCardAll[i] = randResult;
         }
         return cardDeck;
     }
@@ -84,15 +89,21 @@ public class RandomCard{
     public void setCardInHandIndex(int indexCard){
         countCardInHand.add(indexCard+"");
         System.out.println("Set:"+getCountCardInHand());
+        System.out.println("Set(status):"+ Arrays.toString(getIdenCardAll()));
     }
 
     public void removeCardInHandIndex(int valueCard){
         countCardInHand.remove(valueCard);
         System.out.println("Remove:"+getCountCardInHand());
+        System.out.println("Remove(status):"+getIdenCardAll());
     }
 
     public ArrayList<String> getCountCardInHand() {
         return countCardInHand;
+    }
+
+    public int[] getIdenCardAll(){
+        return idenCardAll;
     }
 
     public int sizeCountCardInHand(){

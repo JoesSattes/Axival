@@ -26,7 +26,7 @@ import com.main.axival.card.UIplay;
 
 
 public class ScreenPlay implements Screen, InputProcessor{
-    private Stage stage;
+    public Stage stage;
     private TextureRegion textureBg;
 
     private ParticleEffect prototype;

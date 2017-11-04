@@ -1,10 +1,16 @@
 package com.main.axival.card;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.main.axival.card.screen.ScreenPlay;
 
@@ -14,6 +20,9 @@ import java.util.Arrays;
 public class CardAction {
     public ScreenPlay screenPlay;
     int[] cardHandIndex = new int[6];
+    private Image popup, popupYes, popupNo;
+    private Group popupG;
+    private boolean popupStatus;
     public CardAction(ScreenPlay screenPlay){
         this.screenPlay = screenPlay;
     }
@@ -30,7 +39,12 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupShow(currentCardListener);
+                /*
+                if(popupStatus){
+                    cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                }
+                popupStatus = false;*/
                 //cardHandActionDel(0);
             }
             @Override
@@ -68,7 +82,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupShow(currentCardListener);
+                //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -106,7 +121,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupShow(currentCardListener);
+                //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -145,7 +161,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupShow(currentCardListener);
+                //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
 
             @Override
@@ -183,7 +200,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupShow(currentCardListener);
+                //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -217,7 +235,8 @@ public class CardAction {
             @Override
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click Full: "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupShow(currentCardListener);
+                //cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -293,5 +312,39 @@ public class CardAction {
         else if(screenPlay.randomCard.sizeCountCardInHand()==5){
             cardHandActionDelFirstInFive(indexCard);
         }
+    }
+
+    public void popupShow(final int currentCardListener){
+        genPopup();
+        screenPlay.stage.addActor(popupG);
+        popupG.addAction(Actions.sequence(Actions.fadeIn(1f)));
+        popupYes.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
+                popupDel();
+            }
+        });
+        popupNo.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                popupDel();
+            }
+        });
+    }
+    public void popupDel(){
+        popupG.addAction(Actions.sequence(Actions.fadeOut(1f), Actions.removeActor()));
+    }
+    public void genPopup(){
+        popupG = new Group();
+        popup = new Image(new Texture("Popup/Popup BG@1x.png"));
+        popup.setPosition(Gdx.graphics.getWidth()/2 - popup.getWidth()/2, Gdx.graphics.getHeight()/2 - popup.getHeight()/2);
+        popupYes = new Image(new Texture("Popup/Yes@1x.png"));
+        popupYes.setPosition(Gdx.graphics.getWidth()/2 - popup.getWidth()/2 + 70, Gdx.graphics.getHeight()/2 - popup.getHeight()/2 + 40);
+        popupNo = new Image(new Texture("Popup/No@1x.png"));
+        popupNo.setPosition(Gdx.graphics.getWidth()/2 - popup.getWidth()/2 + 170, Gdx.graphics.getHeight()/2 - popup.getHeight()/2 +40);
+        popupG.addActor(popup);
+        popupG.addActor(popupNo);
+        popupG.addActor(popupYes);
     }
 }

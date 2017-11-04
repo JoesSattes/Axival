@@ -10,6 +10,7 @@ public class UIplay implements Screen{
     private Texture nextPhase, overlaybigbottom, overlaybigtop, mana_right, mana_left, sword, shoe, shield, skill, turn_line;
     private Texture Heart_colour, Mana_colour;
     private Texture heart_left;
+    private Texture skill1, skill2;
     private SpriteBatch batch;
 
     private ScreenPlay screenPlay;
@@ -31,11 +32,13 @@ public class UIplay implements Screen{
         sword = new Texture("UI_Assets/Axival_UI_Assets/Sword Right Bottom@1x.png");
         shield = new Texture("UI_Assets/Axival_UI_Assets/Shield Right Bottom@1x.png");
         shoe = new Texture("UI_Assets/Axival_UI_Assets/Shoe Right Bottom@1x.png");
-        skill = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
+        //skill = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
         heart_left = new Texture("UI_Assets/Axival_UI_Assets/Heart Left Buttom@1x.png");
         turn_line = new Texture("UI_Assets/Axival_UI_Assets/Turn Line@1x.png");
         Heart_colour = new Texture("UI_Assets/Axival_UI_Assets/Heart Mini Playerbar@1x.png");
         Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
+        skill1 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
+        skill2 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
     }
 
     public void render(){
@@ -101,6 +104,8 @@ public class UIplay implements Screen{
         cardPlay.batch.draw(Mana_colour,888,645, 13, 13);
         cardPlay.batch.draw(Heart_colour,958,645, 13, 13);
         cardPlay.batch.draw(Mana_colour,1028,645, 13, 13);
+        cardPlay.batch.draw(skill1, 860,10, 62, 55);
+        cardPlay.batch.draw(skill2, 860,65, 62,55);
     }
     @Override
     public void resize(int width, int height) {

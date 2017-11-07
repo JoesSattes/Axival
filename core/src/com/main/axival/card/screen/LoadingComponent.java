@@ -55,8 +55,8 @@ public class LoadingComponent implements Screen{
         stage = new Stage(new FillViewport(CardPlay.V_WIDTH,CardPlay.V_HEIGHT));
         textureAtPack = cardPlay.assetManager.get("load/loading.pack", TextureAtlas.class);
         //logo = new Image(textureAtPack.findRegion("libgdx-logo"));
-        logo = new Image(new Texture("Main-Menu/Game Logo.png"));
-        logo.setScale(1.2f);
+        logo = new Image(new Texture("load/logo3.png"));
+        logo.setScale(.55f);
         loadingFrame = new Image(textureAtPack.findRegion("loading-frame"));
         loadingBarHidden = new Image(textureAtPack.findRegion("loading-bar-hidden"));
         screenBg = new Image(textureAtPack.findRegion("screen-bg"));
@@ -123,7 +123,7 @@ public class LoadingComponent implements Screen{
         screenBg.setSize(width, height);
 
         // Place the logo in the middle of the screen and 100 px up
-        logo.setX((width - logo.getWidth()) / 2);
+        logo.setX((width - logo.getWidth()) / 2 +150);
         logo.setY((height - logo.getHeight()) / 2 + 100);
 
         // Place the loading frame in the middle of the screen
@@ -202,6 +202,7 @@ public class LoadingComponent implements Screen{
 
         //add new loading screen
         cardPlay.assetManager.load("load/loading.pack", TextureAtlas.class);
+        cardPlay.assetManager.load("load/logo.png", Texture.class);
         cardPlay.assetManager.finishLoading();
     }
 }

@@ -95,7 +95,7 @@ public class RandomCard{
     public void removeCardInHandIndex(int valueCard){
         countCardInHand.remove(valueCard);
         System.out.println("Remove:"+getCountCardInHand());
-        System.out.println("Remove(status):"+getIdenCardAll());
+        System.out.println("Remove(status):"+Arrays.toString(getIdenCardAll()));
     }
 
     public ArrayList<String> getCountCardInHand() {

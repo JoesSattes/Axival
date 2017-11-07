@@ -54,7 +54,9 @@ public class LoadingComponent implements Screen{
         //add new loading screen
         stage = new Stage(new FillViewport(CardPlay.V_WIDTH,CardPlay.V_HEIGHT));
         textureAtPack = cardPlay.assetManager.get("load/loading.pack", TextureAtlas.class);
-        logo = new Image(textureAtPack.findRegion("libgdx-logo"));
+        //logo = new Image(textureAtPack.findRegion("libgdx-logo"));
+        logo = new Image(new Texture("Main-Menu/Game Logo.png"));
+        logo.setScale(1.2f);
         loadingFrame = new Image(textureAtPack.findRegion("loading-frame"));
         loadingBarHidden = new Image(textureAtPack.findRegion("loading-bar-hidden"));
         screenBg = new Image(textureAtPack.findRegion("screen-bg"));
@@ -166,6 +168,22 @@ public class LoadingComponent implements Screen{
     }
 
     private void queueAssets(){
+        /*
+        textureBg = new Texture("bg1.jpg");
+        logoMenu = new Image(new Texture("Main-Menu/Game Logo.png"));
+        logoMenu.setPosition(59, 630);
+        buttonImgPlay = new Image(new Texture("Main-Menu/Play.png"));
+        buttonImgPlay.setScale(.95f);
+        buttonImgPlay.setPosition(40, 15);
+        buttonImgSetting = new Image(new Texture("Main-Menu/Setting.png"));
+        buttonImgSetting.setScale(.95f);
+        buttonImgSetting.setPosition(620, 15);
+        buttonImgTutorial = new Image(new Texture("Main-Menu/Tutorial.png"));
+        buttonImgTutorial.setScale(.95f);
+        buttonImgTutorial.setPosition(390, 15);
+        buttonImgExit = new Image(new Texture("Main-Menu/Exit.png"));
+        buttonImgExit.setScale(.95f);
+         */
         cardPlay.assetManager.load("card01.png", Texture.class);
         cardPlay.assetManager.load("cardani/001.png", Texture.class);
         cardPlay.assetManager.load("cardani/002.png", Texture.class);
@@ -173,6 +191,14 @@ public class LoadingComponent implements Screen{
         cardPlay.assetManager.load("cursorImage2.png", Texture.class);
         cardPlay.assetManager.load("bg1.jpg", Texture.class);
         cardPlay.assetManager.load("effect01.party", ParticleEffect.class);
+
+        //loading Menu Component
+        cardPlay.assetManager.load("bg1.jpg", Texture.class);
+        cardPlay.assetManager.load("Main-Menu/Game Logo.png", Texture.class);
+        cardPlay.assetManager.load("Main-Menu/Play.png", Texture.class);
+        cardPlay.assetManager.load("Main-Menu/Setting.png", Texture.class);
+        cardPlay.assetManager.load("Main-Menu/Tutorial.png", Texture.class);
+        cardPlay.assetManager.load("Main-Menu/Exit.png", Texture.class);
 
         //add new loading screen
         cardPlay.assetManager.load("load/loading.pack", TextureAtlas.class);

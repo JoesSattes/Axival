@@ -133,19 +133,19 @@ public class Menu implements Screen{
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);*/
 
-        textureBg = new Texture("bg1.jpg");
-        logoMenu = new Image(new Texture("Main-Menu/Game Logo.png"));
+        textureBg = cardPlay.assetManager.get("bg1.jpg", Texture.class);
+        logoMenu = new Image(cardPlay.assetManager.get("Main-Menu/Game Logo.png", Texture.class));
         logoMenu.setPosition(59, 630);
-        buttonImgPlay = new Image(new Texture("Main-Menu/Play.png"));
+        buttonImgPlay = new Image(cardPlay.assetManager.get("Main-Menu/Play.png", Texture.class));
         buttonImgPlay.setScale(.95f);
         buttonImgPlay.setPosition(40, 15);
-        buttonImgSetting = new Image(new Texture("Main-Menu/Setting.png"));
+        buttonImgSetting = new Image(cardPlay.assetManager.get("Main-Menu/Setting.png", Texture.class));
         buttonImgSetting.setScale(.95f);
         buttonImgSetting.setPosition(620, 15);
-        buttonImgTutorial = new Image(new Texture("Main-Menu/Tutorial.png"));
+        buttonImgTutorial = new Image(cardPlay.assetManager.get("Main-Menu/Tutorial.png", Texture.class));
         buttonImgTutorial.setScale(.95f);
         buttonImgTutorial.setPosition(390, 15);
-        buttonImgExit = new Image(new Texture("Main-Menu/Exit.png"));
+        buttonImgExit = new Image(cardPlay.assetManager.get("Main-Menu/Exit.png", Texture.class));
         buttonImgExit.setScale(.95f);
         buttonImgExit.setPosition(880,49);
 

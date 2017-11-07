@@ -2,8 +2,10 @@ package com.testgdx.game.loading.libgdxloadingscreen.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -50,6 +52,7 @@ public class LoadingScreen extends AbstractScreen {
 
         // Grab the regions from the atlas and create some images
         logo = new Image(atlas.findRegion("libgdx-logo"));
+        //logo = new Image(new Texture("Main-Menu/Game Logo.png"));
         loadingFrame = new Image(atlas.findRegion("loading-frame"));
         loadingBarHidden = new Image(atlas.findRegion("loading-bar-hidden"));
         screenBg = new Image(atlas.findRegion("screen-bg"));

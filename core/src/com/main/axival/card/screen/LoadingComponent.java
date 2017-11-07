@@ -6,9 +6,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.utils.Array;
 import com.main.axival.card.CardPlay;
 import com.main.axival.card.Menu;
 
@@ -18,10 +20,12 @@ public class LoadingComponent implements Screen{
     private ShapeRenderer shapeRenderer;
     private float progress;
 
+
     public LoadingComponent(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
         this.shapeRenderer = new ShapeRenderer();
         this.progress=0f;
+
         queueAssets();
     }
 

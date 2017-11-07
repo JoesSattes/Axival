@@ -27,7 +27,6 @@ import com.main.axival.card.UIplay;
 
 public class ScreenPlay implements Screen, InputProcessor{
     public Stage stage;
-    private TextureRegion textureBg;
 
     private ParticleEffect prototype;
     private ParticleEffectPool pool;
@@ -59,9 +58,6 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
-
-        //textureBg = new TextureRegion(cardPlay.assetManager.get("bg1.jpg", Texture.class));
-        //textureBg.setRegion(0,0, CardPlay.V_WIDTH,CardPlay.V_HEIGHT);
 
         Pixmap pm = new Pixmap(Gdx.files.internal("cursorImage2.png"));
         Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth()/2, pm.getHeight()/2));
@@ -111,7 +107,6 @@ public class ScreenPlay implements Screen, InputProcessor{
             System.out.println("Out Hand");
         }
     }
-
 
 
     @Override

@@ -12,6 +12,7 @@ public class Hero extends TextureAtlas{
     public State facing;
     public State currentState;
     public State previousState;
+    public int walk=3;
     private Texture img;
     private TextureAtlas atlas;
     private Animation<TextureRegion> animation;
@@ -55,6 +56,9 @@ public class Hero extends TextureAtlas{
         this.row = row;
         this.col = col;
     }
+    public Vector2 getRowCol() {
+        return new Vector2(this.col, this.row);
+    }
     public void setDes(float x, float y) {
         this.des.set(x, y);
     }
@@ -66,10 +70,6 @@ public class Hero extends TextureAtlas{
 
     public void setAtlas(String path) {
         this.atlas = new TextureAtlas(path);
-    }
-
-    public void setElapsedTime(float elapsedTime) {
-        this.elapsedTime = elapsedTime;
     }
 
     public Animation<TextureRegion> action() {

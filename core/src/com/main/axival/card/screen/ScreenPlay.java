@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
@@ -23,6 +24,9 @@ import com.main.axival.card.CardPlay;
 import com.main.axival.card.MapPlay.MapScreen;
 import com.main.axival.card.RandomCard;
 import com.main.axival.card.UIplay;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class ScreenPlay implements Screen, InputProcessor{
@@ -47,9 +51,9 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private UIplay uIplay;
 
-    private MapScreen mapScreen;
-
     private final CardPlay cardPlay;
+
+    private MapScreen mapScreen;
 
 
     public ScreenPlay(final CardPlay cardPlay){
@@ -222,40 +226,57 @@ public class ScreenPlay implements Screen, InputProcessor{
     }
 
     @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button)
-    {
-        Gdx.app.log("Mouse", "Down");
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        //Gdx.app.log("Mouse", "Down");
+        Vector2 rowcol = mapScreen.click.getRowCol(screenX, Math.abs(mapScreen.mapPixelHeight - screenY));
+        List<Vector2> area = new LinkedList<Vector2>();
+        area.addAll(mapScreen.board.getArea(mapScreen.player.col, mapScreen.player.row, mapScreen.player.walk));
+        if (!mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() && mapScreen.walker.getRoute() == 0
+                && area.contains(rowcol)) {
+            if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
+                mapScreen.walker.setRouting(1);
+                System.out.println("Mouse clicked!");
+                float x = Gdx.input.getX();
+                float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
+                mapScreen.path = new LinkedList<Vector2>();
+                Vector2 goal = mapScreen.click.getRowCol(x, y);
+                System.out.println("Column-Row = " + goal.x + "," + goal.y);
+                mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player.getRowCol(), goal));
+                mapScreen.walker.setPath(mapScreen.player.getRowCol(), mapScreen.path);
+                mapScreen.walker.routing();
+            }
+        }
         return false;
     }
 
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button)
-    {
-        Gdx.app.log("Mouse", "Up");
-        return false;
-    }
+            @Override
+            public boolean touchUp ( int screenX, int screenY, int pointer, int button)
+            {
+                Gdx.app.log("Mouse", "Up");
+                return false;
+            }
 
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer)
-    {
-        Gdx.app.log("Mouse", "Dragged");
+            @Override
+            public boolean touchDragged ( int screenX, int screenY, int pointer)
+            {
+                Gdx.app.log("Mouse", "Dragged");
 
-        return false;
-    }
+                return false;
+            }
 
-    @Override
-    public boolean mouseMoved(int screenX, int screenY)
-    {
-        //Gdx.app.log("Mouse Position", screenX+", "+screenY);
-        //rendexX = screenX - texture.getWidth();
-        //renderY = Gdx.graphics.getHeight() - screenY - texture.getHeight();
-        return false;
-    }
+            @Override
+            public boolean mouseMoved ( int screenX, int screenY)
+            {
+                //Gdx.app.log("Mouse Position", screenX+", "+screenY);
+                //rendexX = screenX - texture.getWidth();
+                //renderY = Gdx.graphics.getHeight() - screenY - texture.getHeight();
+                return false;
+            }
 
-    @Override
-    public boolean scrolled(int amount)
-    {
-        //Gdx.app.log("Mouse", "Scroll :"+amount);
-        return false;
-    }
-}
+            @Override
+            public boolean scrolled ( int amount)
+            {
+                //Gdx.app.log("Mouse", "Scroll :"+amount);
+                return false;
+            }
+        }

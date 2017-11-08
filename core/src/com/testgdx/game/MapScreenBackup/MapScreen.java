@@ -1,14 +1,11 @@
-package com.main.axival.card.MapPlay;
+package com.testgdx.game.MapScreenBackup;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -19,14 +16,12 @@ import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.main.axival.card.CardPlay;
+import com.main.axival.card.MapPlay.Board;
+import com.main.axival.card.MapPlay.Hero;
 import com.main.axival.card.MapPlay.Hero.State;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import static java.lang.Math.sqrt;
-
 public class MapScreen implements Screen {
+    //Vision variables
     private CardPlay game;
     private OrthographicCamera gamecam;
     private Viewport gamePort;
@@ -38,7 +33,6 @@ public class MapScreen implements Screen {
     private TmxMapLoader mapLoader;
     private TiledMap hexes;
     private HexagonalTiledMapRenderer renderer;
-    private MapOverlay overlay;
 
     // Width and Height from Map Properties variables
     MapProperties prop;
@@ -57,32 +51,24 @@ public class MapScreen implements Screen {
     private Vector2 des;
 
     //Hero variables
-    public Hero player;
+    private Hero player;
 
     MoveToAction action;
 
     //Board variables
     public Board board;
 
-    //Path for walking
-    public List<Vector2> path;
-
-    //Test Clicking
-    public onClick click;
-
-    //Navigator variable
-    public Navigator walker;
-
-    int ipctrl=0;
-
     public MapScreen(CardPlay game) {
-
         this.game = game;
         //create cam used to follow hero through cam world
         gamecam = new OrthographicCamera();
 
         //create a FitViewport to maintain virtual aspect ratio despite
         gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, gamecam);
+        //gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, game.camera);
+
+        //create map
+        map = new Texture("map-imgs/no-grid-map.png");
 
         //Load our map and setup our map renderer
         mapLoader = new TmxMapLoader();
@@ -99,17 +85,7 @@ public class MapScreen implements Screen {
         mapPixelHeight = mapHeight * tilePixelHeight;
 
         //create board
-        board = new Board(this);
-
-        //create map
-        map = new Texture("map-imgs/no-grid-map.png");
-        overlay = new MapOverlay(board, game.batch);
-
-        //create onClick
-        click = new onClick(this, board);
-
-        //create navigator
-        walker = new Navigator();
+        //----------board = new Board(this);
 
         //create coordinate
         screenCoordinates = new Vector3();
@@ -120,13 +96,15 @@ public class MapScreen implements Screen {
         font.setColor(255, 255, 255, 1);
 
         //create hero and set spritesheet
-        player = new Hero(this, 0, 0);
+        //----------player = new Hero(this, 0, 0);
         player.setAtlas("hero-imgs/spritesheets/myspritesheet.atlas");
         player.setImg("hero-imgs/spritesheets/myspritesheet.png");
         player.setCoordinates(board.map[0][0].corX , board.map[0][0].corY); // x+w , y+0.75h
 
         //initially set our gamcam to be centered correctly at the start of map
         gamecam.position.set(mapPixelWidth / 2 + 12 , mapPixelHeight / 2 - 77, 0);
+        //game.camera.zoom += .05;
+        //game.camera.position.set(mapPixelWidth / 2+30, mapPixelHeight / 2 +15, 0);
 
     }
 
@@ -136,81 +114,62 @@ public class MapScreen implements Screen {
     }
 
     public void handleInput(float dt) {
-//        //controll camera
-//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-//            gamecam.position.x += 100 * dt;
-//        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-//            gamecam.position.x -= 100 * dt;
-//        if (Gdx.input.isKeyPressed(Input.Keys.UP))
-//            gamecam.position.y += 100 * dt;
-//        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
-//            gamecam.position.y -= 100 * dt;
-        if (Gdx.input.isKeyPressed(Input.Keys.X) && ipctrl == 0) {
-            ipctrl = 1;
-            path = new LinkedList<Vector2>();
-            float x = Gdx.input.getX();
-            float y =  Math.abs(mapPixelHeight-Gdx.input.getY());
-            Vector2 goal = click.getRowCol(x, y);
-            path.addAll(board.getPath(player.getRowCol(), goal));
-            System.out.println("GET PATH!! Path size = " + path.size());
-            for (Vector2 v : path) {
-                if (!(path.indexOf(v) == path.size() - 1)) {
-                    System.out.print((int) v.x + "," + (int) v.y + " -> ");
-                } else {
-                    System.out.print((int) v.x + "," + (int) v.y);
-                }
-            }
-//            ipctrl = 0;
-        }
+        /*
+        //controll camera
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+            game.camera.position.x += 100 * dt;
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+            game.camera.position.x -= 100 * dt;
+       if (Gdx.input.isKeyPressed(Input.Keys.UP))
+            game.camera.position.y += 100 * dt;
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+           game.camera.position.y -= 100 * dt;
+           */
 
-//        Right-move control
-        if (walker.getRoute() == 1 && player.getWalking() == 0) {
-            player.setWalking(1);
-            player.setCurrentState(Hero.State.WALKING);
+        //Right-move control
+        if (Gdx.input.isKeyPressed(Input.Keys.D) && player.getWalking() == 0) {
             player.setDes(board.map[player.row][player.col+1].corX,
                     board.map[player.row][player.col+1].corY);
+            player.setCurrentState(State.WALKING);
+            player.setWalking(1);
         }
-        else if (player.getWalking() == 1 && walker.getRoute() == 1) {
+        else if (player.getWalking() == 1) {
             if (player.getCoordinates().x < player.getDes().x) {
-                player.setFacing(Hero.State.RIGHT);
-                player.setCurrentState(Hero.State.WALKING);
-                player.setCoordinates(player.getCoordinates().x += tilePixelWidth * dt,
+                player.setFacing(State.RIGHT);
+                player.setCurrentState(State.WALKING);
+                player.setCoordinates(player.getCoordinates().x += (Math.sqrt(3)/2) * tilePixelHeight * dt,
                         player.getCoordinates().y);
             }
             else {
                 player.setRowCol(player.row, player.col+1);
                 player.setWalking(0);
-                player.setCurrentState(Hero.State.STANDING);
-                walker.routing();
+                player.setCurrentState(State.STANDING);
             }
         }
 
         //Left-move control
-        if (walker.getRoute() == 2 && player.getWalking() == 0) {
-            player.setWalking(2);
-            player.setCurrentState(Hero.State.WALKING);
+        if (Gdx.input.isKeyPressed(Input.Keys.A) && player.getWalking() == 0) {
             player.setDes(board.map[player.row][Math.max(0, player.col-1)].corX,
                     board.map[player.row][Math.max(0, player.col-1)].corY);
+            player.setCurrentState(State.WALKING);
+            player.setWalking(2);
         }
-        else if (player.getWalking() == 2 && walker.getRoute() == 2) {
+        else if (player.getWalking() == 2) {
             if (player.getCoordinates().x > player.getDes().x) {
-                player.setFacing(Hero.State.LEFT);
-                player.setCurrentState(Hero.State.WALKING);
-                player.setCoordinates(player.getCoordinates().x -= tilePixelWidth * dt,
+                player.setFacing(State.LEFT);
+                player.setCurrentState(State.WALKING);
+                player.setCoordinates(player.getCoordinates().x -= (Math.sqrt(3)/2) * tilePixelHeight * dt,
                         player.getCoordinates().y);
             }
             else {
                 player.setRowCol(player.row, Math.max(0, player.col-1));
                 player.setWalking(0);
-                player.setCurrentState(Hero.State.STANDING);
-                walker.routing();
+                player.setCurrentState(State.STANDING);
             }
         }
 
         //Up-Right combination move
-        if (walker.getRoute() == 3 && player.getWalking() == 0) {
-            player.setWalking(3);
-            player.setCurrentState(Hero.State.WALKING);
+        if (Gdx.input.isKeyPressed(Input.Keys.E) && player.getWalking() == 0) {
             if (player.row%2 == 0) {
                 player.setDes(board.map[Math.max(0, player.row-1)][player.col+1].corX,
                         board.map[Math.max(0, player.row-1)][player.col+1].corY);
@@ -219,18 +178,20 @@ public class MapScreen implements Screen {
                 player.setDes(board.map[Math.max(0, player.row-1)][player.col].corX,
                         board.map[Math.max(0, player.row-1)][player.col].corY);
             }
+            player.setCurrentState(State.WALKING);
+            player.setWalking(3);
         }
-        else if (player.getWalking() == 3 && walker.getRoute() == 3) {
+        else if (player.getWalking() == 3) {
             if (player.getCoordinates().x < player.getDes().x || player.getCoordinates().y < player.getDes().y) {
-                player.setFacing(Hero.State.RIGHT);
-                player.setCurrentState(Hero.State.WALKING);
+                player.setFacing(State.RIGHT);
+                player.setCurrentState(State.WALKING);
                 if (player.getCoordinates().x < player.getDes().x) {
-                    player.setCoordinates(player.getCoordinates().x += (1/sqrt(3)) * tilePixelWidth * dt,
+                    player.setCoordinates(player.getCoordinates().x += (Math.sqrt(3)/2) * tilePixelHeight * dt,
                             player.getCoordinates().y);
                 }
                 if (player.getCoordinates().y < player.getDes().y) {
                     player.setCoordinates(player.getCoordinates().x,
-                            player.getCoordinates().y += (sqrt(3)/2) * tilePixelHeight * dt);
+                            player.getCoordinates().y += tilePixelHeight * dt);
                 }
             }
             else if (player.getCoordinates().x >= player.getDes().x && player.getCoordinates().y >= player.getDes().y){
@@ -241,33 +202,32 @@ public class MapScreen implements Screen {
                     player.setRowCol(Math.max(0, player.row-1), player.col);
                 }
                 player.setWalking(0);
-                player.setCurrentState(Hero.State.STANDING);
-                walker.routing();
+                player.setCurrentState(State.STANDING);
             }
         }
 
         //Down-Right combination move
-        if (walker.getRoute() == 4 && player.getWalking() == 0) {
-            player.setWalking(4);
-            player.setCurrentState(Hero.State.WALKING);
+        if (Gdx.input.isKeyPressed(Input.Keys.C) && player.getWalking() == 0) {
             if (player.row%2 == 0) {
                 player.setDes(board.map[player.row+1][player.col+1].corX, board.map[player.row+1][player.col+1].corY);
             }
             else {
                 player.setDes(board.map[player.row+1][player.col].corX, board.map[player.row+1][player.col].corY);
             }
+            player.setCurrentState(State.WALKING);
+            player.setWalking(4);
         }
-        else if (player.getWalking() == 4 && walker.getRoute() == 4) {
+        else if (player.getWalking() == 4) {
             if (player.getCoordinates().x < player.getDes().x || player.getCoordinates().y > player.getDes().y) {
-                player.setFacing(Hero.State.RIGHT);
-                player.setCurrentState(Hero.State.WALKING);
+                player.setFacing(State.RIGHT);
+                player.setCurrentState(State.WALKING);
                 if (player.getCoordinates().x < player.getDes().x) {
-                    player.setCoordinates(player.getCoordinates().x += (1/sqrt(3)) * tilePixelWidth * dt,
+                    player.setCoordinates(player.getCoordinates().x += (Math.sqrt(3)/2) * tilePixelHeight * dt,
                             player.getCoordinates().y);
                 }
                 if (player.getCoordinates().y > player.getDes().y) {
                     player.setCoordinates(player.getCoordinates().x,
-                            player.getCoordinates().y -= (sqrt(3)/2) * tilePixelHeight * dt);
+                            player.getCoordinates().y -= tilePixelHeight * dt);
                 }
             }
             else if (player.getCoordinates().x >= player.getDes().x && player.getCoordinates().y <= player.getDes().y){
@@ -278,33 +238,32 @@ public class MapScreen implements Screen {
                     player.setRowCol( player.row+1, player.col);
                 }
                 player.setWalking(0);
-                player.setCurrentState(Hero.State.STANDING);
-                walker.routing();
+                player.setCurrentState(State.STANDING);
             }
         }
 
         //Up-Left combination move
-        if (walker.getRoute() == 5 && player.getWalking() == 0) {
-            player.setWalking(5);
-            player.setCurrentState(Hero.State.WALKING);
+        if (Gdx.input.isKeyPressed(Input.Keys.Q) && player.getWalking() == 0) {
             if (player.row%2 == 0) {
                 player.setDes(board.map[player.row-1][player.col].corX, board.map[player.row-1][player.col].corY);
             }
             else {
                 player.setDes(board.map[player.row-1][player.col-1].corX, board.map[player.row-1][player.col-1].corY);
             }
+            player.setCurrentState(State.WALKING);
+            player.setWalking(5);
         }
-        else if (player.getWalking() == 5 && walker.getRoute() == 5) {
+        else if (player.getWalking() == 5) {
             if (player.getCoordinates().x > player.getDes().x || player.getCoordinates().y < player.getDes().y) {
-                player.setFacing(Hero.State.LEFT);
-                player.setCurrentState(Hero.State.WALKING);
+                player.setFacing(State.LEFT);
+                player.setCurrentState(State.WALKING);
                 if (player.getCoordinates().x > player.getDes().x) {
-                    player.setCoordinates(player.getCoordinates().x -= (1/sqrt(3)) * tilePixelWidth * dt,
+                    player.setCoordinates(player.getCoordinates().x -= (Math.sqrt(3)/2) * tilePixelHeight * dt,
                             player.getCoordinates().y);
                 }
                 if (player.getCoordinates().y < player.getDes().y) {
                     player.setCoordinates(player.getCoordinates().x,
-                            player.getCoordinates().y += (sqrt(3)/2) * tilePixelHeight * dt);
+                            player.getCoordinates().y += tilePixelHeight * dt);
                 }
             }
             else if (player.getCoordinates().x <= player.getDes().x && player.getCoordinates().y >= player.getDes().y){
@@ -315,72 +274,44 @@ public class MapScreen implements Screen {
                     player.setRowCol( player.row-1, player.col-1);
                 }
                 player.setWalking(0);
-                player.setCurrentState(Hero.State.STANDING);
-                walker.routing();
+                player.setCurrentState(State.STANDING);
             }
         }
 
         //Down-Left combination move
-        if (walker.getRoute() == 6 && player.getWalking() == 0) {
-            player.setWalking(6);
-            player.setCurrentState(Hero.State.WALKING);
+        if (Gdx.input.isKeyPressed(Input.Keys.Z) && player.getWalking() == 0) {
             if (player.row%2 == 0) {
                 player.setDes(board.map[player.row+1][player.col].corX, board.map[player.row+1][player.col].corY);
             }
             else {
                 player.setDes(board.map[player.row+1][player.col-1].corX, board.map[player.row+1][player.col-1].corY);
             }
+            player.setCurrentState(State.WALKING);
+            player.setWalking(6);
         }
-        else if (player.getWalking() == 6 && walker.getRoute() == 6) {
+        else if (player.getWalking() == 6) {
             if (player.getCoordinates().x > player.getDes().x || player.getCoordinates().y > player.getDes().y) {
-                player.setFacing(Hero.State.LEFT);
-                player.setCurrentState(Hero.State.WALKING);
+                player.setFacing(State.LEFT);
+                player.setCurrentState(State.WALKING);
                 if (player.getCoordinates().x > player.getDes().x) {
-                    player.setCoordinates(player.getCoordinates().x -= (1/sqrt(3)) * tilePixelWidth * dt,
+                    player.setCoordinates(player.getCoordinates().x -= (Math.sqrt(3)/2) * tilePixelHeight * dt,
                             player.getCoordinates().y);
                 }
                 if (player.getCoordinates().y > player.getDes().y) {
                     player.setCoordinates(player.getCoordinates().x,
-                            player.getCoordinates().y -= (sqrt(3)/2) * tilePixelHeight * dt);
+                            player.getCoordinates().y -= tilePixelHeight * dt);
                 }
-            } else if (player.getCoordinates().x <= player.getDes().x && player.getCoordinates().y <= player.getDes().y) {
-                if (player.row % 2 == 0) {
-                    player.setRowCol(player.row + 1, player.col);
-                } else {
-                    player.setRowCol(player.row + 1, player.col - 1);
+            }
+            else if (player.getCoordinates().x <= player.getDes().x && player.getCoordinates().y <= player.getDes().y) {
+                if (player.row%2 == 0) {
+                    player.setRowCol(player.row+1, player.col);
+                }
+                else {
+                    player.setRowCol( player.row+1, player.col-1);
                 }
                 player.setWalking(0);
-                player.setCurrentState(Hero.State.STANDING);
-                walker.routing();
+                player.setCurrentState(State.STANDING);
             }
-            // No input go to STANDING state
-//        if (player.currentState.compareTo(Hero.State.STANDING) == 0) {
-//            player.setCurrentState(Hero.State.STANDING);
-//        }
-//        int check = 0;
-//        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-//            player.setCoordinates(player.getCoordinates().x,
-//                            player.getCoordinates().y += 40 * dt);
-//                    check = 1;
-//        }
-//        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-//            player.setCoordinates(player.getCoordinates().x,
-//                            player.getCoordinates().y -= 40 * dt);
-//                    check = 1;
-//        }
-//        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-//            player.setCoordinates(player.getCoordinates().x -= 40 * dt,
-//                            player.getCoordinates().y);
-//                    check = 1;
-//        }
-//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-//            player.setCoordinates(player.getCoordinates().x += 40 * dt,
-//                            player.getCoordinates().y);
-//                    check = 1;
-//        }
-//        if (check == 0) {
-//            player.setCurrentState(Hero.State.STANDING);
-//        }
         }
     }
 
@@ -395,33 +326,33 @@ public class MapScreen implements Screen {
         gamecam.update();
 
         //tell our renderer to draw only what our camera can see in our game world
-//        renderer.setView(gamecam);
+        renderer.setView(gamecam);
     }
 
     @Override
     public void render(float delta) {
         //separate our update logic from render
-        update(delta);
+        //update(delta);
 
         //Clear the game screen with Black
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //Gdx.gl.glClearColor(0, 0, 0, 1);
+        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // get coordinates
-        screenCoordinates.set(Gdx.input.getX(), Gdx.input.getY(), 0);
+        //screenCoordinates.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 
         game.batch.begin();
 
         //render map
         game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT );
 
+        /*
         //render screen coordinates
         font.draw(game.batch, "Screen Coordinates", 155, 660);
-        font.draw(game.batch, (int) screenCoordinates.x + " , "
-                + (int) Math.abs(mapPixelHeight-screenCoordinates.y), 190, 635);
+        font.draw(game.batch, (int) screenCoordinates.x + " , " + (int) screenCoordinates.y, 190, 635);
 
         //render hero coordinates
-        font.draw(game.batch, "Hero Coordinates (changed)", 400, 660);
+        font.draw(game.batch, "Hero Coordinates", 400, 660);
         font.draw(game.batch, (int) player.getCoordinates().x + " , " + (int) player.getCoordinates().y, 435, 635);
 
         //render destination coordinates
@@ -433,28 +364,26 @@ public class MapScreen implements Screen {
         font.draw(game.batch, Integer.toString(player.getWalking()), 820, 635);
 
         //row-col coordinates
-        font.draw(game.batch, "Row-Column", 900, 660);
-        font.draw(game.batch, player.row + " , " + player.col, 920, 635);
+        font.draw(game.batch, "Row-Column", 1000, 660);
+        font.draw(game.batch, player.row + " , " + player.col, 1020, 635);
 
-        //render walk coordinates
-        font.draw(game.batch, "Routing", 1000, 660);
-        font.draw(game.batch, Integer.toString(player.getWalking()), 1000, 635);
-
-        //render specific tilemap
-        overlay.showOverlay(player.col, player.row, player.walk);
-
-
+        //animation
+//        game.batch.draw(player.action().getKeyFrame(player.getElapsedTime(), true),
+//                player.getCoordinates().x, player.getCoordinates().y);
+*/
         game.batch.end();
 
         //render our game map
-//        renderer.render();
+        //renderer.setView(game.camera.projection,0,0 ,500, 620);
+        renderer.render();
 
         //render hero
+
         game.batch.begin();
-        if (player.facing.compareTo(Hero.State.RIGHT) == 0) {
+        if (player.facing.compareTo(State.RIGHT) == 0) {
             game.batch.draw(player.action().getKeyFrame(player.getElapsedTime(), true),
-                    player.getCoordinates().x + (player.action().getKeyFrame(player.getElapsedTime(),
-                            true).getRegionWidth()), player.getCoordinates().y,
+                    player.getCoordinates().x + (player.action().getKeyFrame(player.getElapsedTime(), true).getRegionWidth())
+                    , player.getCoordinates().y,
                     -(player.action().getKeyFrame(player.getElapsedTime(), true).getRegionWidth()),
                     player.action().getKeyFrame(player.getElapsedTime(), true).getRegionHeight());
         }

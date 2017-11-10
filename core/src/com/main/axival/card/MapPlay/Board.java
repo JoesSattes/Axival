@@ -4,8 +4,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.main.axival.card.MapPlay.Node;
 
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Board {
     //0 is no obstacle 1 is a obstacle 2 is a Hero
@@ -55,8 +57,8 @@ public class Board {
         list.add(new Vector2(scrX, scrY));
         map[scrY][scrX].setVisit(true);
         temp1 = list.pop();
-        while (!list.contains(new Vector2(desX, desY))) {
-            list.addAll(this.getWays((int)temp1.x, (int)temp1.y, this));
+        while (!list.contains(new Vector2(desX, desY)) && !temp1.equals(new Vector2(desX,desY))){
+            list.addAll(this.getWays((int)temp1.x, (int)temp1.y));
             temp1 = list.pop();
         }
         temp1 = new Vector2(desX, desY);
@@ -96,7 +98,7 @@ public class Board {
         return area1;
     }
 
-    public LinkedList<Vector2> getWays(int x, int y, Board board) {
+    public LinkedList<Vector2> getWays(int x, int y) {
         area2 = new LinkedList<Vector2>();
         ways = new LinkedList<Vector2>();
         temp = new LinkedList<Vector2>();
@@ -119,13 +121,40 @@ public class Board {
         area2.addAll(this.getArea(x, y, 1));
         temp.retainAll(area2);
         for (Vector2 node: temp) {
-            if (!board.map[(int)node.y][(int)node.x].isVisit()) {
+            if (!map[(int)node.y][(int)node.x].isVisit()) {
                 ways.add(node);
-                board.map[(int)node.y][(int)node.x].setVisit(true);
-                board.map[(int)node.y][(int)node.x].setParent(x, y);
+                map[(int)node.y][(int)node.x].setLevel(map[y][x].level+1);
+                map[(int)node.y][(int)node.x].setVisit(true);
+                map[(int)node.y][(int)node.x].setParent(x, y);
             }
         }
         return  ways;
+    }
+
+    public Set<Vector2> getOverlay(int col, int row, int walk) {
+        int check = 0;
+        Vector2 temp1;
+        Set<Vector2> area = new HashSet<Vector2>();
+        list = new LinkedList<Vector2>();
+        list.add(new Vector2(col, row));
+        map[row][col].setVisit(true);
+        temp1 = list.pop();
+        while (check == 0) {
+            list.addAll(this.getWays((int)temp1.x, (int)temp1.y));
+            for (Vector2 vec: list) {
+                if (0 < map[(int)vec.y][(int)vec.x].level && map[(int)vec.y][(int)vec.x].level <= walk) {
+                    area.add(vec);
+                    check = 0;
+                }
+                else if (map[(int)vec.y][(int)vec.x].level > walk) {
+                    check = 1;
+                }
+            }
+            temp1 = list.pop();
+        }
+        this.resetLevel();
+        this.resetVisit();
+        return area;
     }
 
     public void setObstacle(int x, int y, int n) {
@@ -138,6 +167,14 @@ public class Board {
         for (int row=0; row < 13; row++) {
             for (int col=0; col < 24; col++) {
                 map[row][col].setVisit(false);
+            }
+        }
+    }
+
+    public void resetLevel() {
+        for (int row=0; row < 13; row++) {
+            for (int col=0; col < 24; col++) {
+                map[row][col].setLevel(0);
             }
         }
     }

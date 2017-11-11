@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/bgM.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/Menu.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/Menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -26,11 +30,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Effect.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Effect.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/effect/Effect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            <state relative-caret-position="345">
+              <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="178" column="53" lean-forward="false" selection-start-line="178" selection-start-column="53" selection-end-line="178" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadingComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="191" column="39" lean-forward="false" selection-start-line="191" selection-start-column="39" selection-end-line="191" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -75,16 +99,6 @@
                 <element signature="e#1149#1150#0" expanded="true" />
                 <element signature="e#1183#1184#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hud.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hud.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -154,7 +168,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="e26adcc4eb9e3095538c263fc3cbc522a01069b5" />
       </map>
     </option>
   </component>
@@ -868,8 +882,6 @@
         <option value="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/LoadingTest.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingBar.java" />
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/loading/libgdxloadingscreen/screen/LoadingScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/onClick.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java" />
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/MapScreenBackup/MapScreen.java" />
@@ -883,6 +895,8 @@
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Node.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapOverlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Board.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
       </list>
     </option>
   </component>
@@ -930,6 +944,12 @@
               <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -938,14 +958,6 @@
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
@@ -954,24 +966,6 @@
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="card" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="card" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="card" type="462c0819:PsiDirectoryNode" />
-              <item name="MapPlay" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
@@ -1018,18 +1012,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/core/src/com/testgdx/game/loading" />
-      <recent name="$PROJECT_DIR$/core/assets/load" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/assets" />
+      <recent name="$PROJECT_DIR$/core/assets/setting" />
+      <recent name="$PROJECT_DIR$/core/assets/effect" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.testgdx.game.MapScreenBackup" />
       <recent name="com.main.axival.card.screen" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/core/assets/setting" />
-      <recent name="$PROJECT_DIR$/core/assets/effect" />
-      <recent name="$PROJECT_DIR$/core/assets" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/src/com/testgdx/game/loading" />
+      <recent name="$PROJECT_DIR$/core/assets/load" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1213,12 +1207,12 @@
       <workItem from="1510329139924" duration="2104000" />
       <workItem from="1510375796604" duration="184000" />
       <workItem from="1510397999240" duration="747000" />
-      <workItem from="1510398834044" duration="142000" />
+      <workItem from="1510398834044" duration="1725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45029000" />
+    <option name="totallyTimeSpent" value="46612000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1239,9 +1233,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32658958" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.49722" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251445" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1336,11 +1330,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/assets/Main-Menu/Exit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/assets/Main-Menu/Tutorial.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1496,13 +1485,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardHand.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1324">
-          <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/assets/load/loading copy.png" />
     <entry file="file://$PROJECT_DIR$/core/assets/load/logo.png">
       <provider selected="true" editor-type-id="images">
@@ -1518,13 +1500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1669,8 +1644,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/effect/Effect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="345">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/assets/bgM.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="191" column="39" lean-forward="false" selection-start-line="191" selection-start-column="39" selection-end-line="191" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="178" column="53" lean-forward="false" selection-start-line="178" selection-start-column="53" selection-end-line="178" selection-end-column="53" />
           <folding />
         </state>
       </provider>

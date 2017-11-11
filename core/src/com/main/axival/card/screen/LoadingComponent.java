@@ -189,7 +189,7 @@ public class LoadingComponent implements Screen{
         cardPlay.assetManager.load("cardani/002.png", Texture.class);
         cardPlay.assetManager.load("cardani/spritesheet/cardAni.atlas", TextureAtlas.class);
         cardPlay.assetManager.load("cursorImage2.png", Texture.class);
-        cardPlay.assetManager.load("bg1.jpg", Texture.class);
+        cardPlay.assetManager.load("bgM.jpg", Texture.class);
         cardPlay.assetManager.load("effect01.party", ParticleEffect.class);
 
         //loading Menu Component

@@ -133,7 +133,7 @@ public class Menu implements Screen{
         outputLabel.setAlignment(Align.center);
         stage.addActor(outputLabel);*/
 
-        textureBg = cardPlay.assetManager.get("bg1.jpg", Texture.class);
+        textureBg = cardPlay.assetManager.get("bgM.jpg", Texture.class);
         logoMenu = new Image(cardPlay.assetManager.get("Main-Menu/Game Logo.png", Texture.class));
         logoMenu.setPosition(59, 630);
         buttonImgPlay = new Image(cardPlay.assetManager.get("Main-Menu/Play.png", Texture.class));
@@ -176,7 +176,7 @@ public class Menu implements Screen{
         update(delta);
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
         cardPlay.batch.begin();
-        //cardPlay.batch.draw(textureBg, 0, 0);
+        cardPlay.batch.draw(textureBg, 0, 0, 1280,720);
         prototypeM.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();

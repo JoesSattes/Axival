@@ -155,10 +155,24 @@ public class Menu implements Screen{
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("Menu");
                 cardPlay.setScreen(new ScreenPlay(cardPlay));
                 return true;
             }
         });
+
+        buttonImgSetting.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("setting");
+                cardPlay.setScreen(new SettingScreen(cardPlay));
+                return true;
+            }
+        });
+
 
         stage.addActor(buttonImgPlay);
         stage.addActor(buttonImgSetting);

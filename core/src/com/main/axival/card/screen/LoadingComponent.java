@@ -203,6 +203,14 @@ public class LoadingComponent implements Screen{
         //add new loading screen
         cardPlay.assetManager.load("load/loading.pack", TextureAtlas.class);
         cardPlay.assetManager.load("load/logo.png", Texture.class);
+
+        //loading setting screen
+        cardPlay.assetManager.load("setting/BG.png", Texture.class);
+        cardPlay.assetManager.load("setting/Off.png", Texture.class);
+        cardPlay.assetManager.load("setting/On.png", Texture.class);
+        cardPlay.assetManager.load("setting/setting.png", Texture.class);
+
+
         cardPlay.assetManager.finishLoading();
     }
 }

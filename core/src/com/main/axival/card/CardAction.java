@@ -40,12 +40,6 @@ public class CardAction {
             public void clicked(InputEvent event, float x, float y){
                 System.out.println("Click : "+currentCardListener+", findIncount: "+screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
                 popupShow(currentCardListener);
-                /*
-                if(popupStatus){
-                    cardHandActionDel(screenPlay.randomCard.getCountCardInHand().indexOf(currentCardListener+""));
-                }
-                popupStatus = false;*/
-                //cardHandActionDel(0);
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
@@ -315,6 +309,9 @@ public class CardAction {
     }
 
     public void popupShow(final int currentCardListener){
+        if(getPopupOff()){
+            return;
+        }
         genPopup();
         screenPlay.stage.addActor(popupG);
         popupG.addAction(Actions.sequence(Actions.fadeIn(1f)));
@@ -346,5 +343,12 @@ public class CardAction {
         popupG.addActor(popup);
         popupG.addActor(popupNo);
         popupG.addActor(popupYes);
+    }
+    public boolean getPopupOff(){
+        return popupStatus;
+    }
+
+    public void setPopupOff(boolean popupStatus){
+        this.popupStatus = popupStatus;
     }
 }

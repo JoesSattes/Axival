@@ -19,11 +19,8 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.main.axival.card.CardAction;
-import com.main.axival.card.CardPlay;
+import com.main.axival.card.*;
 import com.main.axival.card.MapPlay.MapScreen;
-import com.main.axival.card.RandomCard;
-import com.main.axival.card.UIplay;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -55,6 +52,8 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private MapScreen mapScreen;
 
+    private int[] statusPhase;
+
 
     public ScreenPlay(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
@@ -78,6 +77,13 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay);
         this.mapScreen = new MapScreen(this.cardPlay);
+
+        //set value from network
+        this.statusPhase = new int[10];
+        statusInput();
+
+        //check phase
+        phaseAll();
     }
 
     @Override
@@ -175,28 +181,6 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public boolean keyDown(int keycode) {
-        if (keycode== Input.Keys.UP) {
-            solveUp = true;
-        }
-        if (keycode== Input.Keys.DOWN){
-            solveDown = true;
-        }
-        if (keycode== Input.Keys.LEFT){
-            solveLeft = true;
-        }
-        if (keycode== Input.Keys.RIGHT){
-            solveRight = true;
-        }
-        if (keycode==Input.Keys.O){
-            currentCard++;
-            if (currentCard<maxCard){
-                setCardHandR(currentCard);
-                randomCard.setCardInHandIndex(currentCard);
-            }
-        }
-        if (keycode==Input.Keys.P && currentCard<maxCard){
-            cardHandAction();
-        }
         return false;
     }
 
@@ -279,4 +263,99 @@ public class ScreenPlay implements Screen, InputProcessor{
                 //Gdx.app.log("Mouse", "Scroll :"+amount);
                 return false;
             }
+
+    //Phase control
+    public void statusInput(){
+        statusPhase[0] = 0;
+        statusPhase[1] = 0;
+        statusPhase[2] = 0;
+        statusPhase[3] = 0;
+        statusPhase[4] = 0;
+        statusPhase[5] = 0;
+        statusPhase[6] = 0;
+        statusPhase[7] = 0;
+        statusPhase[8] = 0;
+        statusPhase[9] = 0;
+    }
+
+    public void phaseAll(){
+        if (statusPhase[2]==0){
+            phaseInTurn();
         }
+        else{
+            phaseOutTurn();
+        }
+    }
+
+    public void phaseInTurn(){
+        if(statusPhase[3]==0){
+            drawPhase();
+        }
+        else if(statusPhase[3]==1 || statusPhase[3]==3){
+            actionPhase();
+        }
+        else if(statusPhase[3]==2){
+            travelPhase();
+        }
+        else if(statusPhase[3]==4){
+            endPhase();
+        }
+    }
+
+    public void phaseOutTurn(){
+        waitPhase();
+        if (statusPhase[6]==1){
+            chainPhase();
+        }
+    }
+
+    public void drawPhase(){
+        cardAction.setPopupOff(true);
+        if (statusPhase[0]==0){
+            for(int i=0;i<5;i++){
+                currentCard++;
+                if (currentCard<maxCard){
+                    setCardHandR(currentCard);
+                    randomCard.setCardInHandIndex(currentCard);
+                }
+                if (currentCard<maxCard){
+                    cardHandAction();
+                }
+            }
+        }
+        else{
+            currentCard++;
+            if (currentCard<maxCard){
+                setCardHandR(currentCard);
+                randomCard.setCardInHandIndex(currentCard);
+            }
+            if (currentCard<maxCard){
+                cardHandAction();
+            }
+        }
+    }
+
+    public void actionPhase(){
+        cardAction.setPopupOff(false);
+    }
+
+    public void travelPhase(){
+        cardAction.setPopupOff(true);
+    }
+
+
+    public void endPhase(){
+        cardAction.setPopupOff(false);
+    }
+
+    public void waitPhase(){
+        //can't do anything about other player but game is show you screen real time
+
+
+    }
+
+    public void chainPhase(){
+        //show you when other player do something about you
+
+    }
+}

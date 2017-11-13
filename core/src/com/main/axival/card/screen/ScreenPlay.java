@@ -317,13 +317,13 @@ public class ScreenPlay implements Screen, InputProcessor{
         if(statusPhase[3]==0){
             drawPhase();
         }
-        else if(statusPhase[3]==1 || statusPhase[3]==3){
+        if(statusPhase[3]==1 || statusPhase[3]==3){
             actionPhase();
         }
-        else if(statusPhase[3]==2){
+        if(statusPhase[3]==2){
             travelPhase();
         }
-        else if(statusPhase[3]==4){
+        if(statusPhase[3]==4){
             endPhase();
         }
     }
@@ -359,8 +359,6 @@ public class ScreenPlay implements Screen, InputProcessor{
             if (currentCard<maxCard){
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
-            }
-            if (currentCard<maxCard){
                 cardHandAction(0);
             }
         }

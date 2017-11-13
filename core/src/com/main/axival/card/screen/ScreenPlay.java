@@ -16,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -24,6 +25,7 @@ import com.main.axival.card.MapPlay.MapScreen;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class ScreenPlay implements Screen, InputProcessor{
@@ -54,8 +56,12 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private int[] statusPhase;
 
+    private long startTime = 0;
+    private int countInLoop = 0;
+
 
     public ScreenPlay(final CardPlay cardPlay){
+
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         this.cardCountPosY1 = 0;
@@ -78,12 +84,13 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.uIplay = new UIplay(this.cardPlay);
         this.mapScreen = new MapScreen(this.cardPlay);
 
+        Gdx.input.setInputProcessor(this);
         //set value from network
         this.statusPhase = new int[10];
         statusInput();
 
         //check phase
-        phaseAll();
+        //phaseAll();
     }
 
     @Override
@@ -126,6 +133,7 @@ public class ScreenPlay implements Screen, InputProcessor{
             cardHandR.getChildren().get(0).addAction(Actions.parallel(Actions.moveTo(200, 0, 5),
                     Actions.rotateBy(90, 5)));*/
             //cardHandAction();
+            phaseAll();
         }
         if(solveLeft){
             //cardHandR.getChildren().get(0).addAction(Actions.sequence(Actions.moveTo(1200, 500)));
@@ -181,6 +189,9 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public boolean keyDown(int keycode) {
+        if (keycode== Input.Keys.UP) {
+            solveUp = true;
+        }
         return false;
     }
 
@@ -312,13 +323,18 @@ public class ScreenPlay implements Screen, InputProcessor{
     public void drawPhase(){
         cardAction.setPopupOff(true);
         if (statusPhase[0]==0){
-            for(int i=0;i<5;i++){
-                currentCard++;
-                if (currentCard<maxCard){
-                    setCardHandR(currentCard);
-                    randomCard.setCardInHandIndex(currentCard);
-                    System.out.println("finish set card in hand");
-                    cardHandAction(0);
+            startTime = TimeUtils.nanoTime();
+            while(countInLoop < 5){
+                if (TimeUtils.timeSinceNanos(startTime)>1000000000) {
+                    currentCard++;
+                    if (currentCard < maxCard) {
+                        setCardHandR(currentCard);
+                        randomCard.setCardInHandIndex(currentCard);
+                        System.out.println("finish set card in hand");
+                        cardHandAction(0);
+                    }
+                    startTime = TimeUtils.nanoTime();
+                    countInLoop++;
                 }
             }
         }

@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -84,13 +85,12 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.uIplay = new UIplay(this.cardPlay);
         this.mapScreen = new MapScreen(this.cardPlay);
 
-        Gdx.input.setInputProcessor(this);
         //set value from network
         this.statusPhase = new int[10];
         statusInput();
 
         //check phase
-        //phaseAll();
+        phaseAll();
     }
 
     @Override
@@ -133,7 +133,6 @@ public class ScreenPlay implements Screen, InputProcessor{
             cardHandR.getChildren().get(0).addAction(Actions.parallel(Actions.moveTo(200, 0, 5),
                     Actions.rotateBy(90, 5)));*/
             //cardHandAction();
-            phaseAll();
         }
         if(solveLeft){
             //cardHandR.getChildren().get(0).addAction(Actions.sequence(Actions.moveTo(1200, 500)));
@@ -191,6 +190,22 @@ public class ScreenPlay implements Screen, InputProcessor{
     public boolean keyDown(int keycode) {
         if (keycode== Input.Keys.UP) {
             solveUp = true;
+
+//            setCardHandR(currentCard);
+//            randomCard.setCardInHandIndex(currentCard);
+//            cardHandAction(0);
+//            Timer.schedule(new Timer.Task() {
+//                @Override
+//                public void run() {
+//                    currentCard++;
+//                    setCardHandR(currentCard);
+//                    randomCard.setCardInHandIndex(currentCard);
+//                    cardHandAction(0);
+//                    if (currentCard==9){
+//                        Timer.instance().stop();
+//                    }
+//                }
+//            }, 3, 2);
         }
         return false;
     }
@@ -323,20 +338,21 @@ public class ScreenPlay implements Screen, InputProcessor{
     public void drawPhase(){
         cardAction.setPopupOff(true);
         if (statusPhase[0]==0){
-            startTime = TimeUtils.nanoTime();
-            while(countInLoop < 5){
-                if (TimeUtils.timeSinceNanos(startTime)>1000000000) {
+            setCardHandR(currentCard);
+            randomCard.setCardInHandIndex(currentCard);
+            cardHandAction(0);
+            Timer.schedule(new Timer.Task() {
+                @Override
+                public void run() {
                     currentCard++;
-                    if (currentCard < maxCard) {
-                        setCardHandR(currentCard);
-                        randomCard.setCardInHandIndex(currentCard);
-                        System.out.println("finish set card in hand");
-                        cardHandAction(0);
+                    setCardHandR(currentCard);
+                    randomCard.setCardInHandIndex(currentCard);
+                    cardHandAction(0);
+                    if (currentCard==9){
+                        Timer.instance().stop();
                     }
-                    startTime = TimeUtils.nanoTime();
-                    countInLoop++;
                 }
-            }
+            }, 3, 2);
         }
         else{
             currentCard++;

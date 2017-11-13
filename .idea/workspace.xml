@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
@@ -53,7 +54,7 @@
       <file leaf-file-name="SouncTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/SouncTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
+            <state relative-caret-position="105">
               <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -65,9 +66,13 @@
       <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="332" column="57" lean-forward="false" selection-start-line="332" selection-start-column="57" selection-end-line="332" selection-end-column="57" />
-              <folding />
+            <state relative-caret-position="248">
+              <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+              <folding>
+                <element signature="e#7401#7410#0" expanded="true" />
+                <element signature="e#10692#11101#0" expanded="true" />
+                <element signature="e#11100#11101#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,14 +80,9 @@
       <file leaf-file-name="CardAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1231">
-              <caret line="120" column="21" lean-forward="true" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
-              <folding>
-                <element signature="e#22661#22937#0" expanded="true" />
-                <element signature="e#22936#22937#0" expanded="true" />
-                <element signature="e#22968#23133#0" expanded="true" />
-                <element signature="e#23132#23133#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1545">
+              <caret line="120" column="21" lean-forward="false" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,7 +100,7 @@
       <file leaf-file-name="RandomCard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="1095">
               <caret line="91" column="78" lean-forward="false" selection-start-line="91" selection-start-column="78" selection-end-line="91" selection-end-column="78" />
               <folding />
             </state>
@@ -903,6 +903,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -1002,33 +1003,6 @@
             <path>
               <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
               <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="backup" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="backup" type="462c0819:PsiDirectoryNode" />
-              <item name="screen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -1049,7 +1023,6 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1278,12 +1251,13 @@
       <workItem from="1510492138920" duration="3486000" />
       <workItem from="1510502979181" duration="10608000" />
       <workItem from="1510562426818" duration="57000" />
-      <workItem from="1510566956700" duration="6654000" />
+      <workItem from="1510566956700" duration="6756000" />
+      <workItem from="1510586418207" duration="1857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67279000" />
+    <option name="totallyTimeSpent" value="69238000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1721,7 +1695,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/SouncTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
+        <state relative-caret-position="105">
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1739,20 +1713,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1231">
-          <caret line="120" column="21" lean-forward="true" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
-          <folding>
-            <element signature="e#22661#22937#0" expanded="true" />
-            <element signature="e#22936#22937#0" expanded="true" />
-            <element signature="e#22968#23133#0" expanded="true" />
-            <element signature="e#23132#23133#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1545">
+          <caret line="120" column="21" lean-forward="false" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="1095">
           <caret line="91" column="78" lean-forward="false" selection-start-line="91" selection-start-column="78" selection-end-line="91" selection-end-column="78" />
           <folding />
         </state>
@@ -1760,9 +1729,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="332" column="57" lean-forward="false" selection-start-line="332" selection-start-column="57" selection-end-line="332" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="248">
+          <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+          <folding>
+            <element signature="e#7401#7410#0" expanded="true" />
+            <element signature="e#10692#11101#0" expanded="true" />
+            <element signature="e#11100#11101#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

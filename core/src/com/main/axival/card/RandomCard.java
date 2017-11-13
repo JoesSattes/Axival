@@ -16,9 +16,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class RandomCard{
     private int randResult;
@@ -32,11 +30,18 @@ public class RandomCard{
     private TextureRegionDrawable textureRegionDrawable;
     private Image image;
 
+    private Map<Integer, HashMap<Integer, Integer>> cardDictionary;
+
     private ArrayList<String> countCardInHand;
     public RandomCard(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
         this.cardAll = cardPlay.assetManager.get("cardani/spritesheet/cardAni.atlas", TextureAtlas.class);
         this.countCardInHand = new ArrayList<String>();
+        this.cardDictionary = new HashMap<Integer, HashMap<Integer, Integer>>();
+        setCardDictionary(0,0,1);
+        setCardDictionary(1, 0, 2);
+        setCardDictionary(2, 1, 3);
+        setCardDictionary(3, 2, 5);
     }
     public int generateRandom(int first, int last){
         Random rand = new Random();
@@ -109,4 +114,16 @@ public class RandomCard{
     public int sizeCountCardInHand(){
         return countCardInHand.size();
     }
+
+    public void setCardDictionary(int idCard, int typeCard, int value){
+        if(cardDictionary.get(idCard)==null){
+            cardDictionary.put(idCard, new HashMap<Integer, Integer>());
+            cardDictionary.get(idCard).put(typeCard, value);
+        }
+        else{
+            cardDictionary.get(idCard).put(typeCard, value);
+        }
+        System.out.println(cardDictionary+"");
+    }
 }
+

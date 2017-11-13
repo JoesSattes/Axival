@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -62,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="297" column="26" lean-forward="false" selection-start-line="297" selection-start-column="26" selection-end-line="297" selection-end-column="26" />
+            <state relative-caret-position="3960">
+              <caret line="304" column="5" lean-forward="true" selection-start-line="304" selection-start-column="5" selection-end-line="304" selection-end-column="5" />
               <folding>
                 <element signature="e#7375#7384#0" expanded="true" />
                 <element signature="e#10651#11060#0" expanded="true" />
@@ -98,12 +99,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RandomCard.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RandomCard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="91" column="78" lean-forward="false" selection-start-line="91" selection-start-column="78" selection-end-line="91" selection-end-column="78" />
-              <folding />
+            <state relative-caret-position="235">
+              <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -871,8 +874,8 @@
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/sound/SoundDemoFx.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/PhasePlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java" />
       </list>
     </option>
   </component>
@@ -883,8 +886,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
-    <option name="y" value="54" />
+    <option name="x" value="29" />
+    <option name="y" value="92" />
     <option name="width" value="1301" />
     <option name="height" value="787" />
   </component>
@@ -1253,12 +1256,12 @@
       <workItem from="1510502979181" duration="10608000" />
       <workItem from="1510562426818" duration="57000" />
       <workItem from="1510566956700" duration="6756000" />
-      <workItem from="1510586418207" duration="2420000" />
+      <workItem from="1510586418207" duration="4264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69801000" />
+    <option name="totallyTimeSpent" value="71645000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1270,7 +1273,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="54" width="1301" height="787" extended-state="0" />
+    <frame x="29" y="92" width="1301" height="787" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1281,7 +1284,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251445" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1720,24 +1723,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="91" column="78" lean-forward="false" selection-start-line="91" selection-start-column="78" selection-end-line="91" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="297" column="26" lean-forward="false" selection-start-line="297" selection-start-column="26" selection-end-line="297" selection-end-column="26" />
+        <state relative-caret-position="3960">
+          <caret line="304" column="5" lean-forward="true" selection-start-line="304" selection-start-column="5" selection-end-line="304" selection-end-column="5" />
           <folding>
             <element signature="e#7375#7384#0" expanded="true" />
             <element signature="e#10651#11060#0" expanded="true" />
             <element signature="e#11059#11060#0" expanded="true" />
             <element signature="e#11356#11357#0" expanded="true" />
             <element signature="e#11401#11402#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/RandomCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

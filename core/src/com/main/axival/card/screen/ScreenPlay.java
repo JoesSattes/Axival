@@ -95,25 +95,25 @@ public class ScreenPlay implements Screen, InputProcessor{
         stage.addActor(cardDeck[indexCard]);
     }
 
-    public void cardHandAction(){
+    public void cardHandAction(int delay){
         System.out.println("Size Count Hand : "+randomCard.sizeCountCardInHand());
         if(randomCard.sizeCountCardInHand()==1){
-            cardAction.cardHandActionFirst(currentCard);
+            cardAction.cardHandActionFirst(currentCard, delay);
         }
         else if(randomCard.sizeCountCardInHand()==2){
-            cardAction.cardHandActionSecond(currentCard);
+            cardAction.cardHandActionSecond(currentCard, delay);
         }
         else if(randomCard.sizeCountCardInHand()==3){
-            cardAction.cardHandActionThirst(currentCard);
+            cardAction.cardHandActionThirst(currentCard, delay);
         }
         else if(randomCard.sizeCountCardInHand()==4){
-            cardAction.cardHandActionFourth(currentCard);
+            cardAction.cardHandActionFourth(currentCard, delay);
         }
         else if(randomCard.sizeCountCardInHand()==5){
-            cardAction.cardHandActionFifth(currentCard);
+            cardAction.cardHandActionFifth(currentCard, delay);
         }
         else if(randomCard.sizeCountCardInHand()==6){
-            cardAction.cardHandActionFull(currentCard);
+            cardAction.cardHandActionFull(currentCard, delay);
             System.out.println("Out Hand");
         }
     }
@@ -317,9 +317,8 @@ public class ScreenPlay implements Screen, InputProcessor{
                 if (currentCard<maxCard){
                     setCardHandR(currentCard);
                     randomCard.setCardInHandIndex(currentCard);
-                }
-                if (currentCard<maxCard){
-                    cardHandAction();
+                    System.out.println("finish set card in hand");
+                    cardHandAction(0);
                 }
             }
         }
@@ -330,7 +329,7 @@ public class ScreenPlay implements Screen, InputProcessor{
                 randomCard.setCardInHandIndex(currentCard);
             }
             if (currentCard<maxCard){
-                cardHandAction();
+                cardHandAction(0);
             }
         }
     }

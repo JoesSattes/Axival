@@ -49,6 +49,9 @@ public class Menu implements Screen{
         else {
             cardPlay.soundManager.stopBgm(0);
         }
+
+        //check memory
+        cardPlay.javaFreeMem();
     }
 
     @Override

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hud.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
@@ -33,14 +32,14 @@
       <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4890">
-              <caret line="366" column="42" lean-forward="false" selection-start-line="366" selection-start-column="42" selection-end-line="366" selection-end-column="42" />
+            <state relative-caret-position="212">
+              <caret line="96" column="22" lean-forward="false" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
               <folding>
-                <element signature="e#7511#7520#0" expanded="true" />
-                <element signature="e#11138#11613#0" expanded="true" />
-                <element signature="e#11612#11613#0" expanded="true" />
-                <element signature="e#12060#12061#0" expanded="true" />
-                <element signature="e#12104#12105#0" expanded="true" />
+                <element signature="e#7567#7576#0" expanded="true" />
+                <element signature="e#11194#11669#0" expanded="true" />
+                <element signature="e#11668#11669#0" expanded="true" />
+                <element signature="e#12116#12117#0" expanded="true" />
+                <element signature="e#12160#12161#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,21 +59,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapScreen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
+            <state relative-caret-position="6003">
               <caret line="431" column="44" lean-forward="false" selection-start-line="431" selection-start-column="44" selection-end-line="431" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            <state relative-caret-position="287">
+              <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardPlay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -852,13 +861,13 @@
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java" />
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/sound/SoundDemoFx.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/SoundManager.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/SettingScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
       </list>
     </option>
   </component>
@@ -1216,12 +1225,12 @@
       <workItem from="1510629608359" duration="815000" />
       <workItem from="1510634350104" duration="2605000" />
       <workItem from="1510643523034" duration="6345000" />
-      <workItem from="1510676997026" duration="3100000" />
+      <workItem from="1510676997026" duration="3860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86201000" />
+    <option name="totallyTimeSpent" value="86961000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1245,7 +1254,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251445" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1622,14 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -1648,33 +1649,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="175" column="13" lean-forward="false" selection-start-line="175" selection-start-column="13" selection-end-line="175" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4890">
-          <caret line="366" column="42" lean-forward="false" selection-start-line="366" selection-start-column="42" selection-end-line="366" selection-end-column="42" />
-          <folding>
-            <element signature="e#7511#7520#0" expanded="true" />
-            <element signature="e#11138#11613#0" expanded="true" />
-            <element signature="e#11612#11613#0" expanded="true" />
-            <element signature="e#12060#12061#0" expanded="true" />
-            <element signature="e#12104#12105#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1700,8 +1679,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
+        <state relative-caret-position="6003">
           <caret line="431" column="44" lean-forward="false" selection-start-line="431" selection-start-column="44" selection-end-line="431" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="96" column="22" lean-forward="false" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+          <folding>
+            <element signature="e#7567#7576#0" expanded="true" />
+            <element signature="e#11194#11669#0" expanded="true" />
+            <element signature="e#11668#11669#0" expanded="true" />
+            <element signature="e#12116#12117#0" expanded="true" />
+            <element signature="e#12160#12161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
           <folding />
         </state>
       </provider>

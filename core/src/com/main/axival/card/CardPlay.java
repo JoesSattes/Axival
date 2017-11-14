@@ -33,6 +33,9 @@ public class CardPlay extends Game{
         bitmapFont = new BitmapFont();
         bitmapFont.setColor(Color.WHITE);
 
+        //check memory
+        javaFreeMem();
+
         this.setScreen(new LoadingComponent(this));
     }
 
@@ -44,10 +47,17 @@ public class CardPlay extends Game{
     }
 
     @Override
-    public void dispose(){
+    public void dispose() {
         batch.dispose();
         bitmapFont.dispose();
         assetManager.dispose();
         this.getScreen().dispose();
+    }
+
+    public void javaFreeMem() {
+            // check memory
+            System.out.println("Total Memory"+Runtime.getRuntime().totalMemory());
+            // Java's garbage-collected clean Memory Not use
+            System.out.println("Free Memory"+Runtime.getRuntime().freeMemory());
     }
 }

@@ -93,6 +93,9 @@ public class ScreenPlay implements Screen, InputProcessor{
 
         //check phase
         phaseAll();
+
+        //check memory
+        cardPlay.javaFreeMem();
     }
 
     @Override

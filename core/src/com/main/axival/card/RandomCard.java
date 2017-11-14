@@ -32,16 +32,30 @@ public class RandomCard{
 
     private Map<Integer, HashMap<Integer, Integer>> cardDictionary;
 
+    private Map<String,Integer> limtCard;
+
     private ArrayList<String> countCardInHand;
+
+    private int[] countCardGenLimit;
+    private int numGenLimit;
     public RandomCard(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
         this.cardAll = cardPlay.assetManager.get("cardani/spritesheet/cardAni.atlas", TextureAtlas.class);
         this.countCardInHand = new ArrayList<String>();
         this.cardDictionary = new HashMap<Integer, HashMap<Integer, Integer>>();
-        setCardDictionary(0,0,1);
-        setCardDictionary(1, 0, 2);
+        this.limtCard = new HashMap<String, Integer>();
+
+        setCardDictionary(0,0,2);
+        setCardDictionary(1, 0, 6);
         setCardDictionary(2, 1, 3);
-        setCardDictionary(3, 2, 5);
+        setCardDictionary(3, 2, 1);
+        setCardDictionary(4, 3, 0);
+        setCardDictionary(5, 4, 2);
+        setCardDictionary(6, 5, 2);
+        setCardDictionary(7, 6, 10);
+
+        setLimitCard();
+        generateRandomLimit();
     }
     public int generateRandom(int first, int last){
         Random rand = new Random();
@@ -55,27 +69,6 @@ public class RandomCard{
         image = new Image(textureRegionDrawable);
         //image.getImage().setFillParent(true);
         return image;
-    }
-    public HorizontalGroup cardHand(int num, char pos){
-        cardPack = new Image[num];
-        hand = new HorizontalGroup();
-        this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
-        int width = Gdx.graphics.getWidth()/10;
-        int height = width * 2;
-        hand.space(10f);
-        hand.center();
-        for (int i = 0; i < cardPack.length; i++) {
-            cardPack[i] = getCard(generateRandom(2,7));//max = 7
-            hand.addActor(cardPack[i]);
-            cardPack[i].setPosition(300+100*i,150);
-            cardPack[i].setName(String.format("%d", i));
-        }
-        hand.setScale(.2f);
-        if(pos=='r')
-            hand.setPosition(640+100+60, 50);
-        else if(pos=='l')
-            hand.setPosition(140+60, 50);
-        return hand;
     }
 
     public Image[] allCardDeck(int maxCard){
@@ -124,6 +117,42 @@ public class RandomCard{
             cardDictionary.get(idCard).put(typeCard, value);
         }
         System.out.println(cardDictionary+"");
+    }
+
+    public void setLimitCard(){
+        // (idCard, amountInDeck)
+        limtCard.put("0", 6);
+        limtCard.put("1", 2);
+        limtCard.put("2", 4);
+        limtCard.put("3", 3);
+        limtCard.put("4", 1);
+        limtCard.put("5", 3);
+        limtCard.put("6", 3);
+        limtCard.put("7", 1);
+    }
+
+    public void generateRandomLimit(){
+        Random randomCardLimit = new Random();
+        countCardGenLimit = new int[23];
+        int count = 0;
+        while(count<23){
+            numGenLimit = generateRandom(1, 7);
+            if (countInArray(countCardGenLimit, numGenLimit) < limtCard.get(numGenLimit+"")) {
+                countCardGenLimit[count] = numGenLimit;
+                count++;
+            }
+        }
+        System.out.println(countCardGenLimit+"");
+    }
+
+    public int countInArray(int[] numArray, int numCheck){
+        int countArray = 0;
+        for(int i=0;i<numArray.length;i++){
+            if(numArray[i]==numCheck){
+                countArray += 1;
+            }
+        }
+        return countArray;
     }
 }
 

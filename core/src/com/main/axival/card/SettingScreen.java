@@ -3,14 +3,17 @@ package com.main.axival.card;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class SettingScreen implements Screen, InputProcessor{
     private Texture textureBg;
-    private Image imageOn;
-    private Image imageOff;
+    private Image imageOn1, imageOn2;
+    private Image imageOff1, imageOff2;
 
     private Stage stage;
     private CardPlay cardPlay;
@@ -25,12 +28,52 @@ public class SettingScreen implements Screen, InputProcessor{
     @Override
     public void show() {
         textureBg = cardPlay.assetManager.get("setting/BG.png", Texture.class);
-        imageOff = new Image(cardPlay.assetManager.get("setting/Off.png", Texture.class));
-        imageOn = new Image(cardPlay.assetManager.get("setting/On.png", Texture.class));
-        imageOn.setPosition(250, 400);
-        imageOff.setPosition(240, 320);
-        stage.addActor(imageOn);
-        stage.addActor(imageOff);
+        imageOff1 = new Image(cardPlay.assetManager.get("setting/Off.png", Texture.class));
+        imageOn1 = new Image(cardPlay.assetManager.get("setting/On.png", Texture.class));
+        imageOff2 = new Image(cardPlay.assetManager.get("setting/Off.png", Texture.class));
+        imageOn2 = new Image(cardPlay.assetManager.get("setting/On.png", Texture.class));
+        imageOn1.setPosition(250, 400);
+        imageOff1.setPosition(240, 400);
+        imageOn2.setPosition(250, 320);
+        imageOff2.setPosition(240, 320);
+        imageOn1.addListener(new ClickListener(){
+                @Override
+                public void clicked(InputEvent event, float x, float y){
+                    imageOn1.addAction(Actions.sequence(Actions.removeActor()));
+                    cardPlay.soundManager.stopBgm(0);
+                    stage.addActor(imageOff1);
+                    imageOff1.addAction(Actions.sequence(Actions.fadeIn(1f)));
+                }
+        });
+        imageOff1.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                imageOff1.addAction(Actions.sequence(Actions.removeActor()));
+                cardPlay.soundManager.playBgm(0);
+                stage.addActor(imageOn1);
+                imageOn1.addAction(Actions.sequence(Actions.fadeIn(1f)));
+            }
+        });
+        imageOn2.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                imageOn2.addAction(Actions.sequence(Actions.removeActor()));
+                cardPlay.soundManager.stopSfx(0);
+                stage.addActor(imageOff2);
+                imageOff2.addAction(Actions.sequence(Actions.fadeIn(1f)));
+            }
+        });
+        imageOff2.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                imageOff2.addAction(Actions.sequence(Actions.removeActor()));
+                //cardPlay.soundManager.playSfx(0);
+                stage.addActor(imageOn2);
+                imageOn2.addAction(Actions.sequence(Actions.fadeIn(1f)));
+            }
+        });
+        stage.addActor(imageOn1);
+        stage.addActor(imageOn2);
 
     }
 

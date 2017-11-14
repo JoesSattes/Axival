@@ -41,6 +41,9 @@ public class Menu implements Screen{
         prototypeM = cardPlay.assetManager.get("effect01.party");
         prototypeM.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         prototypeM.start();
+
+        //sound play
+        cardPlay.soundManager.playBgm(0);
     }
 
     @Override

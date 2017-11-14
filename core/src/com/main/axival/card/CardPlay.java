@@ -21,10 +21,12 @@ public class CardPlay extends Game{
 
     public AssetManager assetManager;
 
+    public SoundManager soundManager;
 
     @Override
     public void create(){
         assetManager = new AssetManager();
+        soundManager = new SoundManager();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         batch = new SpriteBatch();

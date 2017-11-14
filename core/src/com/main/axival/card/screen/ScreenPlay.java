@@ -84,7 +84,7 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
-        this.uIplay = new UIplay(this.cardPlay);
+        this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay);
 
         //set value from network
@@ -306,6 +306,23 @@ public class ScreenPlay implements Screen, InputProcessor{
         statusPhase[9] = 0;
     }
 
+    public void editStatusPhase(int index, int condition, int value){
+        //condition 0:+, 1:-, 2:*, 3:/
+        if (condition==0) {
+            statusPhase[index] += value;
+        }
+        else if (condition==1) {
+            statusPhase[index] -= value;
+        }
+        else if (condition==2) {
+            statusPhase[index] -= value;
+        }
+        else if (condition==3) {
+            statusPhase[index] -= value;
+        }
+        phaseAll();
+    }
+
     public void phaseAll(){
         if (statusPhase[2]==0){
             phaseInTurn();
@@ -316,16 +333,16 @@ public class ScreenPlay implements Screen, InputProcessor{
     }
 
     public void phaseInTurn(){
-        if(statusPhase[3]==0){
+        if(statusPhase[3]%5==0){
             drawPhase();
         }
-        if(statusPhase[3]==1 || statusPhase[3]==3){
+        if(statusPhase[3]%5==1 || statusPhase[3]%5==3){
             actionPhase();
         }
-        if(statusPhase[3]==2){
+        if(statusPhase[3]%5==2){
             travelPhase();
         }
-        if(statusPhase[3]==4){
+        if(statusPhase[3]%5==4){
             endPhase();
         }
     }
@@ -340,17 +357,16 @@ public class ScreenPlay implements Screen, InputProcessor{
     public void drawPhase(){
         cardAction.setPopupOff(true);
         if (statusPhase[0]==0){
-            setCardHandR(currentCard);
-            randomCard.setCardInHandIndex(currentCard);
-            cardHandAction(0);
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
                     currentCard++;
-                    setCardHandR(currentCard);
-                    randomCard.setCardInHandIndex(currentCard);
-                    cardHandAction(0);
-                    if (currentCard==9){
+                    if(currentCard<maxCard) {
+                        setCardHandR(currentCard);
+                        randomCard.setCardInHandIndex(currentCard);
+                        cardHandAction(0);
+                    }
+                    else {
                         Timer.instance().stop();
                     }
                 }
@@ -376,7 +392,7 @@ public class ScreenPlay implements Screen, InputProcessor{
 
 
     public void endPhase(){
-        cardAction.setPopupOff(false);
+        cardAction.setPopupOff(true);
     }
 
     public void waitPhase(){

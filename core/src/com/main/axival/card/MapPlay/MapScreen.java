@@ -415,30 +415,30 @@ public class MapScreen implements Screen {
         //render map
         game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT );
 
-        //render screen coordinates
-        font.draw(game.batch, "Screen Coordinates", 155, 660);
-        font.draw(game.batch, (int) screenCoordinates.x + " , "
-                + (int) Math.abs(mapPixelHeight-screenCoordinates.y), 190, 635);
-
-        //render hero coordinates
-        font.draw(game.batch, "Hero Coordinates (changed)", 400, 660);
-        font.draw(game.batch, (int) player.getCoordinates().x + " , " + (int) player.getCoordinates().y, 435, 635);
-
-        //render destination coordinates
-        font.draw(game.batch, "Destination Coordinates", 600, 660);
-        font.draw(game.batch, (int) player.getDes().x + " , " + (int) player.getDes().y, 635, 635);
-
-        //render walk coordinates
-        font.draw(game.batch, "Status", 800, 660);
-        font.draw(game.batch, Integer.toString(player.getWalking()), 820, 635);
-
-        //row-col coordinates
-        font.draw(game.batch, "Row-Column", 900, 660);
-        font.draw(game.batch, player.row + " , " + player.col, 920, 635);
-
-        //render walk coordinates
-        font.draw(game.batch, "Routing", 1000, 660);
-        font.draw(game.batch, Integer.toString(player.getWalking()), 1000, 635);
+//        //render screen coordinates
+//        font.draw(game.batch, "Screen Coordinates", 155, 660);
+//        font.draw(game.batch, (int) screenCoordinates.x + " , "
+//                + (int) Math.abs(mapPixelHeight-screenCoordinates.y), 190, 635);
+//
+//        //render hero coordinates
+//        font.draw(game.batch, "Hero Coordinates (changed)", 400, 660);
+//        font.draw(game.batch, (int) player.getCoordinates().x + " , " + (int) player.getCoordinates().y, 435, 635);
+//
+//        //render destination coordinates
+//        font.draw(game.batch, "Destination Coordinates", 600, 660);
+//        font.draw(game.batch, (int) player.getDes().x + " , " + (int) player.getDes().y, 635, 635);
+//
+//        //render walk coordinates
+//        font.draw(game.batch, "Status", 800, 660);
+//        font.draw(game.batch, Integer.toString(player.getWalking()), 820, 635);
+//
+//        //row-col coordinates
+//        font.draw(game.batch, "Row-Column", 900, 660);
+//        font.draw(game.batch, player.row + " , " + player.col, 920, 635);
+//
+//        //render walk coordinates
+//        font.draw(game.batch, "Routing", 1000, 660);
+//        font.draw(game.batch, Integer.toString(player.getWalking()), 1000, 635);
 
         //render specific tilemap
         overlay.showOverlay(player.col, player.row, player.walk);

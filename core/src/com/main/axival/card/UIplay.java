@@ -3,7 +3,14 @@ package com.main.axival.card;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.main.axival.card.screen.ScreenPlay;
+
 
 public class UIplay implements Screen{
     private Texture overlayLBottom, overlayRButtom, leftPlayer1, leftPlayer2, rightPlayer1, rightPlayer2;
@@ -16,8 +23,12 @@ public class UIplay implements Screen{
     private ScreenPlay screenPlay;
     private CardPlay cardPlay;
 
-    public UIplay(CardPlay cardPlay){
+    private Stage stage;
+    private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2;
+
+    public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         this.cardPlay = cardPlay;
+        this.screenPlay = screenPlay;
         overlayLBottom = new Texture("UI_Assets/Axival_UI_Assets/Overlay Bottom Left@1x.png");
         overlayRButtom = new Texture("UI_Assets/Axival_UI_Assets/Overlay Bottom Right@1x.png");
         leftPlayer1 = new Texture("UI_Assets/Axival_UI_Assets/Left Player 1@1x.png");
@@ -39,6 +50,42 @@ public class UIplay implements Screen{
         Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
         skill1 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
         skill2 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
+
+        nextPhaseImg = new Image(nextPhase);
+        nextPhaseImg.setPosition(550, 630);
+        nextPhaseImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                screenPlay.editStatusPhase(3, 0, 1);
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                nextPhaseImg.addAction(Actions.sequence(Actions.parallel(Actions.scaleTo(1.1f,1.1f,.5f),
+                        Actions.moveTo(540, 630, .5f))));
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                nextPhaseImg.addAction(Actions.sequence(Actions.parallel(Actions.scaleTo(1f,1f,.5f),
+                        Actions.moveTo(550, 630, .5f))));
+            }
+        });
+
+        leftPlayerImg1 = new Image(leftPlayer1);
+        leftPlayerImg2 = new Image(leftPlayer2);
+        rightPlayerImg1 = new Image(rightPlayer1);
+        rightPlayerImg2 = new Image(rightPlayer2);
+
+        leftPlayerImg1.setPosition(200,656);
+        leftPlayerImg2.setPosition(346, 656);
+        rightPlayerImg1.setPosition(778, 656);
+        rightPlayerImg2.setPosition(924,656);
+
+        screenPlay.stage.addActor(nextPhaseImg);
+        screenPlay.stage.addActor(leftPlayerImg1);
+        screenPlay.stage.addActor(leftPlayerImg2);
+        screenPlay.stage.addActor(rightPlayerImg1);
+        screenPlay.stage.addActor(rightPlayerImg2);
     }
 
     public void render(){
@@ -81,11 +128,11 @@ public class UIplay implements Screen{
     public void runningDraw(){
         cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
         cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
-        cardPlay.batch.draw(leftPlayer1,200,656, 166, 64);
-        cardPlay.batch.draw(leftPlayer2,346,656, 166, 64);
-        cardPlay.batch.draw(rightPlayer1,778,656, 166, 64);
-        cardPlay.batch.draw(rightPlayer2,924,656, 166, 64);
-        cardPlay.batch.draw(nextPhase,550,630, 197, 33);
+        //cardPlay.batch.draw(leftPlayer1,200,656, 166, 64);
+        //cardPlay.batch.draw(leftPlayer2,346,656, 166, 64);
+        //cardPlay.batch.draw(rightPlayer1,778,656, 166, 64);
+        //cardPlay.batch.draw(rightPlayer2,924,656, 166, 64);
+        //cardPlay.batch.draw(nextPhase,550,630, 197, 33);
         cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);
         cardPlay.batch.draw(overlaybigtop,0,600, 1280, 250);
         cardPlay.batch.draw(mana_right,1100,15, 14, 14);

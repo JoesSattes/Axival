@@ -58,4 +58,22 @@ public class SoundManager {
             //code sfx2
         }
     }
+    public boolean checkMusicStatusBgm(int statusSound){
+        if (statusSound==0){
+            return musicBg1.isPlaying();
+        }
+        else if (statusSound==1){
+            return musicBg2.isPlaying();
+        }
+        return false;
+    }
+    public boolean checkMusicStatusSfx(int statusSound){
+        if (statusSound==0){
+            return sfx.isPlaying();
+        }
+        else if (statusSound==1){
+            return false;
+        }
+        return false;
+    }
 }

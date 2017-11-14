@@ -42,8 +42,13 @@ public class Menu implements Screen{
         prototypeM.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         prototypeM.start();
 
-        //sound play
-        cardPlay.soundManager.playBgm(0);
+        //sound play bgm 0
+        if(cardPlay.soundManager.checkMusicStatusBgm(0)){
+            cardPlay.soundManager.playBgm(0);
+        }
+        else {
+            cardPlay.soundManager.stopBgm(0);
+        }
     }
 
     @Override
@@ -175,7 +180,17 @@ public class Menu implements Screen{
                 return true;
             }
         });
-
+        buttonImgExit.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("Exit");
+                Gdx.app.exit();
+                return true;
+            }
+        });
 
         stage.addActor(buttonImgPlay);
         stage.addActor(buttonImgSetting);

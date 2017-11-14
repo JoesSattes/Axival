@@ -72,8 +72,18 @@ public class SettingScreen implements Screen, InputProcessor{
                 imageOn2.addAction(Actions.sequence(Actions.fadeIn(1f)));
             }
         });
-        stage.addActor(imageOn1);
-        stage.addActor(imageOn2);
+        if(cardPlay.soundManager.checkMusicStatusBgm(0)) {
+            stage.addActor(imageOn1);
+        }
+        else {
+            stage.addActor(imageOff1);
+        }
+        if(cardPlay.soundManager.checkMusicStatusSfx(0)) {
+            stage.addActor(imageOn2);
+        }
+        else {
+            stage.addActor(imageOff2);
+        }
 
     }
 

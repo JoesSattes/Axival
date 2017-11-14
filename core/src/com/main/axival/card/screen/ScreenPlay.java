@@ -62,24 +62,26 @@ public class ScreenPlay implements Screen, InputProcessor{
 
 
     public ScreenPlay(final CardPlay cardPlay){
-
+        //set main render object and Input
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         this.cardCountPosY1 = 0;
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
+        //cursor change
         Pixmap pm = new Pixmap(Gdx.files.internal("cursorImage2.png"));
         Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth()/2, pm.getHeight()/2));
         pm.dispose();
 
+        //effect define
         prototype = new ParticleEffect();
         prototype = cardPlay.assetManager.get("effect01.party");
         prototype.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         prototype.start();
 
-        randomCard = new RandomCard(cardPlay);
-
+        //set parameter other class
+        this.randomCard = new RandomCard(cardPlay);
         this.cardDeck = randomCard.allCardDeck(maxCard);
         this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay);

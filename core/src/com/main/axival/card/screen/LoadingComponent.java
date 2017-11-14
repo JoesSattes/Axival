@@ -2,6 +2,7 @@ package com.main.axival.card.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -210,6 +211,10 @@ public class LoadingComponent implements Screen{
         cardPlay.assetManager.load("setting/On.png", Texture.class);
         cardPlay.assetManager.load("setting/setting.png", Texture.class);
 
+        //loading bgm and sfx
+        cardPlay.assetManager.load("sound/bgm/bgChase.ogg", Music.class);
+        cardPlay.assetManager.load("sound/bgm/bgFantasy.ogg", Music.class);
+        cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);
 
         cardPlay.assetManager.finishLoading();
     }

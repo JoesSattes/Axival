@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
@@ -38,6 +37,7 @@ public class RandomCard{
 
     private int[] countCardGenLimit;
     private int numGenLimit;
+    private List<Integer> collectLimit;
     public RandomCard(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
         this.cardAll = cardPlay.assetManager.get("cardani/spritesheet/cardAni.atlas", TextureAtlas.class);
@@ -57,10 +57,14 @@ public class RandomCard{
         setLimitCard();
         generateRandomLimit();
     }
-    public int generateRandom(int first, int last){
-        Random rand = new Random();
-        randResult = rand.nextInt(last-first+1)+first;
-        System.out.print(randResult);
+    public int generateRandom(int first, int last, int index){
+//        Random rand = new Random();
+//        randResult = rand.nextInt(last-first+1)+first;
+//        System.out.print(randResult);
+        randResult = collectLimit.get(index);
+        if(randResult==0){
+            randResult = 1;
+        }
         return randResult;
     }
     public Image getCard(int randResult)
@@ -75,7 +79,7 @@ public class RandomCard{
         Image[] cardDeck = new Image[maxCard];
         idenCardAll = new int[maxCard];
         for(int i=0;i<maxCard;i++){
-            randResult = generateRandom(1,7);
+            randResult = generateRandom(1,7, i);
             cardDeck[i] = getCard(randResult);
             cardDeck[i].setScale(.05f);
             cardDeck[i].setPosition(640-cardDeck[i].getWidth()/10, 700);
@@ -132,17 +136,22 @@ public class RandomCard{
     }
 
     public void generateRandomLimit(){
-        Random randomCardLimit = new Random();
-        countCardGenLimit = new int[23];
-        int count = 0;
-        while(count<23){
-            numGenLimit = generateRandom(1, 7);
-            if (countInArray(countCardGenLimit, numGenLimit) < limtCard.get(numGenLimit+"")) {
-                countCardGenLimit[count] = numGenLimit;
-                count++;
-            }
+//        countCardGenLimit = new int[23];
+//        int count = 0;
+//        while(count<23){
+//            numGenLimit = generateRandom(1, 7);
+//            if (countInArray(countCardGenLimit, numGenLimit) < limtCard.get(numGenLimit+"")) {
+//                countCardGenLimit[count] = numGenLimit;
+//                count++;
+//            }
+//        }
+//        System.out.println(countCardGenLimit+"");
+        collectLimit = new ArrayList<Integer>();
+        for(int i=0;i<=7;i++) {
+            addCollectAllCard(i);
         }
-        System.out.println(countCardGenLimit+"");
+        Collections.shuffle(collectLimit);
+        System.out.println(collectLimit+"");
     }
 
     public int countInArray(int[] numArray, int numCheck){
@@ -153,6 +162,12 @@ public class RandomCard{
             }
         }
         return countArray;
+    }
+
+    public void addCollectAllCard(int num){
+        for(int i=0; i<limtCard.get(num+"");i++){
+            collectLimit.add(num);
+        }
     }
 }
 

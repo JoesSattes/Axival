@@ -42,7 +42,7 @@ public class ScreenPlay implements Screen, InputProcessor{
     public boolean solveUp, solveDown, solveLeft, solveRight;
 
     public Image[] cardDeck;
-    private int maxCard=10, currentCard=0;
+    private int maxCard=23, currentCard=0;
 
     public int cardInHand=0;
     public float cardCountPosY1;
@@ -363,7 +363,6 @@ public class ScreenPlay implements Screen, InputProcessor{
             Timer.schedule(new Timer.Task() {
                 @Override
                 public void run() {
-                    currentCard++;
                     if(currentCard<maxCard) {
                         setCardHandR(currentCard);
                         randomCard.setCardInHandIndex(currentCard);
@@ -372,15 +371,16 @@ public class ScreenPlay implements Screen, InputProcessor{
                     else {
                         Timer.instance().stop();
                     }
+                    currentCard++;
                 }
             }, 3, 2);
         }
         else{
-            currentCard++;
             if (currentCard<maxCard){
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
                 cardHandAction(0);
+                currentCard++;
             }
         }
     }

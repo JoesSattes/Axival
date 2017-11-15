@@ -2,7 +2,6 @@ package com.main.axival.card;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -25,7 +24,9 @@ public class UIplay implements Screen{
     private Stage stage;
     private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2, skillImg1, skillImg2;
 
-    private Image skillCutInDark, skillCutInBlizard, skillCutInPriest;
+    private Image skillCutInDark, skillCutInBlizzard, skillCutInPriest;
+
+    private Image victoryImg, defeatImg;
 
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         this.cardPlay = cardPlay;
@@ -54,8 +55,16 @@ public class UIplay implements Screen{
 
         //skill cut in load asset
         skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
-        skillCutInBlizard = new Image(new Texture("skillCutin/Mage.png"));
+        skillCutInBlizzard = new Image(new Texture("skillCutin/Mage.png"));
         skillCutInPriest = new Image(new Texture("skillCutin/Priest.png"));
+
+        //result game cut in load asset
+        victoryImg = new Image(new Texture("result/win.png"));
+        defeatImg = new Image(new Texture("result/defeat.png"));
+        victoryImg.setScale(.1f);
+        defeatImg.setScale(.1f);
+        victoryImg.setPosition(640 - victoryImg.getWidth()/2, 360 - victoryImg.getHeight()/2);
+        defeatImg.setPosition(640, 300);
 
         nextPhaseImg = new Image(nextPhase);
         nextPhaseImg.setPosition(535, 630);
@@ -63,6 +72,7 @@ public class UIplay implements Screen{
             @Override
             public void clicked(InputEvent event, float x, float y){
                 screenPlay.editStatusPhase(3, 0, 1);
+                endGameCutIn();
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -217,7 +227,7 @@ public class UIplay implements Screen{
             skillAction(skillCutInDark);
         }
         else if (hero==1){
-            skillAction(skillCutInBlizard);
+            skillAction(skillCutInBlizzard);
         }
         else if (hero==2){
             skillAction(skillCutInPriest);
@@ -237,5 +247,26 @@ public class UIplay implements Screen{
                         Actions.fadeOut(1f)),
                         Actions.removeActor()));
     }
+
+    public void endGameCutIn(){
+        if (true){
+            victoryCutIn();
+        }
+        else {
+            defeatCutIn();
+        }
+    }
+
+    public void victoryCutIn(){
+        victoryImg.addAction(Actions.sequence(Actions.parallel(Actions.fadeIn(.2f),
+                Actions.scaleTo(.5f, .5f, .5f)),
+                Actions.delay(1f), Actions.fadeOut(.2f), Actions.removeActor()));
+        screenPlay.stage.addActor(victoryImg);
+    }
+
+    public void defeatCutIn(){
+
+    }
+
 }
 

@@ -24,6 +24,7 @@ import com.main.axival.card.MapPlay.Hero.State;
 import java.util.LinkedList;
 import java.util.List;
 
+import static java.lang.Math.floor;
 import static java.lang.Math.sqrt;
 
 public class MapScreen implements Screen {
@@ -126,7 +127,7 @@ public class MapScreen implements Screen {
 
         //create phase status
         statusPhase = new int[9];
-        statusPhase[1] = 4;
+        statusPhase[1] = 6;
         statusPhase[2] = 1;
         statusPhase[3] = 2;
         statusPhase[4] = 3;
@@ -147,17 +148,17 @@ public class MapScreen implements Screen {
                 job = statusPhase[i];
             }
             if (job == 1) {
-                player[i-1] = new Hero(this, board, board.getHeroCoordinates());
+                player[i-1] = new Hero(this, board, board.getHeroCoordinates(), 1);
                 player[i-1].setAtlas("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
                 player[i-1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
             }
             else if (job == 2) {
-                player[i-1] = new Hero(this, board, board.getHeroCoordinates());
+                player[i-1] = new Hero(this, board, board.getHeroCoordinates(), 2);
                 player[i-1].setAtlas("hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
                 player[i-1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
             }
             else {
-                player[i-1] = new Hero(this, board, board.getHeroCoordinates());
+                player[i-1] = new Hero(this, board, board.getHeroCoordinates(), 3);
                 player[i-1].setAtlas("hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
                 player[i-1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
             }
@@ -392,16 +393,29 @@ public class MapScreen implements Screen {
     }
 
     public void renderingHero(int idx) {
+        float errR = 0;
+        float errL = 0;
+        if (player[idx].job == 1) {
+            errL = -22f;
+        }
+        if (player[idx].job == 2) {
+            errR = 5f;
+            errL = 10f;
+        }
+        if (player[idx].job == 3) {
+            errR = -10f;
+            errL = -2f;
+        }
         if (player[idx].facing.compareTo(Hero.State.RIGHT) == 0) {
             game.batch.draw(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true),
                     player[idx].getCoordinates().x + (player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(),
-                            true).getRegionWidth()), player[idx].getCoordinates().y,
+                            true).getRegionWidth()) + errR, player[idx].getCoordinates().y,
                     -(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true).getRegionWidth()),
                     player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true).getRegionHeight());
         }
         else {
             game.batch.draw(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true),
-                    player[idx].getCoordinates().x - 20, player[idx].getCoordinates().y);
+                    player[idx].getCoordinates().x + errL, player[idx].getCoordinates().y);
         }
     }
 

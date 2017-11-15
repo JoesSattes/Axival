@@ -243,14 +243,11 @@ public class ScreenPlay implements Screen, InputProcessor{
                 float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
                 mapScreen.path = new LinkedList<Vector2>();
                 Vector2 goal = mapScreen.click.getRowCol(x, y);
-                mapScreen.player[mapScreen.idx].setGoal(goal);
+
+                mapScreen.player[mapScreen.idx].setSrc();
+
                 System.out.println("Column-Row = " + goal.x + "," + goal.y);
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));
-
-                //Bug when walk out from narrow way
-//                mapScreen.board.map[mapScreen.player[mapScreen.idx].row][mapScreen.player[mapScreen.idx].col].setObstacle(0);
-//                mapScreen.board.map[(int)goal.y][(int)goal.x].setObstacle(2);
-
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
             }

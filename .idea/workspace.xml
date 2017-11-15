@@ -2,158 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/alert_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/alert_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/alert_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/dead_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/dead_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/dead_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/dead_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/dead_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/dead_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/hit_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/hit_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/hit_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/stand_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/stand_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/stand_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingO3_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingO3_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingO3_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingOF_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingOF_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingOF_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/swingOF_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/walk_0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/walk_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/walk_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/rawSprites/walk_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/spritesheets/myspritesheet.atlas" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/assets/hero-imgs/spritesheets/myspritesheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Hud.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/AnimationTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapScreenBackup/MapScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Axivals.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Maps/Board.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Maps/MapInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Maps/MoveArea.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Maps/Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Scenes/Hud.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Screens/PlayScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Sprites/Hero$State.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/MapTest/Sprites/Hero.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/TestCard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/TestGdx.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardHand.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/CardPlay.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/Menu$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/Menu$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/Menu$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/Menu$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/Menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/RandomCard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/screen/LoadingComponent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/backup/screen/ScreenPlay.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/button/ButtonTest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/button/ButtonTest$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/button/ButtonTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/card/CardSet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/card/hand/HandMain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/card/hand/RandomCard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/card/screen/CardScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/card/screen/LoadingScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/effect/Effect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/group/test/GroupDemo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/loading/libgdxloadingscreen/LoadingBar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/loading/libgdxloadingscreen/SomeCoolGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/loading/libgdxloadingscreen/screen/AbstractScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/loading/libgdxloadingscreen/screen/LoadingScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/loading/libgdxloadingscreen/screen/MainMenuScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/menu/BlackPoint2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/menu/MenuTest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/menu/MenuTest$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/menu/MenuTest$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/menu/MenuTest$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/menu/MenuTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/screen/ActionTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/out/production/classes/com/testgdx/game/screen/screenin/SplashScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hud.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/AnimationTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapScreenBackup/MapScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Axivals.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Maps/Board.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Maps/MapInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Maps/MoveArea.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Maps/Node.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Scenes/Hud.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Screens/PlayScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Screens/PlayScreen.rar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/MapTest/Sprites/Hero.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/TestGdx.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardAction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardHand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/CardPlay.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/Menu.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/RandomCard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/screen/LoadingComponent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/backup/screen/ScreenPlay.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/button/ButtonTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/CardSet.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/hand/HandMain.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/hand/RandomCard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/screen/CardScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/card/screen/LoadingScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/effect/Effect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/group/test/GroupDemo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/loading/libgdxloadingscreen/LoadingBar.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/loading/libgdxloadingscreen/SomeCoolGame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/loading/libgdxloadingscreen/screen/AbstractScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/loading/libgdxloadingscreen/screen/LoadingScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/loading/libgdxloadingscreen/screen/MainMenuScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/menu/BlackPoint2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/menu/MenuTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/screen/ActionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/testgdx/game/screen/screenin/SplashScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/ActionRun.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/AnimationRun.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/BackupTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/ButtonRun.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/DesktopLauncher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/EffectRun.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/GroupTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/LoadingTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/MapRun.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/testgdx/game/desktop/RunCard.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/ActionRun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/AnimationRun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/BackupTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/ButtonRun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/DesktopLauncher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/EffectRun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/GroupTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/LoadingTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/MapRun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/RunCard.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/CardPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/CardPlay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Board.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Hero.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Hero.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MapOverlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MapOverlay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MapScreen.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MapScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Navigator.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Navigator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/screen/ScreenPlay.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/CardPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Board.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapOverlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapOverlay.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
@@ -193,50 +43,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="245" column="60" lean-forward="false" selection-start-line="245" selection-start-column="60" selection-end-line="245" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="82" column="33" lean-forward="true" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
-              <folding>
-                <element signature="e#2456#2457#0" expanded="true" />
-                <element signature="e#2507#2508#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Navigator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="60" column="132" lean-forward="false" selection-start-line="60" selection-start-column="132" selection-end-line="60" selection-end-column="132" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#316#317#0" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MapScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2322">
-              <caret line="362" column="0" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
+            <state relative-caret-position="423">
+              <caret line="394" column="39" lean-forward="false" selection-start-line="394" selection-start-column="39" selection-end-line="394" selection-end-column="39" />
               <folding>
                 <element signature="method#MapScreen#0;class#MapScreen#0" expanded="false" />
+                <element signature="method#settingHero#0;class#MapScreen#0" expanded="false" />
+                <element signature="method#simulatedInput#0;class#MapScreen#0" expanded="false" />
                 <element signature="method#fontDrawDebugging#0;class#MapScreen#0" expanded="false" />
                 <element signature="method#renderingHero#0;class#MapScreen#0" expanded="false" />
                 <element signature="method#updateAllplayer#0;class#MapScreen#0" expanded="false" />
@@ -246,6 +61,43 @@
                 <element signature="method#hide#0;class#MapScreen#0" expanded="false" />
                 <element signature="method#dispose#0;class#MapScreen#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+              <folding>
+                <element signature="e#2508#2509#0" expanded="true" />
+                <element signature="e#2559#2560#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Navigator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#316#317#0" expanded="true" />
+                <element signature="e#352#353#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreenPlay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="246" column="57" lean-forward="false" selection-start-line="246" selection-start-column="57" selection-end-line="246" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -290,7 +142,10 @@
       <find>mapScreen</find>
       <find>statusP</find>
       <find>si</find>
+      <find>rendering</find>
+      <find>sett</find>
       <find>update</find>
+      <find>renderin</find>
     </findStrings>
     <replaceStrings>
       <replace>new Image(new Texture</replace>
@@ -302,8 +157,8 @@
       <replace />
       <replace>mapScreen.player[mapScreen.idx]</replace>
       <replace>Wizard</replace>
-      <replace>screen</replace>
       <replace>Priest</replace>
+      <replace>screen</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\ProjectOOP\Axival\core\src\com\testgdx\game</dir>
@@ -1039,10 +894,10 @@
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/MapScreenBackup/MapScreen.java" />
         <option value="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/DesktopLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapOverlay.java" />
-        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" />
+        <option value="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
       </list>
     </option>
   </component>
@@ -1378,7 +1233,7 @@
       <workItem from="1510375796604" duration="184000" />
       <workItem from="1510397999240" duration="747000" />
       <workItem from="1510398834044" duration="276000" />
-      <workItem from="1510589812552" duration="18549000" />
+      <workItem from="1510589812552" duration="21764000" />
     </task>
     <task id="LOCAL-00001" summary="test commit from new branch">
       <created>1510402217790</created>
@@ -1394,11 +1249,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510402492834</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="4 player &amp; class, overlay error, walk phase">
+      <created>1510771667104</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1510771667104</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66797000" />
+    <option name="totallyTimeSpent" value="70012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1425,7 +1287,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2099359" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24012893" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.074939564" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1434,7 +1296,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903846" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1511,7 +1373,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test commit from new branch" />
     <MESSAGE value="simplified simulatedInput" />
-    <option name="LAST_COMMIT_MESSAGE" value="simplified simulatedInput" />
+    <MESSAGE value="4 player &amp; class, overlay error, walk phase" />
+    <option name="LAST_COMMIT_MESSAGE" value="4 player &amp; class, overlay error, walk phase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1813,10 +1676,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2322">
-          <caret line="362" column="0" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
+        <state relative-caret-position="423">
+          <caret line="394" column="39" lean-forward="false" selection-start-line="394" selection-start-column="39" selection-end-line="394" selection-end-column="39" />
           <folding>
             <element signature="method#MapScreen#0;class#MapScreen#0" expanded="false" />
+            <element signature="method#settingHero#0;class#MapScreen#0" expanded="false" />
+            <element signature="method#simulatedInput#0;class#MapScreen#0" expanded="false" />
             <element signature="method#fontDrawDebugging#0;class#MapScreen#0" expanded="false" />
             <element signature="method#renderingHero#0;class#MapScreen#0" expanded="false" />
             <element signature="method#updateAllplayer#0;class#MapScreen#0" expanded="false" />
@@ -1831,16 +1696,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="245" column="60" lean-forward="false" selection-start-line="245" selection-start-column="60" selection-end-line="245" selection-end-column="60" />
+        <state relative-caret-position="123">
+          <caret line="246" column="57" lean-forward="false" selection-start-line="246" selection-start-column="57" selection-end-line="246" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="60" column="132" lean-forward="false" selection-start-line="60" selection-start-column="132" selection-end-line="60" selection-end-column="132" />
+        <state relative-caret-position="29">
+          <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#316#317#0" expanded="true" />
@@ -1851,11 +1716,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="82" column="33" lean-forward="true" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
+        <state relative-caret-position="187">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding>
-            <element signature="e#2456#2457#0" expanded="true" />
-            <element signature="e#2507#2508#0" expanded="true" />
+            <element signature="e#2508#2509#0" expanded="true" />
+            <element signature="e#2559#2560#0" expanded="true" />
           </folding>
         </state>
       </provider>

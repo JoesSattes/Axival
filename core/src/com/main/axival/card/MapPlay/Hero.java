@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Hero extends TextureAtlas {
     public enum State {STANDING, WALKING, ATTACKING1, ATTACKING2, ALERT, HIT, DEAD, LEFT, RIGHT};
+    public int job;
     public int col;
     public int row;
     public String action;
@@ -18,19 +19,20 @@ public class Hero extends TextureAtlas {
     private Texture img;
     private TextureAtlas atlas;
     private Animation<TextureRegion> animation;
-    private Vector2 coordinates, des, goal;
+    private Vector2 coordinates, des, src;
     private float frameDuration;
     private float elapsedTime = 1f;
     private static int walking=0;
     private MapScreen screen;
     private Board board;
 
-    public Hero(MapScreen screen, Board board, Vector2 vector) {
+    public Hero(MapScreen screen, Board board, Vector2 vector, int job) {
+        this.job = job;
         this.screen = screen;
         this.board = board;
         this.row = (int) vector.y;
         this.col = (int) vector.x;
-        this.goal = new Vector2(col, row);
+        this.src = new Vector2(col, row);
         this.des = new Vector2();
         this.coordinates = new Vector2();
         this.coordinates.set(board.map[row][col].corX , board.map[row][col].corY);
@@ -63,7 +65,7 @@ public class Hero extends TextureAtlas {
         this.des.set(x, y);
     }
     public void setRowCol(int row, int col) {this.row = row; this.col = col; }
-    public void setGoal(Vector2 goal) { this.goal = goal; }
+    public void setSrc() { this.src = new Vector2(col, row); }
 
     public Vector2 getCoordinates() {
         return this.coordinates;
@@ -72,7 +74,7 @@ public class Hero extends TextureAtlas {
     public Vector2 getRowCol() {
         return new Vector2(this.col, this.row);
     }
-    public Vector2 getGoal() { return this.goal;}
+    public Vector2 getSrc() { return this.src;}
 
     public void setAtlas(String path) {
         this.atlas = new TextureAtlas(path);

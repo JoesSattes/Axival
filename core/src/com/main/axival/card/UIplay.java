@@ -106,11 +106,33 @@ public class UIplay implements Screen{
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //show describe
+                skillImg1.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 //not show describe
+                skillImg1.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
+            }
+        });
+
+        skillImg2.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+                skillCutIn(1);
+
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+                skillImg2.addAction(Actions.sequence(Actions.scaleTo(1.1f, 1.1f, .5f)));
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+                skillImg2.addAction(Actions.sequence(Actions.scaleTo(1f, 1f, .5f)));
             }
         });
 

@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/skillCutin/DarkTemp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/skillCutin/Mage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/skillCutin/Priest.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/UIplay$1.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/UIplay$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/UIplay$2.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/UIplay$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/UIplay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/UIplay.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java" />
     </list>
@@ -64,8 +58,8 @@
       <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="216" column="44" lean-forward="false" selection-start-line="216" selection-start-column="44" selection-end-line="216" selection-end-column="44" />
+            <state relative-caret-position="281">
+              <caret line="124" column="13" lean-forward="true" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1217,12 +1211,12 @@
       <workItem from="1510643523034" duration="6345000" />
       <workItem from="1510676997026" duration="9649000" />
       <workItem from="1510732351136" duration="1334000" />
-      <workItem from="1510747265123" duration="7182000" />
+      <workItem from="1510747265123" duration="7622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101266000" />
+    <option name="totallyTimeSpent" value="101706000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1672,8 +1666,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="216" column="44" lean-forward="false" selection-start-line="216" selection-start-column="44" selection-end-line="216" selection-end-column="44" />
+        <state relative-caret-position="281">
+          <caret line="124" column="13" lean-forward="true" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -24,7 +24,7 @@ public class UIplay implements Screen{
     private CardPlay cardPlay;
 
     private Stage stage;
-    private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2;
+    private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2, skillImg1, skillImg2;
 
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         this.cardPlay = cardPlay;
@@ -81,11 +81,21 @@ public class UIplay implements Screen{
         rightPlayerImg1.setPosition(778, 656);
         rightPlayerImg2.setPosition(924,656);
 
+        skillImg1 = new Image(skill1);
+        skillImg2 = new Image(skill2);
+
+        skillImg1.setPosition(860,10);
+        skillImg1.setSize(62,55);
+        skillImg2.setPosition(860, 65);
+        skillImg2.setSize(62,55);
+
         screenPlay.stage.addActor(nextPhaseImg);
         screenPlay.stage.addActor(leftPlayerImg1);
         screenPlay.stage.addActor(leftPlayerImg2);
         screenPlay.stage.addActor(rightPlayerImg1);
         screenPlay.stage.addActor(rightPlayerImg2);
+        screenPlay.stage.addActor(skillImg1);
+        screenPlay.stage.addActor(skillImg2);
     }
 
     public void render(){
@@ -98,31 +108,6 @@ public class UIplay implements Screen{
 
     @Override
     public void render(float delta) {
-        cardPlay.batch.draw(overlayLBottom, 0, 0, 235, 125);
-        cardPlay.batch.draw(overlayRButtom,1045,0, 235, 125);
-        cardPlay.batch.draw(leftPlayer1,200,656, 166, 64);
-        cardPlay.batch.draw(leftPlayer2,346,656, 166, 64);
-        cardPlay.batch.draw(rightPlayer1,778,656, 166, 64);
-        cardPlay.batch.draw(rightPlayer2,924,656, 166, 64);
-        cardPlay.batch.draw(nextPhase,550,630, 197, 33);
-        cardPlay.batch.draw(overlaybigbottom,0,0, 1280, 250);
-        cardPlay.batch.draw(overlaybigtop,0,600, 1280, 250);
-        cardPlay.batch.draw(mana_right,1100,15, 14, 14);
-        cardPlay.batch.draw(mana_right,1100,50, 14, 14);
-        cardPlay.batch.draw(mana_right,1100,85, 14, 14);
-        cardPlay.batch.draw(sword,1240,15, 26, 26);
-        cardPlay.batch.draw(shield,1240,50, 20, 24);
-        cardPlay.batch.draw(shoe,1240,85, 26, 24);
-        cardPlay.batch.draw(mana_left,10,25, 25, 25);
-        cardPlay.batch.draw(heart_left,10,70, 25, 25);
-        cardPlay.batch.draw(Heart_colour,230,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,300,645, 13, 13);
-        cardPlay.batch.draw(Heart_colour,370,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,440,645, 13, 13);
-        cardPlay.batch.draw(Heart_colour,818,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,888,645, 13, 13);
-        cardPlay.batch.draw(Heart_colour,958,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,1028,645, 13, 13);
     }
 
     public void runningDraw(){
@@ -151,8 +136,8 @@ public class UIplay implements Screen{
         cardPlay.batch.draw(Mana_colour,888,645, 13, 13);
         cardPlay.batch.draw(Heart_colour,958,645, 13, 13);
         cardPlay.batch.draw(Mana_colour,1028,645, 13, 13);
-        cardPlay.batch.draw(skill1, 860,10, 62, 55);
-        cardPlay.batch.draw(skill2, 860,65, 62,55);
+        //cardPlay.batch.draw(skill1, 860,10, 62, 55);
+        //cardPlay.batch.draw(skill2, 860,65, 62,55);
     }
     @Override
     public void resize(int width, int height) {

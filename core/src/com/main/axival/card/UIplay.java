@@ -26,6 +26,8 @@ public class UIplay implements Screen{
     private Stage stage;
     private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2, skillImg1, skillImg2;
 
+    private Image skillCutInDark, skillCutInBlizard, skillCutInPriest;
+
     public UIplay(CardPlay cardPlay, final ScreenPlay screenPlay){
         this.cardPlay = cardPlay;
         this.screenPlay = screenPlay;
@@ -50,6 +52,11 @@ public class UIplay implements Screen{
         Mana_colour = new Texture("UI_Assets/Axival_UI_Assets/Mana Mini Playerbar@1x.png");
         skill1 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
         skill2 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
+
+        //skill cut in load asset
+        skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
+        skillCutInBlizard = new Image(new Texture("skillCutin/Mage.png"));
+        skillCutInPriest = new Image(new Texture("skillCutin/Priest.png"));
 
         nextPhaseImg = new Image(nextPhase);
         nextPhaseImg.setPosition(535, 630);
@@ -93,6 +100,8 @@ public class UIplay implements Screen{
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
+                skillCutIn(1);
+
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
@@ -180,6 +189,32 @@ public class UIplay implements Screen{
     @Override
     public void dispose() {
 
+    }
+
+    public void skillCutIn(int hero){
+        if (hero==0){
+            skillAction(skillCutInDark);
+        }
+        else if (hero==1){
+            skillAction(skillCutInBlizard);
+        }
+        else if (hero==2){
+            skillAction(skillCutInPriest);
+        }
+    }
+
+    public void skillAction(Image heros){
+        heros.setPosition(1280,0);
+        heros.setScale(.206f);
+        // use 2 second
+        screenPlay.stage.addActor(heros);
+        heros.addAction(Actions.sequence(Actions.alpha(0f),
+                Actions.parallel(Actions.fadeIn(.5f),
+                        Actions.moveTo(800, 0, 1f)),
+                Actions.delay(.5f),
+                Actions.parallel(Actions.moveTo(-1280,0,.3f),
+                        Actions.fadeOut(1f)),
+                        Actions.removeActor()));
     }
 }
 

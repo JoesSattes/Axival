@@ -52,7 +52,7 @@ public class UIplay implements Screen{
         skill2 = new Texture("UI_Assets/Axival_UI_Assets/Skill@1x.png");
 
         nextPhaseImg = new Image(nextPhase);
-        nextPhaseImg.setPosition(550, 630);
+        nextPhaseImg.setPosition(535, 630);
         nextPhaseImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -61,13 +61,13 @@ public class UIplay implements Screen{
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 nextPhaseImg.addAction(Actions.sequence(Actions.parallel(Actions.scaleTo(1.1f,1.1f,.5f),
-                        Actions.moveTo(540, 630, .5f))));
+                        Actions.moveTo(525, 630, .5f))));
             }
 
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
                 nextPhaseImg.addAction(Actions.sequence(Actions.parallel(Actions.scaleTo(1f,1f,.5f),
-                        Actions.moveTo(550, 630, .5f))));
+                        Actions.moveTo(535, 630, .5f))));
             }
         });
 
@@ -76,10 +76,10 @@ public class UIplay implements Screen{
         rightPlayerImg1 = new Image(rightPlayer1);
         rightPlayerImg2 = new Image(rightPlayer2);
 
-        leftPlayerImg1.setPosition(200,656);
-        leftPlayerImg2.setPosition(346, 656);
-        rightPlayerImg1.setPosition(778, 656);
-        rightPlayerImg2.setPosition(924,656);
+        leftPlayerImg1.setPosition(100,646);
+        leftPlayerImg2.setPosition(246, 646);
+        rightPlayerImg1.setPosition(878, 646);
+        rightPlayerImg2.setPosition(1024,646);
 
         skillImg1 = new Image(skill1);
         skillImg2 = new Image(skill2);
@@ -88,6 +88,22 @@ public class UIplay implements Screen{
         skillImg1.setSize(62,55);
         skillImg2.setPosition(860, 65);
         skillImg2.setSize(62,55);
+
+        skillImg1.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y){
+                //play skill cut-in
+            }
+            @Override
+            public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //show describe
+            }
+
+            @Override
+            public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                //not show describe
+            }
+        });
 
         screenPlay.stage.addActor(nextPhaseImg);
         screenPlay.stage.addActor(leftPlayerImg1);
@@ -123,19 +139,21 @@ public class UIplay implements Screen{
         cardPlay.batch.draw(mana_right,1100,15, 14, 14);
         cardPlay.batch.draw(mana_right,1100,50, 14, 14);
         cardPlay.batch.draw(mana_right,1100,85, 14, 14);
+        cardPlay.batch.draw(turn_line, 435, 670);
+        cardPlay.batch.draw(turn_line, 435, 690);
         cardPlay.batch.draw(sword,1240,15, 26, 26);
         cardPlay.batch.draw(shield,1240,50, 20, 24);
         cardPlay.batch.draw(shoe,1240,85, 26, 24);
         cardPlay.batch.draw(mana_left,10,25, 25, 25);
         cardPlay.batch.draw(heart_left,10,70, 25, 25);
-        cardPlay.batch.draw(Heart_colour,230,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,300,645, 13, 13);
-        cardPlay.batch.draw(Heart_colour,370,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,440,645, 13, 13);
-        cardPlay.batch.draw(Heart_colour,818,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,888,645, 13, 13);
-        cardPlay.batch.draw(Heart_colour,958,645, 13, 13);
-        cardPlay.batch.draw(Mana_colour,1028,645, 13, 13);
+        cardPlay.batch.draw(Heart_colour,125,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,200,635, 13, 13);
+        cardPlay.batch.draw(Heart_colour,270,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,340,635, 13, 13);
+        cardPlay.batch.draw(Heart_colour,893,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,963,635, 13, 13);
+        cardPlay.batch.draw(Heart_colour,1038,635, 13, 13);
+        cardPlay.batch.draw(Mana_colour,1108,635, 13, 13);
         //cardPlay.batch.draw(skill1, 860,10, 62, 55);
         //cardPlay.batch.draw(skill2, 860,65, 62,55);
     }

@@ -55,11 +55,12 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private MapScreen mapScreen;
 
-    private int[] statusPhase;
+    public int[] statusPhase;
 
     private long startTime = 0;
     private int countInLoop = 0;
 
+    private CalculatorManager calculatorManager;
 
     public ScreenPlay(final CardPlay cardPlay){
         //set main render object and Input
@@ -86,6 +87,7 @@ public class ScreenPlay implements Screen, InputProcessor{
         this.cardAction = new CardAction(this);
         this.uIplay = new UIplay(this.cardPlay, this);
         this.mapScreen = new MapScreen(this.cardPlay);
+        this.calculatorManager = new CalculatorManager(this, mapScreen);
 
         //set value from network
         this.statusPhase = new int[10];

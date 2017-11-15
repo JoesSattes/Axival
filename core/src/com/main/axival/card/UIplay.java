@@ -18,7 +18,6 @@ public class UIplay implements Screen{
     private Texture Heart_colour, Mana_colour;
     private Texture heart_left;
     private Texture skill1, skill2;
-    private SpriteBatch batch;
 
     private ScreenPlay screenPlay;
     private CardPlay cardPlay;
@@ -120,7 +119,7 @@ public class UIplay implements Screen{
             @Override
             public void clicked(InputEvent event, float x, float y){
                 //play skill cut-in
-                skillCutIn(1);
+                skillCutIn(0);
 
             }
             @Override

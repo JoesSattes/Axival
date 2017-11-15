@@ -28,7 +28,7 @@ public class Board {
     };
 
     public Node[][] map;
-    private LinkedList<Vector2> list, path, area, area1, area2, ways, temp;
+    private LinkedList<Vector2> list, path, area, area1, area2, ways, temp, HeroCoordinates;;
     private Node n;
 
     public Board(MapScreen screen) {
@@ -43,6 +43,11 @@ public class Board {
                 map[y][x] = new Node(x, y, corX, corY, detail[y][x]);
             }
         }
+        HeroCoordinates = new LinkedList<Vector2>();
+        HeroCoordinates.add(new Vector2(0,0));
+        HeroCoordinates.add(new Vector2(23,0));
+        HeroCoordinates.add(new Vector2(0,12));
+        HeroCoordinates.add(new Vector2(23,12));
     }
 
     public List<Vector2> getPath(Vector2 source, Vector2 destination) {
@@ -177,5 +182,9 @@ public class Board {
                 map[row][col].setLevel(0);
             }
         }
+    }
+
+    public Vector2 getHeroCoordinates() {
+        return HeroCoordinates.pop();
     }
 }

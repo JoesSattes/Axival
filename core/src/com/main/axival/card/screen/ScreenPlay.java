@@ -142,7 +142,7 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     public void update(float delta)
     {
-        mapScreen.update(delta);
+//        mapScreen.update(delta);
         stage.act(delta);
         prototype.update(delta);
     }
@@ -197,6 +197,9 @@ public class ScreenPlay implements Screen, InputProcessor{
         if (keycode==Input.Keys.P && currentCard<maxCard){
             cardHandAction();
         }
+        if (keycode==Input.Keys.Z) {
+
+        }
         return false;
     }
 
@@ -227,10 +230,10 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        //Gdx.app.log("Mouse", "Down");
         Vector2 rowcol = mapScreen.click.getRowCol(screenX, Math.abs(mapScreen.mapPixelHeight - screenY));
         List<Vector2> area = new LinkedList<Vector2>();
-        area.addAll(mapScreen.board.getArea(mapScreen.player.col, mapScreen.player.row, mapScreen.player.walk));
+        area.addAll(mapScreen.board.getOverlay(mapScreen.player[mapScreen.idx].col,
+                mapScreen.player[mapScreen.idx].row, mapScreen.player[mapScreen.idx].walk));
         if (!mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() && mapScreen.walker.getRoute() == 0
                 && area.contains(rowcol)) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
@@ -240,43 +243,49 @@ public class ScreenPlay implements Screen, InputProcessor{
                 float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
                 mapScreen.path = new LinkedList<Vector2>();
                 Vector2 goal = mapScreen.click.getRowCol(x, y);
+                mapScreen.player[mapScreen.idx].setGoal(goal);
                 System.out.println("Column-Row = " + goal.x + "," + goal.y);
-                mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player.getRowCol(), goal));
-                mapScreen.walker.setPath(mapScreen.player.getRowCol(), mapScreen.path);
+                mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));
+
+                //Bug when walk out from narrow way
+//                mapScreen.board.map[mapScreen.player[mapScreen.idx].row][mapScreen.player[mapScreen.idx].col].setObstacle(0);
+//                mapScreen.board.map[(int)goal.y][(int)goal.x].setObstacle(2);
+
+                mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
             }
         }
         return false;
     }
 
-            @Override
-            public boolean touchUp ( int screenX, int screenY, int pointer, int button)
-            {
-                Gdx.app.log("Mouse", "Up");
-                return false;
-            }
+    @Override
+    public boolean touchUp ( int screenX, int screenY, int pointer, int button)
+    {
+        Gdx.app.log("Mouse", "Up");
+        return false;
+    }
 
-            @Override
-            public boolean touchDragged ( int screenX, int screenY, int pointer)
-            {
-                Gdx.app.log("Mouse", "Dragged");
+    @Override
+    public boolean touchDragged ( int screenX, int screenY, int pointer)
+    {
+        Gdx.app.log("Mouse", "Dragged");
 
-                return false;
-            }
+        return false;
+    }
 
-            @Override
-            public boolean mouseMoved ( int screenX, int screenY)
-            {
+    @Override
+    public boolean mouseMoved ( int screenX, int screenY)
+    {
                 //Gdx.app.log("Mouse Position", screenX+", "+screenY);
                 //rendexX = screenX - texture.getWidth();
                 //renderY = Gdx.graphics.getHeight() - screenY - texture.getHeight();
-                return false;
-            }
+        return false;
+    }
 
-            @Override
-            public boolean scrolled ( int amount)
-            {
-                //Gdx.app.log("Mouse", "Scroll :"+amount);
-                return false;
-            }
-        }
+    @Override
+    public boolean scrolled ( int amount)
+    {
+        //Gdx.app.log("Mouse", "Scroll :"+amount);
+        return false;
+    }
+}

@@ -1,7 +1,6 @@
 package com.main.axival.card.MapPlay;
 
 import com.badlogic.gdx.math.Vector2;
-
 import java.util.List;
 
 public class Navigator {
@@ -9,6 +8,11 @@ public class Navigator {
     private Vector2 start, temp;
     private Vector2[] path;
     private int routing=0;
+    private MapScreen screen;
+
+    public Navigator(MapScreen screen) {
+        this.screen = screen;
+    }
 
     public void setPath(Vector2 start, List<Vector2> path) {
         this.path = (Vector2[]) path.toArray(new Vector2[path.size()]);
@@ -53,6 +57,15 @@ public class Navigator {
         else {
             this.ptr = 0;
             this.route = 0;
+            screen.board.map[screen.player[screen.idx].row][screen.player[screen.idx].col].setObstacle(0);
+            screen.board.map[(int)screen.player[screen.idx].getGoal().y][(int)screen.player[screen.idx].getGoal().x].setObstacle(2);
+            System.out.println("In Turn of player " + (screen.idx+1));
+            if (screen.idx  == 3) {
+                screen.idx = 0;
+            }
+            else {
+                screen.idx += 1;
+            }
         }
 
     }

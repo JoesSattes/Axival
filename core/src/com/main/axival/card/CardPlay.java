@@ -30,7 +30,6 @@ public class CardPlay extends Game{
         batch = new SpriteBatch();
         bitmapFont = new BitmapFont();
         bitmapFont.setColor(Color.WHITE);
-
         this.setScreen(new LoadingComponent(this));
     }
 

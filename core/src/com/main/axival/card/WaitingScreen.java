@@ -17,11 +17,11 @@ public class WaitingScreen implements Screen{
 
     public WaitingScreen(CardPlay cardPlay){
         this.cardPlay = cardPlay;
+        animationWaiting = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("waiting/loading2.gif").read());
     }
 
     @Override
     public void show() {
-        animationWaiting = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("waiting/loading2.gif").read());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class WaitingScreen implements Screen{
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         cardPlay.batch.end();
         if (statusAlready || timePlay>10){
-            cardPlay.setScreen(new ScreenPlay(cardPlay));
+            cardPlay.setScreen(new SelectHeroScreen(cardPlay));
         }
     }
 

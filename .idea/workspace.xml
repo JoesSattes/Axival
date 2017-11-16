@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Hero.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Hero.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MapScreen.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/MapScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Navigator.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/MapPlay/Navigator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/screen/ScreenPlay.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/screen/ScreenPlay.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Hero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/MapScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/MapPlay/Navigator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/screen/ScreenPlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -1233,7 +1233,7 @@
       <workItem from="1510375796604" duration="184000" />
       <workItem from="1510397999240" duration="747000" />
       <workItem from="1510398834044" duration="276000" />
-      <workItem from="1510589812552" duration="21764000" />
+      <workItem from="1510589812552" duration="23532000" />
     </task>
     <task id="LOCAL-00001" summary="test commit from new branch">
       <created>1510402217790</created>
@@ -1256,11 +1256,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510771667104</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix? walk &amp; overlay bugs.">
+      <created>1510774862566</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1510774862566</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70012000" />
+    <option name="totallyTimeSpent" value="71780000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1374,7 +1381,8 @@
     <MESSAGE value="test commit from new branch" />
     <MESSAGE value="simplified simulatedInput" />
     <MESSAGE value="4 player &amp; class, overlay error, walk phase" />
-    <option name="LAST_COMMIT_MESSAGE" value="4 player &amp; class, overlay error, walk phase" />
+    <MESSAGE value="fix? walk &amp; overlay bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix? walk &amp; overlay bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

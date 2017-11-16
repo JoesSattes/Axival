@@ -20,7 +20,7 @@ public class SelectHeroScreen implements Screen{
 
     private Stage stage;
 
-    private Image darkTempImg, blizzImg, priestImg, darkTempOn, blizzOn, priestOn;
+    private Image darkTempImg, wizardImg, priestImg, darkTempOn, wizardOn, priestOn;
 
     private int selectHero;
 
@@ -31,8 +31,8 @@ public class SelectHeroScreen implements Screen{
 
         darkTempImg = new Image(new Texture("hero-select/DT.jpg"));
         darkTempOn = new Image(new Texture("hero-select/DTHover.jpg"));
-        blizzImg = new Image(new Texture("hero-select/Mage.jpg"));
-        blizzOn = new Image(new Texture("hero-select/Mage.jpg"));
+        wizardImg = new Image(new Texture("hero-select/Mage.jpg"));
+        wizardOn = new Image(new Texture("hero-select/MageHover.jpg"));
         priestImg = new Image(new Texture("hero-select/Priest.jpg"));
         priestOn = new Image(new Texture("hero-select/PriestHover.jpg"));
 
@@ -73,26 +73,26 @@ public class SelectHeroScreen implements Screen{
             }
         });
 
-        blizzImg.setScale(.172f);
-        blizzImg.setPosition(darkTempImg.getWidth()*.172f, 130);
-        blizzOn.setScale(.172f);
-        blizzOn.setPosition(darkTempImg.getWidth()*.172f, 130);
-        blizzImg.addListener(new ClickListener(){
+        wizardImg.setScale(.172f);
+        wizardImg.setPosition(darkTempImg.getWidth()*.172f, 130);
+        wizardOn.setScale(.172f);
+        wizardOn.setPosition(darkTempImg.getWidth()*.172f, 130);
+        wizardImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 1;
             }
             @Override
             public void enter(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                blizzOn.addAction(Actions.sequence(Actions.fadeIn(.7f)));
-                stage.addActor(blizzOn);
+                wizardOn.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                stage.addActor(wizardOn);
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                blizzImg.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                wizardImg.addAction(Actions.sequence(Actions.fadeIn(.7f)));
             }
         });
-        blizzOn.addListener(new ClickListener(){
+        wizardOn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
                 selectHero = 1;
@@ -103,15 +103,15 @@ public class SelectHeroScreen implements Screen{
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                blizzOn.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor()));
-                stage.addActor(blizzImg);
+                wizardOn.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.removeActor()));
+                stage.addActor(wizardImg);
             }
         });
 
         priestImg.setScale(.172f);
-        priestImg.setPosition(blizzImg.getWidth()*.172f + darkTempImg.getWidth()*.172f, 130);
+        priestImg.setPosition(wizardImg.getWidth()*.172f + darkTempImg.getWidth()*.172f, 130);
         priestOn.setScale(.172f);
-        priestOn.setPosition(blizzImg.getWidth()*.172f + darkTempImg.getWidth()*.172f, 130);
+        priestOn.setPosition(wizardImg.getWidth()*.172f + darkTempImg.getWidth()*.172f, 130);
         priestImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -144,7 +144,7 @@ public class SelectHeroScreen implements Screen{
         });
 
         stage.addActor(priestImg);
-        stage.addActor(blizzImg);
+        stage.addActor(wizardImg);
         stage.addActor(darkTempImg);
     }
 

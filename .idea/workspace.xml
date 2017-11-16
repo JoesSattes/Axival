@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fdcd8c6-0e3b-475e-b865-1db045939ab1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/hero-select/MageHover.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/SelectHeroScreen.class" afterPath="$PROJECT_DIR$/core/out/production/classes/com/main/axival/card/SelectHeroScreen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/main/axival/card/SelectHeroScreen.java" afterPath="$PROJECT_DIR$/core/src/com/main/axival/card/SelectHeroScreen.java" />
     </list>
@@ -58,19 +60,57 @@
       <file leaf-file-name="SelectHeroScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/SelectHeroScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
+            <state relative-caret-position="220">
+              <caret line="107" column="13" lean-forward="true" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1830#1831#0" expanded="true" />
-                <element signature="e#1876#1877#0" expanded="true" />
-                <element signature="e#3420#3421#0" expanded="true" />
-                <element signature="e#3466#3467#0" expanded="true" />
-                <element signature="e#4073#4074#0" expanded="true" />
-                <element signature="e#4119#4120#0" expanded="true" />
-                <element signature="e#5593#5594#0" expanded="true" />
-                <element signature="e#5639#5640#0" expanded="true" />
+                <marker date="1510843847054" expanded="false" signature="1839:1857" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="1872:1886" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="3434:3452" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="3467:3481" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="4091:4109" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="4124:4138" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="4958:4976" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="4991:5005" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="5615:5633" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="5648:5662" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="6554:6564" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="6581:6587" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="6648:6659" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="6708:6714" ph=" }" />
+                <marker date="1510843847054" expanded="false" signature="6899:6910" ph=" { " />
+                <marker date="1510843847054" expanded="false" signature="6926:6932" ph=" }" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnimationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/AnimationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestCard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIplay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2774">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,12 +143,14 @@
       <find>vic</find>
       <find>dis</find>
       <find>.175f</find>
+      <find>blizz</find>
     </findStrings>
     <replaceStrings>
       <replace>new Image(new Texture</replace>
       <replace>2.5</replace>
       <replace>[Integer.parseInt(screenPlay.randomCard.getCountCardInHand().get(0))]</replace>
       <replace>.172f</replace>
+      <replace>wizard</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -840,7 +882,6 @@
         <option value="$PROJECT_DIR$/desktop/src/com/testgdx/game/desktop/SouncTest.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/PhasePlay.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/CardAction.java" />
-        <option value="$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java" />
         <option value="$PROJECT_DIR$/core/src/com/testgdx/game/sound/SoundDemoFx.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/screen/LoadingComponent.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/SoundManager.java" />
@@ -857,6 +898,7 @@
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/Menu.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/selectHeroScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/WaitingScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java" />
         <option value="$PROJECT_DIR$/core/src/com/main/axival/card/SelectHeroScreen.java" />
       </list>
     </option>
@@ -888,6 +930,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -905,13 +951,6 @@
               <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Axival-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="hero-select" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Axival-game" type="b2602c69:ProjectViewProjectNode" />
@@ -998,10 +1037,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1012,20 +1047,20 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/core/src/com/testgdx/game/loading" />
-      <recent name="$PROJECT_DIR$/core/assets/load" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.testgdx.game.MapScreenBackup" />
-      <recent name="com.main.axival.card.screen" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/assets/hero-select" />
       <recent name="$PROJECT_DIR$/core/assets/waiting" />
       <recent name="$PROJECT_DIR$/core/assets/result" />
       <recent name="$PROJECT_DIR$/core/assets/skillCutin" />
       <recent name="$PROJECT_DIR$/core/assets/sound/fx" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.testgdx.game.MapScreenBackup" />
+      <recent name="com.main.axival.card.screen" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/src/com/testgdx/game/loading" />
+      <recent name="$PROJECT_DIR$/core/assets/load" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1238,12 +1273,13 @@
       <workItem from="1510732351136" duration="1334000" />
       <workItem from="1510747265123" duration="12964000" />
       <workItem from="1510808515377" duration="9349000" />
-      <workItem from="1510833317084" duration="4365000" />
+      <workItem from="1510833317084" duration="5623000" />
+      <workItem from="1510843071273" duration="446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120762000" />
+    <option name="totallyTimeSpent" value="122466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1266,20 +1302,20 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32658958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251445" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3404864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34549356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1420,7 +1456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1428,9 +1463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1445,9 +1477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
           <caret line="74" column="25" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1455,7 +1484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="215" column="55" lean-forward="false" selection-start-line="215" selection-start-column="55" selection-end-line="215" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1463,9 +1491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="64" column="11" lean-forward="false" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1580,68 +1605,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="127" column="27" lean-forward="false" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/backend/CalculatedManager.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/CalculatorManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#709#710#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/screen/GifDecoder.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/AnimationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/GifDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="736" column="1" lean-forward="false" selection-start-line="736" selection-start-column="1" selection-end-line="736" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2864#2865#0" expanded="false" />
-            <element signature="e#2902#2903#0" expanded="false" />
-            <element signature="e#4722#4723#0" expanded="false" />
-            <element signature="e#4755#4756#0" expanded="false" />
-            <element signature="e#4926#4927#0" expanded="false" />
-            <element signature="e#4960#4961#0" expanded="false" />
-            <element signature="e#5169#5170#0" expanded="false" />
-            <element signature="e#5201#5202#0" expanded="false" />
-            <element signature="e#13488#13489#0" expanded="false" />
-            <element signature="e#13530#13531#0" expanded="false" />
-            <element signature="e#22940#22955#0" expanded="false" />
-            <element signature="e#23483#23498#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1654,7 +1633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-87">
           <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1662,7 +1640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="57" column="11" lean-forward="false" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1670,7 +1647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="209" column="8" lean-forward="false" selection-start-line="209" selection-start-column="8" selection-end-line="209" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1698,20 +1674,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/AnimationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/testgdx/game/TestCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/UIplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2774">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/main/axival/card/SelectHeroScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
+        <state relative-caret-position="220">
+          <caret line="107" column="13" lean-forward="true" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1876#1877#0" expanded="true" />
-            <element signature="e#3420#3421#0" expanded="true" />
-            <element signature="e#3466#3467#0" expanded="true" />
-            <element signature="e#4073#4074#0" expanded="true" />
-            <element signature="e#4119#4120#0" expanded="true" />
-            <element signature="e#5593#5594#0" expanded="true" />
-            <element signature="e#5639#5640#0" expanded="true" />
+            <marker date="1510843847054" expanded="false" signature="1839:1857" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="1872:1886" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="3434:3452" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="3467:3481" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="4091:4109" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="4124:4138" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="4958:4976" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="4991:5005" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="5615:5633" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="5648:5662" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="6554:6564" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="6581:6587" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="6648:6659" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="6708:6714" ph=" }" />
+            <marker date="1510843847054" expanded="false" signature="6899:6910" ph=" { " />
+            <marker date="1510843847054" expanded="false" signature="6926:6932" ph=" }" />
           </folding>
         </state>
       </provider>

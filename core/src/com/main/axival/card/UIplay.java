@@ -63,7 +63,7 @@ public class UIplay implements Screen{
         defeatImg = new Image(new Texture("result/defeat.png"));
         victoryImg.setScale(.1f);
         defeatImg.setScale(.1f);
-        victoryImg.setPosition(640 - victoryImg.getWidth()/2, 360 - victoryImg.getHeight()/2);
+        victoryImg.setPosition(6 - victoryImg.getWidth()/2, 360 - victoryImg.getHeight()/2);
         defeatImg.setPosition(640, 300);
 
         nextPhaseImg = new Image(nextPhase);

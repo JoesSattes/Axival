@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -26,6 +27,7 @@ import java.util.List;
 
 import static java.lang.Math.floor;
 import static java.lang.Math.sqrt;
+import static java.lang.Math.toIntExact;
 
 public class MapScreen implements Screen {
     //status phase variable
@@ -46,6 +48,7 @@ public class MapScreen implements Screen {
     private TiledMap hexes;
     private HexagonalTiledMapRenderer renderer;
     private MapOverlay overlay;
+    private Texture[] tile;
 
     // Width and Height from Map Properties variables
     MapProperties prop;
@@ -108,7 +111,7 @@ public class MapScreen implements Screen {
         board = new Board(this);
 
         //create map
-        map = new Texture("map-imgs/no-grid-map.png");
+        map = new Texture("map-imgs/no-grid-map2.png");
         overlay = new MapOverlay(board, game.batch);
 
         //create onClick
@@ -127,10 +130,17 @@ public class MapScreen implements Screen {
 
         //create phase status
         statusPhase = new int[9];
-        statusPhase[1] = 6;
+        statusPhase[1] = 4;
         statusPhase[2] = 1;
-        statusPhase[3] = 2;
-        statusPhase[4] = 3;
+        statusPhase[3] = 1;
+        statusPhase[4] = 1;
+
+        //create Hero Overlay
+        tile = new Texture[4];
+        tile[0] = new Texture("map-imgs/ol red.png");
+        tile[1] = new Texture("map-imgs/ol green.png");
+        tile[2] = new Texture("map-imgs/ol orange.png");
+        tile[3] = new Texture("map-imgs/ol violet.png");
 
         //create hero and set spritesheet
         player = new Hero[4];
@@ -406,6 +416,8 @@ public class MapScreen implements Screen {
             errR = -10f;
             errL = -2f;
         }
+        game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
+                tile[idx].getWidth() * 0.75f, tile[idx].getHeight() * 0.75f);
         if (player[idx].facing.compareTo(Hero.State.RIGHT) == 0) {
             game.batch.draw(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true),
                     player[idx].getCoordinates().x + (player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(),
@@ -462,6 +474,13 @@ public class MapScreen implements Screen {
         renderingHero(1);
         renderingHero(2);
         renderingHero(3);
+
+//        if (player[0].ability[3].getFrame() > player[0].ability[3].stateTime()*5) {
+//            game.batch.draw(player[0].ability[3].getSkillAction(delta).getKeyFrame(player[0].ability[3].stateTime(),
+//                    true), 400, 200);
+//        }
+        game.batch.draw(player[0].ability[1].getSkillAction(delta).getKeyFrame(player[0].ability[1].stateTime(),
+                true), 400, 200);
 
         game.batch.end();
     }

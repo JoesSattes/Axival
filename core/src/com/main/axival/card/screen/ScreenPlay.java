@@ -244,7 +244,8 @@ public class ScreenPlay implements Screen, InputProcessor{
                 mapScreen.path = new LinkedList<Vector2>();
                 Vector2 goal = mapScreen.click.getRowCol(x, y);
 
-                mapScreen.player[mapScreen.idx].setSrc();
+                mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col,
+                        mapScreen.player[mapScreen.idx].row);
 
                 System.out.println("Column-Row = " + goal.x + "," + goal.y);
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));

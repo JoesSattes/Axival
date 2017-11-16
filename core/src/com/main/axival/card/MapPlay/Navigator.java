@@ -57,15 +57,15 @@ public class Navigator {
         else {
             this.ptr = 0;
             this.route = 0;
-//            screen.board.map[screen.player[screen.idx].row][screen.player[screen.idx].col].setObstacle(0);
-//            screen.board.map[(int)screen.player[screen.idx].getGoal().y][(int)screen.player[screen.idx].getGoal().x].setObstacle(2);
+            screen.board.map[(int)screen.player[screen.idx].getSource().y][(int)screen.player[screen.idx].getSource().x].setObstacle(0);
+            screen.board.map[(int)screen.player[screen.idx].row][(int)screen.player[screen.idx].col].setObstacle(2);
             System.out.println("In Turn of player " + (screen.idx+1));
-//            if (screen.idx  == 3) {
-//                screen.idx = 0;
-//            }
-//            else {
-//                screen.idx += 1;
-//            }
+            if (screen.idx  == 3) {
+                screen.idx = 0;
+            }
+            else {
+                screen.idx += 1;
+            }
         }
 
     }

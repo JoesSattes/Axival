@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 public class Hero extends TextureAtlas {
-    public enum State {STANDING, WALKING, ATTACKING1, ATTACKING2, ALERT, HIT, DEAD, LEFT, RIGHT};
+    public enum State {STANDING, WALKING, LEFT, RIGHT};
     public int job;
     public int col;
     public int row;
@@ -15,19 +15,40 @@ public class Hero extends TextureAtlas {
     public State facing;
     public State currentState;
     public State previousState;
-    public int walk=10;
+    public int walk=4;
+    public Skill[] ability;
+    private int frameC=0;
     private Texture img;
-    private TextureAtlas atlas;
+    private TextureAtlas atlas, skill;
     private Animation<TextureRegion> animation;
     private Vector2 coordinates, des, src;
     private float frameDuration;
-    private float elapsedTime = 1f;
+    private float elapsedTime = 0f;
     private static int walking=0;
     private MapScreen screen;
     private Board board;
 
     public Hero(MapScreen screen, Board board, Vector2 vector, int job) {
         this.job = job;
+        ability = new Skill[4];
+        if (job == 1) {
+            ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[1] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas", "cd4");
+//            ability[2] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[3] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas", "dt3");
+        }
+        else if (job == 2) {
+            ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[1] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[2] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[3] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas", "wz3");
+        }
+        else {
+            ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[1] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[2] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+            ability[3] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
+        }
         this.screen = screen;
         this.board = board;
         this.row = (int) vector.y;
@@ -44,6 +65,7 @@ public class Hero extends TextureAtlas {
 
     public void update(float dt) {
         this.elapsedTime += dt;
+        if (elapsedTime > 100) { elapsedTime = 0;}
     }
 
     public float getElapsedTime() {
@@ -85,25 +107,7 @@ public class Hero extends TextureAtlas {
         float frameDuration=0.3f;
         if (this.currentState.compareTo(State.WALKING) == 0) {
             action = "walk1"; }
-//        if (this.currentState.compareTo(State.ATTACKING1) == 0) {
-//            action = "swingO3";
-//            frameDuration = 0.2f;
-//        }
-//        if (this.currentState.compareTo(State.ATTACKING2) == 0) {
-//            action = "swingOF";
-//            frameDuration = 0.15f;
-//        }
-//        if (this.currentState.compareTo(State.ALERT) == 0) {
-//            action = "alert";
-//        }
-//        if (this.currentState.compareTo(State.HIT) == 0) {
-//            action = "hit";
-//        }
-//        if (this.currentState.compareTo(State.DEAD) == 0) {
-//            action = "dead";
-//        }
         return new Animation<TextureRegion>(frameDuration, this.atlas.findRegions(action));
-
     }
 
     public void setFacing(State facing) {
@@ -113,5 +117,13 @@ public class Hero extends TextureAtlas {
     public void setCurrentState(State currentState) {
         this.previousState = this.currentState;
         this.currentState = currentState;
+    }
+
+    public void setSource(int col, int row) {
+        this.src.set(col, row);
+    }
+
+    public Vector2 getSource() {
+        return src;
     }
 }

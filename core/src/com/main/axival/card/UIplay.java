@@ -24,7 +24,7 @@ public class UIplay implements Screen{
     private Stage stage;
     private Image nextPhaseImg, leftPlayerImg1, leftPlayerImg2, rightPlayerImg1, rightPlayerImg2, skillImg1, skillImg2;
 
-    private Image skillCutInDark, skillCutInBlizzard, skillCutInPriest;
+    private Image skillCutInDark, skillCutInWizard, skillCutInPriest;
 
     private Image victoryImg, defeatImg;
 
@@ -55,7 +55,7 @@ public class UIplay implements Screen{
 
         //skill cut in load asset
         skillCutInDark = new Image(new Texture("skillCutin/DarkTemp.png"));
-        skillCutInBlizzard = new Image(new Texture("skillCutin/Mage.png"));
+        skillCutInWizard = new Image(new Texture("skillCutin/Mage.png"));
         skillCutInPriest = new Image(new Texture("skillCutin/Priest.png"));
 
         //result game cut in load asset
@@ -227,7 +227,7 @@ public class UIplay implements Screen{
             skillAction(skillCutInDark);
         }
         else if (hero==1){
-            skillAction(skillCutInBlizzard);
+            skillAction(skillCutInWizard);
         }
         else if (hero==2){
             skillAction(skillCutInPriest);

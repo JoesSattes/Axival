@@ -2,10 +2,7 @@ package com.main.axival.card.screen;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.ai.btree.decorator.Repeat;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -16,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -409,5 +407,20 @@ public class ScreenPlay implements Screen, InputProcessor{
     public void chainPhase(){
         //show you when other player do something about you
 
+    }
+
+    public static Texture getTexture(){
+
+        Pixmap pixmap;
+        try {
+            pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+        }catch (GdxRuntimeException e)
+        {
+            pixmap = new Pixmap(1,1, Pixmap.Format.RGB565);
+        }
+        pixmap.setColor(Color.WHITE);
+        pixmap.drawRectangle(0,0,1,1);
+
+        return new Texture(pixmap);
     }
 }

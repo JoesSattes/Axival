@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
@@ -173,6 +174,8 @@ public class Menu implements Screen{
             }
         });
 
+
+
         buttonImgSetting.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -217,9 +220,13 @@ public class Menu implements Screen{
         cardPlay.batch.end();
         stage.draw();
 
+        //stage.getRoot().setColor(.2f, 1, 1, 0);
+        //stage.getRoot().addAction(Actions.sequence(Actions.fadeIn(3f)));
+
         if(prototypeM.isComplete()){
             prototypeM.reset();
         }
+
     }
 
     @Override

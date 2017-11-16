@@ -4,8 +4,13 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.main.axival.card.screen.LoadingComponent;
 
 public class CardPlay extends Game{
@@ -23,12 +28,15 @@ public class CardPlay extends Game{
 
     public SoundManager soundManager;
 
+    public Stage transitionStage;
+
     @Override
     public void create(){
         assetManager = new AssetManager();
         soundManager = new SoundManager();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        transitionStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         batch = new SpriteBatch();
         bitmapFont = new BitmapFont();
         bitmapFont.setColor(Color.WHITE);
@@ -59,5 +67,20 @@ public class CardPlay extends Game{
             System.out.println("Total Memory"+Runtime.getRuntime().totalMemory());
             // Java's garbage-collected clean Memory Not use
             System.out.println("Free Memory"+Runtime.getRuntime().freeMemory());
+    }
+
+    public static Texture getTexture(){
+
+        Pixmap pixmap;
+        try {
+            pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+        }catch (GdxRuntimeException e)
+        {
+            pixmap = new Pixmap(1,1, Pixmap.Format.RGB565);
+        }
+        pixmap.setColor(Color.WHITE);
+        pixmap.drawRectangle(0,0,1,1);
+
+        return new Texture(pixmap);
     }
 }

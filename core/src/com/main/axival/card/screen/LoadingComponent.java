@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
@@ -17,9 +18,11 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.main.axival.card.CardPlay;
 import com.main.axival.card.Menu;
+import com.main.axival.card.TransitionScreen;
 
 public class LoadingComponent implements Screen{
 
@@ -79,7 +82,8 @@ public class LoadingComponent implements Screen{
         progress = MathUtils.lerp(progress, cardPlay.assetManager.getProgress(), .1f);
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
             //cardPlay.setScreen(new ScreenPlay(cardPlay));
-            cardPlay.setScreen(new Menu(cardPlay));
+            //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
+            cardPlay.setScreen(new TransitionScreen(cardPlay));
         }
     }
 
@@ -217,5 +221,20 @@ public class LoadingComponent implements Screen{
         cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);
 
         cardPlay.assetManager.finishLoading();
+    }
+
+    public static Texture getTexture(){
+
+        Pixmap pixmap;
+        try {
+            pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+        }catch (GdxRuntimeException e)
+        {
+            pixmap = new Pixmap(1,1, Pixmap.Format.RGB565);
+        }
+        pixmap.setColor(Color.WHITE);
+        pixmap.drawRectangle(0,0,1,1);
+
+        return new Texture(pixmap);
     }
 }

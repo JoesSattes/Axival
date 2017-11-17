@@ -218,9 +218,6 @@ public class ScreenPlay implements Screen, InputProcessor{
         if (keycode== Input.Keys.RIGHT){
             solveRight = false;
         }
-        if (keycode== Input.Keys.S){
-
-        }
         return false;
     }
 

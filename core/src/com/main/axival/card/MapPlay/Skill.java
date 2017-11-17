@@ -30,7 +30,7 @@ public class Skill {
     }
 
     public void update(float delta) {
-        elapsetime += delta;
+        this.elapsetime += delta;
         if (elapsetime > 100) { elapsetime = 0;}
     }
 }

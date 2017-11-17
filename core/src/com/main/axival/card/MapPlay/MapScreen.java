@@ -160,17 +160,17 @@ public class MapScreen implements Screen {
                 job = statusPhase[i];
             }
             if (job == 1) {
-                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(), 1);
-                player[i - 1].setAtlas("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
-                player[i - 1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
+                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
+                        1, "hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
+//                player[i - 1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
             } else if (job == 2) {
-                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(), 2);
-                player[i - 1].setAtlas("hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
-                player[i - 1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
+                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
+                        2, "hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
+//                player[i - 1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
             } else {
-                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(), 3);
-                player[i - 1].setAtlas("hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
-                player[i - 1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
+                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(),
+                        3, "hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
+//                player[i - 1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
             }
             if (i % 2 == 0) {
                 player[i - 1].setFacing(Hero.State.LEFT);

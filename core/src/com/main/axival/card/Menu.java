@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.main.axival.card.fade.FadingGame;
+import com.main.axival.card.input.MyTextInputListener;
 import com.main.axival.card.screen.ScreenPlay;
 
 public class Menu implements Screen{
@@ -34,6 +35,8 @@ public class Menu implements Screen{
     private ParticleEffect prototypeM;
     private ParticleEffectPool pool;
     private Array<ParticleEffectPool.PooledEffect> effect;
+
+    private MyTextInputListener listener;
 
     public Menu(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
@@ -55,6 +58,9 @@ public class Menu implements Screen{
 
         //check memory
         cardPlay.javaFreeMem();
+
+        //input dialog
+        this.listener = new MyTextInputListener(stage, cardPlay);
     }
 
     @Override
@@ -83,7 +89,10 @@ public class Menu implements Screen{
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("Menu");
                 //cardPlay.setScreen(new ScreenPlay(cardPlay));
-                cardPlay.setScreen(new WaitingScreen(cardPlay));
+                stage.getRoot().setColor(.2f, 1, 1, 1);
+                stage.getRoot().addAction(Actions.sequence(Actions.parallel(Actions.fadeOut(1f), Actions.scaleTo(.1f, .1f, 1f))));
+                Gdx.input.getTextInput(listener, "Network IP Address", "Please Input your Network IP Address", "192.168.1.0");
+                //cardPlay.setScreen(new WaitingScreen(cardPlay));
                 return true;
             }
         });
@@ -148,6 +157,10 @@ public class Menu implements Screen{
         prototypeM.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();
+
+        if (listener.getInput()!=null){
+            cardPlay.setScreen(new WaitingScreen(cardPlay));
+        }
 
         //stage.getRoot().setColor(.2f, 1, 1, 0);
         //stage.getRoot().addAction(Actions.sequence(Actions.fadeIn(3f)));

@@ -23,7 +23,7 @@ public class TransitionScreen implements Screen{
     private Screen first;
     private Stage stage;
     private Texture texture;
-    private Image _transitionImage;
+    private Image _transitionImage, image;
     private Action _screenFadeOutAction, _screenFadeInAction;
     public TransitionScreen(CardPlay cardPlay){
         this.cardPlay = cardPlay;
@@ -59,41 +59,53 @@ public class TransitionScreen implements Screen{
             }
         };
     }
-
-    @Override
-    public void show() {
-        final Image image= new Image(new TextureRegion(getTexture()));
+    public void setWhiteStartFade(){
+        image= new Image(new TextureRegion(getTexture()));
+        image.setSize(cardPlay.transitionStage.getWidth(),cardPlay.transitionStage.getHeight());
+        image.setOrigin(cardPlay.transitionStage.getWidth()/2,cardPlay.transitionStage.getHeight()/2);
+        image.setColor(Color.WHITE);
+    }
+    public void setBlackStartFade(){
+        image = new Image(new TextureRegion(getTexture()));
         image.setSize(cardPlay.transitionStage.getWidth(),cardPlay.transitionStage.getHeight());
         image.setOrigin(cardPlay.transitionStage.getWidth()/2,cardPlay.transitionStage.getHeight()/2);
         image.setColor(Color.BLACK);
+    }
 
-        cardPlay.transitionStage.addActor(image);
-        image.addAction(Actions.sequence(Actions.color(Color.BLACK,1), Actions.run(new Runnable() {
-            @Override
-            public void run() {
-                cardPlay.setScreen(new Menu(cardPlay));
-                System.out.println("in fade");
-            }
-        })));
-        /*
-        cardPlay.transitionStage.addListener(new ClickListener(){
+    public Image getImage(){
+        return image;
+    }
 
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
+    public void setFade(int colorId){
+        if(colorId==0){
+            setWhiteStartFade();
+            cardPlay.transitionStage.addActor(getImage());
+            image.addAction(Actions.sequence(Actions.color(Color.WHITE,1), Actions.run(new Runnable() {
+                @Override
+                public void run() {
+                    cardPlay.setScreen(new Menu(cardPlay));
+                    System.out.println("in fade");
+                }
+            })));
+            image.addAction(Actions.sequence(Actions.color(Color.BLACK,1)));
+        }
+        else if(colorId==1){
+            setBlackStartFade();
+            cardPlay.transitionStage.addActor(getImage());
+            image.addAction(Actions.sequence(Actions.color(Color.BLACK,1), Actions.run(new Runnable() {
+                @Override
+                public void run() {
+                    cardPlay.setScreen(new Menu(cardPlay));
+                    System.out.println("in fade");
+                }
+            })));
+            image.addAction(Actions.sequence(Actions.color(Color.WHITE,1)));
+        }
+    }
 
-                image.addAction(Actions.sequence(Actions.color(Color.BLACK,2),Actions.run(new Runnable() {
-                    @Override
-                    public void run() {
-                        ((CardPlay) Gdx.app.getApplicationListener()).setScreen(new Menu(cardPlay));
-                        System.out.println("in fade");
-                    }
-                })));
-
-                super.clicked(event, x, y);
-            }
-        });*/
-
-        image.addAction(Actions.sequence(Actions.color(Color.WHITE,1)));
+    @Override
+    public void show() {
+        setFade(0);
     }
 
     public static Texture getTexture(){

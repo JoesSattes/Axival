@@ -1,6 +1,9 @@
 package com.main.axival.card.MapPlay;
 
 import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.utils.Array;
+
+import java.util.ArrayList;
 
 public class Skill {
     private String name;
@@ -11,6 +14,7 @@ public class Skill {
     private Animation<TextureRegion> animation;
     public Skill(String atlasPath, String name) {
         this.name = name;
+        this.frame = frame;
         this.atlas = new TextureAtlas(atlasPath);
         this.frame = atlas.getRegions().size;
     }
@@ -19,19 +23,14 @@ public class Skill {
         atlas = new TextureAtlas(path);
     }
 
-    public Animation<TextureRegion> getSkillAction(float delta) {
-        elapsetime += delta;
-        if (elapsetime > 100) { elapsetime = 0; }
-        System.out.println("elapsetime = " + elapsetime );
-        animation = new Animation<TextureRegion>(0.2f, this.atlas.findRegions(name));
+    public Animation<TextureRegion> getSkillAction(float deltaTime) {
+        Array<TextureAtlas.AtlasRegion> array = atlas.findRegions(name);
+        animation = new Animation<TextureRegion>((float)deltaTime/(float)array.size, array);
         return animation;
     }
 
-    public float stateTime() {
-        return elapsetime;
-    }
-
-    public int getFrame() {
-        return frame;
+    public void update(float delta) {
+        elapsetime += delta;
+        if (elapsetime > 100) { elapsetime = 0;}
     }
 }

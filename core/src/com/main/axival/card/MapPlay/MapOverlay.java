@@ -25,13 +25,11 @@ public class MapOverlay {
             for (int x = 0; x < 24; x++) {
                 if (!board.map[y][x].isObstacle()) {
                     if (area.contains(new Vector2(x,y))) {
-                        batch.draw(tile, board.map[y][x].corX + 5 ,
-                                board.map[y][x].corY,
+                        batch.draw(tile, board.map[y][x].corX + 5 , board.map[y][x].corY,
                                 tile.getWidth() * 0.85f, tile.getHeight() * 0.85f);
                     }
                     else {
-                        batch.draw(tile2, board.map[y][x].corX + 5 ,
-                                board.map[y][x].corY,
+                        batch.draw(tile2, board.map[y][x].corX + 5 , board.map[y][x].corY,
                                 tile.getWidth() * 0.85f, tile.getHeight() * 0.85f);
                     }
                 }

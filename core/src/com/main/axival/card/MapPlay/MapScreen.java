@@ -31,7 +31,7 @@ import static java.lang.Math.toIntExact;
 
 public class MapScreen implements Screen {
     //status phase variable
-    private int[] statusPhase;
+    public int[] statusPhase;
 
     //order variable
     int order;
@@ -41,14 +41,13 @@ public class MapScreen implements Screen {
     private Viewport gamePort;
 
     //map variables
-    private Texture map;
+    private Texture map, tile[];
 
     //Tiled map variables
     private TmxMapLoader mapLoader;
     private TiledMap hexes;
     private HexagonalTiledMapRenderer renderer;
     private MapOverlay overlay;
-    private Texture[] tile;
 
     // Width and Height from Map Properties variables
     MapProperties prop;
@@ -68,7 +67,7 @@ public class MapScreen implements Screen {
 
     //Hero variables
     public Hero[] player;
-    public int idx=0;
+    public int idx = 0;
 
     //Board variables
     public Board board;
@@ -82,7 +81,7 @@ public class MapScreen implements Screen {
     //Navigator variable
     public Navigator walker;
 
-    int ipctrl=0;
+    int ipctrl = 0;
 
     public MapScreen(CardPlay game) {
 
@@ -91,7 +90,7 @@ public class MapScreen implements Screen {
         gamecam = new OrthographicCamera();
 
         //create a FitViewport to maintain virtual aspect ratio despite
-        gamePort = new FitViewport(CardPlay.V_WIDTH , CardPlay.V_HEIGHT, gamecam);
+        gamePort = new FitViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, gamecam);
 
         //Load our map and setup our map renderer
         mapLoader = new TmxMapLoader();
@@ -106,6 +105,13 @@ public class MapScreen implements Screen {
         tilePixelHeight = prop.get("tileheight", Integer.class);
         mapPixelWidth = mapWidth * tilePixelWidth;
         mapPixelHeight = mapHeight * tilePixelHeight;
+
+
+        tile = new Texture[4];
+        tile[0] = new Texture("map-imgs/ol red.png");
+        tile[1] = new Texture("map-imgs/ol green.png");
+        tile[2] = new Texture("map-imgs/ol orange.png");
+        tile[3] = new Texture("map-imgs/ol violet.png");
 
         //create board
         board = new Board(this);
@@ -134,13 +140,10 @@ public class MapScreen implements Screen {
         statusPhase[2] = 1;
         statusPhase[3] = 1;
         statusPhase[4] = 1;
+        statusPhase[5] = 0;
 
-        //create Hero Overlay
-        tile = new Texture[4];
-        tile[0] = new Texture("map-imgs/ol red.png");
-        tile[1] = new Texture("map-imgs/ol green.png");
-        tile[2] = new Texture("map-imgs/ol orange.png");
-        tile[3] = new Texture("map-imgs/ol violet.png");
+        //set actionPhase
+        statusPhase[6] = 1;
 
         //create hero and set spritesheet
         player = new Hero[4];
@@ -149,33 +152,30 @@ public class MapScreen implements Screen {
 
     public void settingHero() {
         int job;
-        for (int i=1; i<5; i++) {
+        for (int i = 1; i < 5; i++) {
             if (statusPhase[i] > 3) {
-                order = statusPhase[i]-3;
+                order = statusPhase[i] - 3;
                 job = order;
-            }
-            else {
+            } else {
                 job = statusPhase[i];
             }
             if (job == 1) {
-                player[i-1] = new Hero(this, board, board.getHeroCoordinates(), 1);
-                player[i-1].setAtlas("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
-                player[i-1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
+                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(), 1);
+                player[i - 1].setAtlas("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.atlas");
+                player[i - 1].setImg("hero-imgs/DarkTemplarSpritesheet/DarkTemplarSpritesheet.png");
+            } else if (job == 2) {
+                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(), 2);
+                player[i - 1].setAtlas("hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
+                player[i - 1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
+            } else {
+                player[i - 1] = new Hero(game, this, board, board.getHeroCoordinates(), 3);
+                player[i - 1].setAtlas("hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
+                player[i - 1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
             }
-            else if (job == 2) {
-                player[i-1] = new Hero(this, board, board.getHeroCoordinates(), 2);
-                player[i-1].setAtlas("hero-imgs/WizardSpritesheet/WizardSpritesheet.atlas");
-                player[i-1].setImg("hero-imgs/WizardSpritesheet/WizardSpritesheet.png");
+            if (i % 2 == 0) {
+                player[i - 1].setFacing(Hero.State.LEFT);
             }
-            else {
-                player[i-1] = new Hero(this, board, board.getHeroCoordinates(), 3);
-                player[i-1].setAtlas("hero-imgs/PriestSpritesheet/PriestSpritesheet.atlas");
-                player[i-1].setImg("hero-imgs/PriestSpritesheet/PriestSpritesheet.png");
-            }
-            if (i%2==0) {
-                player[i-1].setFacing(Hero.State.LEFT);
-            }
-            board.map[player[i-1].row][player[i-1].col].setObstacle(2);
+            board.map[player[i - 1].row][player[i - 1].col].setObstacle(2);
         }
     }
 
@@ -184,18 +184,16 @@ public class MapScreen implements Screen {
         if (walker.getRoute() == 1 && player[idx].getWalking() == 0) {
             player[idx].setWalking(1);
             player[idx].setCurrentState(Hero.State.WALKING);
-            player[idx].setDes(board.map[player[idx].row][player[idx].col+1].corX,
-                    board.map[player[idx].row][player[idx].col+1].corY);
-        }
-        else if (player[idx].getWalking() == 1 && walker.getRoute() == 1) {
+            player[idx].setDes(board.map[player[idx].row][player[idx].col + 1].corX,
+                    board.map[player[idx].row][player[idx].col + 1].corY);
+        } else if (player[idx].getWalking() == 1 && walker.getRoute() == 1) {
             if (player[idx].getCoordinates().x < player[idx].getDes().x) {
                 player[idx].setFacing(Hero.State.RIGHT);
                 player[idx].setCurrentState(Hero.State.WALKING);
                 player[idx].setCoordinates(player[idx].getCoordinates().x += tilePixelWidth * dt,
                         player[idx].getCoordinates().y);
-            }
-            else {
-                player[idx].setRowCol(player[idx].row, player[idx].col+1);
+            } else {
+                player[idx].setRowCol(player[idx].row, player[idx].col + 1);
                 player[idx].setWalking(0);
                 player[idx].setCurrentState(Hero.State.STANDING);
                 walker.routing();
@@ -206,18 +204,16 @@ public class MapScreen implements Screen {
         if (walker.getRoute() == 2 && player[idx].getWalking() == 0) {
             player[idx].setWalking(2);
             player[idx].setCurrentState(Hero.State.WALKING);
-            player[idx].setDes(board.map[player[idx].row][Math.max(0, player[idx].col-1)].corX,
-                    board.map[player[idx].row][Math.max(0, player[idx].col-1)].corY);
-        }
-        else if (player[idx].getWalking() == 2 && walker.getRoute() == 2) {
+            player[idx].setDes(board.map[player[idx].row][Math.max(0, player[idx].col - 1)].corX,
+                    board.map[player[idx].row][Math.max(0, player[idx].col - 1)].corY);
+        } else if (player[idx].getWalking() == 2 && walker.getRoute() == 2) {
             if (player[idx].getCoordinates().x > player[idx].getDes().x) {
                 player[idx].setFacing(Hero.State.LEFT);
                 player[idx].setCurrentState(Hero.State.WALKING);
                 player[idx].setCoordinates(player[idx].getCoordinates().x -= tilePixelWidth * dt,
                         player[idx].getCoordinates().y);
-            }
-            else {
-                player[idx].setRowCol(player[idx].row, Math.max(0, player[idx].col-1));
+            } else {
+                player[idx].setRowCol(player[idx].row, Math.max(0, player[idx].col - 1));
                 player[idx].setWalking(0);
                 player[idx].setCurrentState(Hero.State.STANDING);
                 walker.routing();
@@ -228,34 +224,30 @@ public class MapScreen implements Screen {
         if (walker.getRoute() == 3 && player[idx].getWalking() == 0) {
             player[idx].setWalking(3);
             player[idx].setCurrentState(Hero.State.WALKING);
-            if (player[idx].row%2 == 0) {
-                player[idx].setDes(board.map[Math.max(0, player[idx].row-1)][player[idx].col+1].corX,
-                        board.map[Math.max(0, player[idx].row-1)][player[idx].col+1].corY);
+            if (player[idx].row % 2 == 0) {
+                player[idx].setDes(board.map[Math.max(0, player[idx].row - 1)][player[idx].col + 1].corX,
+                        board.map[Math.max(0, player[idx].row - 1)][player[idx].col + 1].corY);
+            } else {
+                player[idx].setDes(board.map[Math.max(0, player[idx].row - 1)][player[idx].col].corX,
+                        board.map[Math.max(0, player[idx].row - 1)][player[idx].col].corY);
             }
-            else {
-                player[idx].setDes(board.map[Math.max(0, player[idx].row-1)][player[idx].col].corX,
-                        board.map[Math.max(0, player[idx].row-1)][player[idx].col].corY);
-            }
-        }
-        else if (player[idx].getWalking() == 3 && walker.getRoute() == 3) {
+        } else if (player[idx].getWalking() == 3 && walker.getRoute() == 3) {
             if (player[idx].getCoordinates().x < player[idx].getDes().x || player[idx].getCoordinates().y < player[idx].getDes().y) {
                 player[idx].setFacing(Hero.State.RIGHT);
                 player[idx].setCurrentState(Hero.State.WALKING);
                 if (player[idx].getCoordinates().x < player[idx].getDes().x) {
-                    player[idx].setCoordinates(player[idx].getCoordinates().x += (1/sqrt(3)) * tilePixelWidth * dt,
+                    player[idx].setCoordinates(player[idx].getCoordinates().x += (1 / sqrt(3)) * tilePixelWidth * dt,
                             player[idx].getCoordinates().y);
                 }
                 if (player[idx].getCoordinates().y < player[idx].getDes().y) {
                     player[idx].setCoordinates(player[idx].getCoordinates().x,
-                            player[idx].getCoordinates().y += (sqrt(3)/2) * tilePixelHeight * dt);
+                            player[idx].getCoordinates().y += (sqrt(3) / 2) * tilePixelHeight * dt);
                 }
-            }
-            else if (player[idx].getCoordinates().x >= player[idx].getDes().x && player[idx].getCoordinates().y >= player[idx].getDes().y){
-                if (player[idx].row%2 == 0) {
-                    player[idx].setRowCol(Math.max(0, player[idx].row-1), player[idx].col+1);
-                }
-                else {
-                    player[idx].setRowCol(Math.max(0, player[idx].row-1), player[idx].col);
+            } else if (player[idx].getCoordinates().x >= player[idx].getDes().x && player[idx].getCoordinates().y >= player[idx].getDes().y) {
+                if (player[idx].row % 2 == 0) {
+                    player[idx].setRowCol(Math.max(0, player[idx].row - 1), player[idx].col + 1);
+                } else {
+                    player[idx].setRowCol(Math.max(0, player[idx].row - 1), player[idx].col);
                 }
                 player[idx].setWalking(0);
                 player[idx].setCurrentState(Hero.State.STANDING);
@@ -267,32 +259,28 @@ public class MapScreen implements Screen {
         if (walker.getRoute() == 4 && player[idx].getWalking() == 0) {
             player[idx].setWalking(4);
             player[idx].setCurrentState(Hero.State.WALKING);
-            if (player[idx].row%2 == 0) {
-                player[idx].setDes(board.map[player[idx].row+1][player[idx].col+1].corX, board.map[player[idx].row+1][player[idx].col+1].corY);
+            if (player[idx].row % 2 == 0) {
+                player[idx].setDes(board.map[player[idx].row + 1][player[idx].col + 1].corX, board.map[player[idx].row + 1][player[idx].col + 1].corY);
+            } else {
+                player[idx].setDes(board.map[player[idx].row + 1][player[idx].col].corX, board.map[player[idx].row + 1][player[idx].col].corY);
             }
-            else {
-                player[idx].setDes(board.map[player[idx].row+1][player[idx].col].corX, board.map[player[idx].row+1][player[idx].col].corY);
-            }
-        }
-        else if (player[idx].getWalking() == 4 && walker.getRoute() == 4) {
+        } else if (player[idx].getWalking() == 4 && walker.getRoute() == 4) {
             if (player[idx].getCoordinates().x < player[idx].getDes().x || player[idx].getCoordinates().y > player[idx].getDes().y) {
                 player[idx].setFacing(Hero.State.RIGHT);
                 player[idx].setCurrentState(Hero.State.WALKING);
                 if (player[idx].getCoordinates().x < player[idx].getDes().x) {
-                    player[idx].setCoordinates(player[idx].getCoordinates().x += (1/sqrt(3)) * tilePixelWidth * dt,
+                    player[idx].setCoordinates(player[idx].getCoordinates().x += (1 / sqrt(3)) * tilePixelWidth * dt,
                             player[idx].getCoordinates().y);
                 }
                 if (player[idx].getCoordinates().y > player[idx].getDes().y) {
                     player[idx].setCoordinates(player[idx].getCoordinates().x,
-                            player[idx].getCoordinates().y -= (sqrt(3)/2) * tilePixelHeight * dt);
+                            player[idx].getCoordinates().y -= (sqrt(3) / 2) * tilePixelHeight * dt);
                 }
-            }
-            else if (player[idx].getCoordinates().x >= player[idx].getDes().x && player[idx].getCoordinates().y <= player[idx].getDes().y){
-                if (player[idx].row%2 == 0) {
-                    player[idx].setRowCol(player[idx].row+1, player[idx].col+1);
-                }
-                else {
-                    player[idx].setRowCol( player[idx].row+1, player[idx].col);
+            } else if (player[idx].getCoordinates().x >= player[idx].getDes().x && player[idx].getCoordinates().y <= player[idx].getDes().y) {
+                if (player[idx].row % 2 == 0) {
+                    player[idx].setRowCol(player[idx].row + 1, player[idx].col + 1);
+                } else {
+                    player[idx].setRowCol(player[idx].row + 1, player[idx].col);
                 }
                 player[idx].setWalking(0);
                 player[idx].setCurrentState(Hero.State.STANDING);
@@ -304,32 +292,28 @@ public class MapScreen implements Screen {
         if (walker.getRoute() == 5 && player[idx].getWalking() == 0) {
             player[idx].setWalking(5);
             player[idx].setCurrentState(Hero.State.WALKING);
-            if (player[idx].row%2 == 0) {
-                player[idx].setDes(board.map[player[idx].row-1][player[idx].col].corX, board.map[player[idx].row-1][player[idx].col].corY);
+            if (player[idx].row % 2 == 0) {
+                player[idx].setDes(board.map[player[idx].row - 1][player[idx].col].corX, board.map[player[idx].row - 1][player[idx].col].corY);
+            } else {
+                player[idx].setDes(board.map[player[idx].row - 1][player[idx].col - 1].corX, board.map[player[idx].row - 1][player[idx].col - 1].corY);
             }
-            else {
-                player[idx].setDes(board.map[player[idx].row-1][player[idx].col-1].corX, board.map[player[idx].row-1][player[idx].col-1].corY);
-            }
-        }
-        else if (player[idx].getWalking() == 5 && walker.getRoute() == 5) {
+        } else if (player[idx].getWalking() == 5 && walker.getRoute() == 5) {
             if (player[idx].getCoordinates().x > player[idx].getDes().x || player[idx].getCoordinates().y < player[idx].getDes().y) {
                 player[idx].setFacing(Hero.State.LEFT);
                 player[idx].setCurrentState(Hero.State.WALKING);
                 if (player[idx].getCoordinates().x > player[idx].getDes().x) {
-                    player[idx].setCoordinates(player[idx].getCoordinates().x -= (1/sqrt(3)) * tilePixelWidth * dt,
+                    player[idx].setCoordinates(player[idx].getCoordinates().x -= (1 / sqrt(3)) * tilePixelWidth * dt,
                             player[idx].getCoordinates().y);
                 }
                 if (player[idx].getCoordinates().y < player[idx].getDes().y) {
                     player[idx].setCoordinates(player[idx].getCoordinates().x,
-                            player[idx].getCoordinates().y += (sqrt(3)/2) * tilePixelHeight * dt);
+                            player[idx].getCoordinates().y += (sqrt(3) / 2) * tilePixelHeight * dt);
                 }
-            }
-            else if (player[idx].getCoordinates().x <= player[idx].getDes().x && player[idx].getCoordinates().y >= player[idx].getDes().y){
-                if (player[idx].row%2 == 0) {
-                    player[idx].setRowCol(player[idx].row-1, player[idx].col);
-                }
-                else {
-                    player[idx].setRowCol( player[idx].row-1, player[idx].col-1);
+            } else if (player[idx].getCoordinates().x <= player[idx].getDes().x && player[idx].getCoordinates().y >= player[idx].getDes().y) {
+                if (player[idx].row % 2 == 0) {
+                    player[idx].setRowCol(player[idx].row - 1, player[idx].col);
+                } else {
+                    player[idx].setRowCol(player[idx].row - 1, player[idx].col - 1);
                 }
                 player[idx].setWalking(0);
                 player[idx].setCurrentState(Hero.State.STANDING);
@@ -341,24 +325,22 @@ public class MapScreen implements Screen {
         if (walker.getRoute() == 6 && player[idx].getWalking() == 0) {
             player[idx].setWalking(6);
             player[idx].setCurrentState(Hero.State.WALKING);
-            if (player[idx].row%2 == 0) {
-                player[idx].setDes(board.map[player[idx].row+1][player[idx].col].corX, board.map[player[idx].row+1][player[idx].col].corY);
+            if (player[idx].row % 2 == 0) {
+                player[idx].setDes(board.map[player[idx].row + 1][player[idx].col].corX, board.map[player[idx].row + 1][player[idx].col].corY);
+            } else {
+                player[idx].setDes(board.map[player[idx].row + 1][player[idx].col - 1].corX, board.map[player[idx].row + 1][player[idx].col - 1].corY);
             }
-            else {
-                player[idx].setDes(board.map[player[idx].row+1][player[idx].col-1].corX, board.map[player[idx].row+1][player[idx].col-1].corY);
-            }
-        }
-        else if (player[idx].getWalking() == 6 && walker.getRoute() == 6) {
+        } else if (player[idx].getWalking() == 6 && walker.getRoute() == 6) {
             if (player[idx].getCoordinates().x > player[idx].getDes().x || player[idx].getCoordinates().y > player[idx].getDes().y) {
                 player[idx].setFacing(Hero.State.LEFT);
                 player[idx].setCurrentState(Hero.State.WALKING);
                 if (player[idx].getCoordinates().x > player[idx].getDes().x) {
-                    player[idx].setCoordinates(player[idx].getCoordinates().x -= (1/sqrt(3)) * tilePixelWidth * dt,
+                    player[idx].setCoordinates(player[idx].getCoordinates().x -= (1 / sqrt(3)) * tilePixelWidth * dt,
                             player[idx].getCoordinates().y);
                 }
                 if (player[idx].getCoordinates().y > player[idx].getDes().y) {
                     player[idx].setCoordinates(player[idx].getCoordinates().x,
-                            player[idx].getCoordinates().y -= (sqrt(3)/2) * tilePixelHeight * dt);
+                            player[idx].getCoordinates().y -= (sqrt(3) / 2) * tilePixelHeight * dt);
                 }
             } else if (player[idx].getCoordinates().x <= player[idx].getDes().x && player[idx].getCoordinates().y <= player[idx].getDes().y) {
                 if (player[idx].row % 2 == 0) {
@@ -378,7 +360,7 @@ public class MapScreen implements Screen {
         //render screen coordinates
         font.draw(game.batch, "Screen Coordinates", 155, 660);
         font.draw(game.batch, (int) screenCoordinates.x + " , "
-                + (int) Math.abs(mapPixelHeight-screenCoordinates.y), 190, 635);
+                + (int) Math.abs(mapPixelHeight - screenCoordinates.y), 190, 635);
 
         //render hero coordinates
         font.draw(game.batch, "Hero Coordinates (changed)", 400, 660);
@@ -402,33 +384,26 @@ public class MapScreen implements Screen {
 
     }
 
-    public void renderingHero(int idx) {
-        float errR = 0;
-        float errL = 0;
-        if (player[idx].job == 1) {
-            errL = -22f;
+    public void renderingHero(int idx, float delta) {
+        if (statusPhase[5] == idx && statusPhase[6] == 2 && player[idx].attacking == false) {
+            //render walking overlay
+            overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
         }
-        if (player[idx].job == 2) {
-            errR = 5f;
-            errL = 10f;
-        }
-        if (player[idx].job == 3) {
-            errR = -10f;
-            errL = -2f;
-        }
+        overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
+        //Color Overlay under Hero feet.
         game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
                 tile[idx].getWidth() * 0.75f, tile[idx].getHeight() * 0.75f);
-        if (player[idx].facing.compareTo(Hero.State.RIGHT) == 0) {
-            game.batch.draw(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true),
-                    player[idx].getCoordinates().x + (player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(),
-                            true).getRegionWidth()) + errR, player[idx].getCoordinates().y,
-                    -(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true).getRegionWidth()),
-                    player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true).getRegionHeight());
-        }
-        else {
-            game.batch.draw(player[idx].walkAction().getKeyFrame(player[idx].getElapsedTime(), true),
-                    player[idx].getCoordinates().x + errL, player[idx].getCoordinates().y);
-        }
+
+        //render hero every action
+        player[idx].useSkill();
+
+//        player[idx].renderWalking(delta);
+
+        //        if (player[0].ability[3].getFrame() > player[0].ability[3].stateTime() * 5) {
+//            game.batch.draw(player[0].ability[3].getSkillAction(delta).getKeyFrame(player[0].ability[3].stateTime(),
+//                    true), 600, 200);
+//        }
+
     }
 
     public void updateAllplayer(float delta) {
@@ -462,25 +437,15 @@ public class MapScreen implements Screen {
         game.batch.begin();
 
         //render map
-        game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT );
+        game.batch.draw(map, 0, 0, CardPlay.V_WIDTH, CardPlay.V_HEIGHT);
 
         fontDrawDebugging();
 
-        //render Overlay
-        overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
-
         //render hero
-        renderingHero(0);
-        renderingHero(1);
-        renderingHero(2);
-        renderingHero(3);
-
-//        if (player[0].ability[3].getFrame() > player[0].ability[3].stateTime()*5) {
-//            game.batch.draw(player[0].ability[3].getSkillAction(delta).getKeyFrame(player[0].ability[3].stateTime(),
-//                    true), 400, 200);
-//        }
-        game.batch.draw(player[0].ability[1].getSkillAction(delta).getKeyFrame(player[0].ability[1].stateTime(),
-                true), 400, 200);
+        renderingHero(0, delta);
+        renderingHero(1, delta);
+        renderingHero(2, delta);
+        renderingHero(3, delta);
 
         game.batch.end();
     }

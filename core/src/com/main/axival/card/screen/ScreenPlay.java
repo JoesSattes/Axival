@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.main.axival.card.CardAction;
 import com.main.axival.card.CardPlay;
+import com.main.axival.card.MapPlay.Hero;
 import com.main.axival.card.MapPlay.MapScreen;
 import com.main.axival.card.RandomCard;
 import com.main.axival.card.UIplay;
@@ -234,15 +235,21 @@ public class ScreenPlay implements Screen, InputProcessor{
         List<Vector2> area = new LinkedList<Vector2>();
         area.addAll(mapScreen.board.getOverlay(mapScreen.player[mapScreen.idx].col,
                 mapScreen.player[mapScreen.idx].row, mapScreen.player[mapScreen.idx].walk));
+
+        System.out.println("Mouse clicked!");
+        float x = Gdx.input.getX();
+        float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
+        Vector2 goal = mapScreen.click.getRowCol(x, y);
+
         if (!mapScreen.board.map[(int) rowcol.y][(int) rowcol.x].isObstacle() && mapScreen.walker.getRoute() == 0
-                && area.contains(rowcol)) {
+                && area.contains(rowcol) && mapScreen.statusPhase[6] == 2) {
             if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.walker.isRouting() == 0) {
                 mapScreen.walker.setRouting(1);
-                System.out.println("Mouse clicked!");
-                float x = Gdx.input.getX();
-                float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
+//                System.out.println("Mouse clicked!");
+//                float x = Gdx.input.getX();
+//                float y = Math.abs(mapScreen.mapPixelHeight - Gdx.input.getY());
                 mapScreen.path = new LinkedList<Vector2>();
-                Vector2 goal = mapScreen.click.getRowCol(x, y);
+//                Vector2 goal = mapScreen.click.getRowCol(x, y);
 
                 mapScreen.player[mapScreen.idx].setSource(mapScreen.player[mapScreen.idx].col,
                         mapScreen.player[mapScreen.idx].row);
@@ -251,6 +258,27 @@ public class ScreenPlay implements Screen, InputProcessor{
                 mapScreen.path.addAll(mapScreen.board.getPath(mapScreen.player[mapScreen.idx].getRowCol(), goal));
                 mapScreen.walker.setPath(mapScreen.player[mapScreen.idx].getRowCol(), mapScreen.path);
                 mapScreen.walker.routing();
+            }
+        }
+        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In screenPLay");
+        if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
+            if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) && mapScreen.player[mapScreen.idx].attacking == false) {
+                System.out.println("Skill is used.");
+                if (goal.x < mapScreen.player[mapScreen.idx].col ) {
+                    if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.RIGHT) == 0) {
+                        mapScreen.player[mapScreen.idx].facing = Hero.State.LEFT;
+                    }
+                }
+                else {
+                    if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.LEFT) == 0) {
+                        mapScreen.player[mapScreen.idx].facing = Hero.State.RIGHT;
+                    }
+                }
+                mapScreen.player[mapScreen.idx].resetElapsedTime();
+                mapScreen.player[mapScreen.idx].setStartTime();
+                mapScreen.player[mapScreen.idx].skillUsing = 3;
+                mapScreen.player[mapScreen.idx].attacking = true;
+//                mapScreen.statusPhase[6] = 2;
             }
         }
         return false;

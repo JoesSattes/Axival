@@ -60,12 +60,15 @@ public class Navigator {
             screen.board.map[(int)screen.player[screen.idx].getSource().y][(int)screen.player[screen.idx].getSource().x].setObstacle(0);
             screen.board.map[(int)screen.player[screen.idx].row][(int)screen.player[screen.idx].col].setObstacle(2);
             System.out.println("In Turn of player " + (screen.idx+1));
-            if (screen.idx  == 3) {
-                screen.idx = 0;
-            }
-            else {
-                screen.idx += 1;
-            }
+            System.out.println("Don't change turn");
+            screen.statusPhase[6] = 1;
+            System.out.println("statusPhase = " + screen.statusPhase[6] + " Navitor");
+//            if (screen.idx  == 3) {
+//                screen.idx = 0;
+//            }
+//            else {
+//                screen.idx += 1;
+//            }
         }
 
     }

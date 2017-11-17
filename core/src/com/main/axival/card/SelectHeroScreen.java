@@ -52,7 +52,7 @@ public class SelectHeroScreen implements Screen{
             }
             @Override
             public void exit(InputEvent event, float x, float y, int pointer, Actor fromActor){
-                darkTempImg.addAction(Actions.sequence(Actions.fadeIn(.7f)));
+                darkTempImg.addAction(Actions.sequence(Actions.fadeIn(.6f)));
             }
         });
         darkTempOn.addListener(new ClickListener(){

@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.main.axival.card.fade.FadeScence;
 import com.main.axival.card.fade.FadingGame;
 import com.main.axival.card.input.MyTextInputListener;
 import com.main.axival.card.screen.ScreenPlay;
@@ -37,8 +38,10 @@ public class Menu implements Screen{
     private Array<ParticleEffectPool.PooledEffect> effect;
 
     private MyTextInputListener listener;
+    private FadeScence fadeScence;
 
     public Menu(final CardPlay cardPlay){
+        this.fadeScence = new FadeScence(cardPlay);
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         Gdx.input.setInputProcessor(stage);
@@ -61,6 +64,10 @@ public class Menu implements Screen{
 
         //input dialog
         this.listener = new MyTextInputListener(stage, cardPlay);
+
+        //TransitionScreen transitionScreen = new TransitionScreen(cardPlay);
+        //transitionScreen.setWhiteStartFade();
+        //transitionScreen.fadeOut(0);
     }
 
     @Override
@@ -142,6 +149,7 @@ public class Menu implements Screen{
                 , switchScreenAction
         ));*/
 
+        fadeScence.screenfadeOut(new Image(new Texture("tone/white.jpg")));
 
     }
 
@@ -168,6 +176,7 @@ public class Menu implements Screen{
         if(prototypeM.isComplete()){
             prototypeM.reset();
         }
+        cardPlay.fadeScreenStage.draw();
 
     }
 
@@ -188,6 +197,7 @@ public class Menu implements Screen{
 
     public void update(float delta){
         stage.act(delta);
+        cardPlay.fadeScreenStage.act(delta);
         prototypeM.update(delta);
     }
 

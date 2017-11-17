@@ -103,9 +103,16 @@ public class TransitionScreen implements Screen{
         }
     }
 
+    public void fadeOut(int colorId){
+        if(colorId==0){
+            image.addAction(Actions.sequence(Actions.color(Color.WHITE, 2f), Actions.removeActor()));
+            cardPlay.transitionStage.addActor(image);
+        }
+    }
+
     @Override
     public void show() {
-        setFade(0);
+        setFade(1);
     }
 
     public static Texture getTexture(){

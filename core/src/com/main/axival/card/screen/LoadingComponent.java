@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.main.axival.card.CardPlay;
 import com.main.axival.card.Menu;
 import com.main.axival.card.TransitionScreen;
+import com.main.axival.card.fade.FadeScence;
 
 public class LoadingComponent implements Screen{
 
@@ -43,11 +44,13 @@ public class LoadingComponent implements Screen{
     private float startX, endX;
     private float percent;
 
+    private FadeScence fadeScence;
 
     public LoadingComponent(final CardPlay cardPlay){
         this.cardPlay = cardPlay;
         this.shapeRenderer = new ShapeRenderer();
         this.progress=0f;
+        this.fadeScence = new FadeScence(cardPlay);
 
         queueAssets();
     }
@@ -74,6 +77,8 @@ public class LoadingComponent implements Screen{
         stage.addActor(loadingBarHidden);
         stage.addActor(loadingFrame);
         stage.addActor(logo);
+        fadeScence.screenfadeIn(new Image(new Texture("tone/white.jpg")));
+        //cardPlay.screenfadeOut(new Image(new Texture("tone/black.jpg")));
 
     }
 
@@ -83,7 +88,8 @@ public class LoadingComponent implements Screen{
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
             //cardPlay.setScreen(new ScreenPlay(cardPlay));
             //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
-           cardPlay.setScreen(new TransitionScreen(cardPlay));
+            //cardPlay.setScreen(new TransitionScreen(cardPlay));
+            cardPlay.fadeScreenStage.act(delta);
             //cardPlay.setScreen(new Menu(cardPlay));
         }
     }
@@ -115,6 +121,9 @@ public class LoadingComponent implements Screen{
         // Show the loading screen
         stage.act();
         stage.draw();
+
+        //fade effect
+        cardPlay.fadeScreenStage.draw();
     }
 
     @Override

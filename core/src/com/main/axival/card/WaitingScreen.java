@@ -18,6 +18,7 @@ public class WaitingScreen implements Screen{
     public WaitingScreen(CardPlay cardPlay){
         this.cardPlay = cardPlay;
         animationWaiting = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("waiting/loading2.gif").read());
+        timePlay = 0;
     }
 
     @Override
@@ -32,7 +33,8 @@ public class WaitingScreen implements Screen{
         cardPlay.batch.begin();
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         cardPlay.batch.end();
-        if (statusAlready || timePlay>10){
+        if (statusAlready || timePlay>30){
+            timePlay = 0;
             cardPlay.setScreen(new SelectHeroScreen(cardPlay));
         }
     }

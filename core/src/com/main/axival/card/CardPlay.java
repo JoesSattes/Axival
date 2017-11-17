@@ -8,11 +8,15 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.main.axival.card.fade.FadingGame;
 import com.main.axival.card.screen.LoadingComponent;
+
 
 public class CardPlay extends Game{
     public static final String TITLE = "Axivals";
@@ -29,7 +33,7 @@ public class CardPlay extends Game{
 
     public SoundManager soundManager;
 
-    public Stage transitionStage;
+    public Stage transitionStage, fadeScreenStage;
 
     //public FadingGame fadingGame;
 
@@ -40,6 +44,7 @@ public class CardPlay extends Game{
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         transitionStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
+        fadeScreenStage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, camera));
         batch = new SpriteBatch();
         bitmapFont = new BitmapFont();
         bitmapFont.setColor(Color.WHITE);

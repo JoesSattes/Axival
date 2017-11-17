@@ -385,6 +385,10 @@ public class ScreenPlay implements Screen, InputProcessor{
         }
     }
 
+    public void phaseInTurnWait(){
+        //wait your player discussion in chain phase, i can't do anything
+    }
+
     public void actionPhase(){
         cardAction.setPopupOff(false);
     }
@@ -399,7 +403,7 @@ public class ScreenPlay implements Screen, InputProcessor{
     }
 
     public void waitPhase(){
-        //can't do anything about other player but game is show you screen real time
+        //can't do anything about other player but game is show you screen real time and check you want to chain phase or not
 
 
     }

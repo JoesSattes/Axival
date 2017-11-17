@@ -48,7 +48,7 @@ public class WaitingScreen implements Screen{
             timePlay = 0;
             //cardPlay.fadeScreenStage.act(delta);
             //cardPlay.fadeScreenStage.draw();
-            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)),
+            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/black.jpg", Texture.class)),
                     "select", 0);
             //cardPlay.fadeScreenStage.draw();
             //cardPlay.setScreen(new SelectHeroScreen(cardPlay));

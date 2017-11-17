@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.main.axival.card.fade.FadingGame;
 import com.main.axival.card.screen.LoadingComponent;
 
 public class CardPlay extends Game{
@@ -30,6 +31,8 @@ public class CardPlay extends Game{
 
     public Stage transitionStage;
 
+    //public FadingGame fadingGame;
+
     @Override
     public void create(){
         assetManager = new AssetManager();
@@ -44,11 +47,14 @@ public class CardPlay extends Game{
         //check memory
         javaFreeMem();
 
+        //fadingGame = new FadingGame(this.batch);
+        //fadingGame.create();
         this.setScreen(new LoadingComponent(this));
     }
 
     @Override
     public void render(){
+        //fadingGame.render();
         //Gdx.gl.glClearColor(.25f,.25f,.25f,1f);
         //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         super.render();
@@ -56,6 +62,7 @@ public class CardPlay extends Game{
 
     @Override
     public void dispose() {
+       // fadingGame.dispose();
         batch.dispose();
         bitmapFont.dispose();
         assetManager.dispose();
@@ -67,20 +74,5 @@ public class CardPlay extends Game{
             System.out.println("Total Memory"+Runtime.getRuntime().totalMemory());
             // Java's garbage-collected clean Memory Not use
             System.out.println("Free Memory"+Runtime.getRuntime().freeMemory());
-    }
-
-    public static Texture getTexture(){
-
-        Pixmap pixmap;
-        try {
-            pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-        }catch (GdxRuntimeException e)
-        {
-            pixmap = new Pixmap(1,1, Pixmap.Format.RGB565);
-        }
-        pixmap.setColor(Color.WHITE);
-        pixmap.drawRectangle(0,0,1,1);
-
-        return new Texture(pixmap);
     }
 }

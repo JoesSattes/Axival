@@ -83,7 +83,8 @@ public class LoadingComponent implements Screen{
         if(cardPlay.assetManager.update() && progress >= cardPlay.assetManager.getProgress() - .01f){
             //cardPlay.setScreen(new ScreenPlay(cardPlay));
             //cardPlay.setScreen(new TransitionScreen(cardPlay, new Menu(cardPlay)));
-            cardPlay.setScreen(new TransitionScreen(cardPlay));
+           cardPlay.setScreen(new TransitionScreen(cardPlay));
+            //cardPlay.setScreen(new Menu(cardPlay));
         }
     }
 

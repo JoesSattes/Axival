@@ -7,22 +7,57 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.main.axival.card.screen.ScreenPlay;
 
 public class TransitionScreen implements Screen{
     private CardPlay cardPlay;
     private Screen first;
     private Stage stage;
     private Texture texture;
+    private Image _transitionImage;
+    private Action _screenFadeOutAction, _screenFadeInAction;
     public TransitionScreen(CardPlay cardPlay){
         this.cardPlay = cardPlay;
         //this.first = screen;
+        Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+        pixmap.setColor(Color.BLACK);
+        pixmap.fill();
+        Drawable drawable = new TextureRegionDrawable(
+                new TextureRegion(new Texture(pixmap)));
+        _transitionImage = new Image();
+        _transitionImage.setFillParent(true);
+        _transitionImage.setDrawable(drawable);
+        _screenFadeOutAction = new Action() {
+            @Override
+            public boolean act(float delta) {
+                _transitionImage.addAction(
+                        Actions.sequence(
+                                Actions.alpha(0),
+                                Actions.fadeIn(3)
+                        ));
+                return true;
+            }
+        };
+        _screenFadeInAction = new Action() {
+            @Override
+            public boolean act(float delta) {
+                _transitionImage.addAction(
+                        Actions.sequence(
+                                Actions.alpha(1),
+                                Actions.fadeOut(3)
+                        ));
+                return true;
+            }
+        };
     }
 
     @Override
@@ -58,7 +93,7 @@ public class TransitionScreen implements Screen{
             }
         });*/
 
-        image.addAction(Actions.sequence(Actions.color(Color.WHITE,1), Actions.fadeOut(1f)));
+        image.addAction(Actions.sequence(Actions.color(Color.WHITE,1)));
     }
 
     public static Texture getTexture(){

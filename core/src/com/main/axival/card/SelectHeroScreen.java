@@ -29,12 +29,12 @@ public class SelectHeroScreen implements Screen{
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         Gdx.input.setInputProcessor(stage);
 
-        darkTempImg = new Image(new Texture("hero-select/DT.jpg"));
-        darkTempOn = new Image(new Texture("hero-select/DTHover.jpg"));
-        wizardImg = new Image(new Texture("hero-select/Mage.jpg"));
-        wizardOn = new Image(new Texture("hero-select/MageHover.jpg"));
-        priestImg = new Image(new Texture("hero-select/Priest.jpg"));
-        priestOn = new Image(new Texture("hero-select/PriestHover.jpg"));
+        darkTempImg = new Image(cardPlay.assetManager.get("hero-select/DT.jpg", Texture.class));
+        darkTempOn = new Image(cardPlay.assetManager.get("hero-select/DTHover.jpg", Texture.class));
+        wizardImg = new Image(cardPlay.assetManager.get("hero-select/Mage.jpg", Texture.class));
+        wizardOn = new Image(cardPlay.assetManager.get("hero-select/MageHover.jpg", Texture.class));
+        priestImg = new Image(cardPlay.assetManager.get("hero-select/Priest.jpg", Texture.class));
+        priestOn = new Image(cardPlay.assetManager.get("hero-select/PriestHover.jpg", Texture.class));
 
         darkTempImg.setScale(.172f);
         darkTempImg.setPosition(0, 130);

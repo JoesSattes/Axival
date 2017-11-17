@@ -5,8 +5,10 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.main.axival.card.screen.ScreenPlay;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.main.axival.card.fade.FadeScence;
 
 public class WaitingScreen implements Screen{
     private CardPlay cardPlay;
@@ -15,14 +17,22 @@ public class WaitingScreen implements Screen{
 
     private boolean statusAlready;
 
+    private TextureAtlas textureAtlas;
+
+    private FadeScence fadeScence;
+
     public WaitingScreen(CardPlay cardPlay){
         this.cardPlay = cardPlay;
-        animationWaiting = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("waiting/loading2.gif").read());
+        this.fadeScence = new FadeScence(cardPlay);
+        //animationWaiting = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("waiting/loading2.gif").read());
+        textureAtlas = new TextureAtlas("waiting/wait.atlas");
+        animationWaiting = new Animation<TextureRegion>(1f/10f, textureAtlas.getRegions());
         timePlay = 0;
     }
 
     @Override
     public void show() {
+        fadeScence.screenfadeOut(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), 1);
     }
 
     @Override
@@ -30,13 +40,24 @@ public class WaitingScreen implements Screen{
         timePlay += delta;
         Gdx.gl.glClearColor(1, 0,0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        update(delta);
         cardPlay.batch.begin();
         cardPlay.batch.draw(animationWaiting.getKeyFrame(timePlay, true), 0, 0, 1280, 720);
         cardPlay.batch.end();
         if (statusAlready || timePlay>30){
             timePlay = 0;
-            cardPlay.setScreen(new SelectHeroScreen(cardPlay));
+            //cardPlay.fadeScreenStage.act(delta);
+            //cardPlay.fadeScreenStage.draw();
+            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)),
+                    "select", 0);
+            //cardPlay.fadeScreenStage.draw();
+            //cardPlay.setScreen(new SelectHeroScreen(cardPlay));
         }
+        cardPlay.fadeScreenStage.draw();
+    }
+
+    public void update(float delta){
+        cardPlay.fadeScreenStage.act(delta);
     }
 
     @Override
@@ -60,7 +81,8 @@ public class WaitingScreen implements Screen{
     }
 
     @Override
-    public void dispose() {
-        cardPlay.batch.dispose();
+    public void dispose()
+    {
+        //cardPlay.batch.dispose();
     }
 }

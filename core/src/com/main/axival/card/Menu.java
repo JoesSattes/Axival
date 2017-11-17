@@ -40,6 +40,8 @@ public class Menu implements Screen{
     private MyTextInputListener listener;
     private FadeScence fadeScence;
 
+    private int count=1;
+
     public Menu(final CardPlay cardPlay){
         this.fadeScence = new FadeScence(cardPlay);
         this.cardPlay = cardPlay;
@@ -149,7 +151,7 @@ public class Menu implements Screen{
                 , switchScreenAction
         ));*/
 
-        fadeScence.screenfadeOut(new Image(new Texture("tone/white.jpg")));
+        fadeScence.screenfadeOut(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), 1);
 
     }
 
@@ -166,8 +168,10 @@ public class Menu implements Screen{
         cardPlay.batch.end();
         stage.draw();
 
-        if (listener.getInput()!=null){
-            cardPlay.setScreen(new WaitingScreen(cardPlay));
+        if (listener.getInput()!=null && count == 1){
+            fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "wait", 0);
+            count = 0;
+            //cardPlay.setScreen(new WaitingScreen(cardPlay));
         }
 
         //stage.getRoot().setColor(.2f, 1, 1, 0);

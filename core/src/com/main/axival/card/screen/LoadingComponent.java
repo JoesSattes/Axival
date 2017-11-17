@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.main.axival.card.CardPlay;
+import com.main.axival.card.GifDecoder;
 import com.main.axival.card.Menu;
 import com.main.axival.card.TransitionScreen;
 import com.main.axival.card.fade.FadeScence;
@@ -61,7 +62,6 @@ public class LoadingComponent implements Screen{
         //add new loading screen
         stage = new Stage(new FillViewport(CardPlay.V_WIDTH,CardPlay.V_HEIGHT));
         textureAtPack = cardPlay.assetManager.get("load/loading.pack", TextureAtlas.class);
-        //logo = new Image(textureAtPack.findRegion("libgdx-logo"));
         logo = new Image(new Texture("load/logo3.png"));
         logo.setScale(.55f);
         loadingFrame = new Image(textureAtPack.findRegion("loading-frame"));
@@ -77,7 +77,7 @@ public class LoadingComponent implements Screen{
         stage.addActor(loadingBarHidden);
         stage.addActor(loadingFrame);
         stage.addActor(logo);
-        fadeScence.screenfadeIn(new Image(new Texture("tone/white.jpg")));
+        fadeScence.screenfadeIn(new Image(cardPlay.assetManager.get("tone/white.jpg", Texture.class)), "menu", 1);
         //cardPlay.screenfadeOut(new Image(new Texture("tone/black.jpg")));
 
     }
@@ -230,21 +230,22 @@ public class LoadingComponent implements Screen{
         cardPlay.assetManager.load("sound/bgm/bgFantasy.ogg", Music.class);
         cardPlay.assetManager.load("sound/fx/Draw.ogg", Music.class);
 
+        //fade screen
+        cardPlay.assetManager.load("tone/white.jpg", Texture.class);
+        cardPlay.assetManager.load("tone/black.jpg", Texture.class);
+
+        //waiting screen
+        //cardPlay.assetManager.load("waiting/loading2.gif", Animation.class);
+
+        //selected hero screen
+        cardPlay.assetManager.load("hero-select/DT.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/DTHover.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/Mage.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/MageHover.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/Priest.jpg", Texture.class);
+        cardPlay.assetManager.load("hero-select/PriestHover.jpg", Texture.class);
+
         cardPlay.assetManager.finishLoading();
     }
 
-    public static Texture getTexture(){
-
-        Pixmap pixmap;
-        try {
-            pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-        }catch (GdxRuntimeException e)
-        {
-            pixmap = new Pixmap(1,1, Pixmap.Format.RGB565);
-        }
-        pixmap.setColor(Color.WHITE);
-        pixmap.drawRectangle(0,0,1,1);
-
-        return new Texture(pixmap);
-    }
 }

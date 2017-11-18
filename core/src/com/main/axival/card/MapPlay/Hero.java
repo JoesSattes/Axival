@@ -214,8 +214,7 @@ public class Hero extends TextureAtlas {
     public void useSkill() {
         if (skillUsing > -1 && skillUsing < 4 && elapsedTime < startTime + skillAnimation[skillUsing].getAnimationDuration() &&
                  attacking == true && live == true) {
-//            System.out.println("In loop using skill");
-//            int k = 0/0;
+            System.out.println("skillUsing = " + skillUsing);
             deltaTime = skillAnimation[skillUsing].getAnimationDuration();
             if (facing.compareTo(State.RIGHT) == 0) {
                 game.batch.draw(skillAnimation[skillUsing].getKeyFrame(elapsedTime, true),
@@ -237,8 +236,6 @@ public class Hero extends TextureAtlas {
             }
         } else if (skillUsing > -1 && skillUsing < 4 && startTime + deltaTime <= elapsedTime && elapsedTime <=
                 startTime + deltaTime + skillAnimation[4].getAnimationDuration() && live == true) {
-//            System.out.println("In loop alert");
-//            int k = 0/0;
             if (facing.compareTo(State.RIGHT) == 0) {
                 game.batch.draw(skillAnimation[4].getKeyFrame(elapsedTime, true),
                         coordinates.x + skillAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth(),
@@ -251,39 +248,25 @@ public class Hero extends TextureAtlas {
                         coordinates.y);
             }
         } else if (live == true) {
-//            System.out.println("In loop standing");
-//            int k = 0/0;
             skillUsing = -1;
             attacking = false;
             this.renderWalking();
         }
 
-//        System.out.println("Kuy before use card 0/0");
-//        int k = 0/0;
-//        System.out.println("cardUsing = " + cardUsing + " skillUsing = " + skillUsing + " startTime = " + startTime + " frameDur = " +
-//                ability[0].getSkillAction(1f).getAnimationDuration());
         if (cardUsing > -1 && skillUsing == -1 && elapsedTime < startTime +
                 ability[cardUsing].getSkillAction(1f).getAnimationDuration()
                 && live == true) {
-//            System.out.println("In loop using card");
-//            int k = 0/0;
             game.batch.draw(ability[cardUsing+4].getSkillAction(1f).getKeyFrame(elapsedTime, true),
                     board.map[(int)target.y][(int)target.x].corX,
                     board.map[(int)target.y][(int)target.x].corY);
         }
         else if (skillUsing == -1 && startTime + deltaTime <= elapsedTime && live == true){
-//            System.out.println("End loop using card");
-//            int k = 0/0;
             cardUsing = -1;
             attacking = false;
         }
 
-//        deltaTime = ability[cardUsing+5].getSkillAction(1f).getAnimationDuration();
-//        game.batch.draw(ability[cardUsing+5].getSkillAction(1f).getKeyFrame(elapsedTime, true),
-//                    board.map[(int)target.y][(int)target.x].corX,
-//                    board.map[(int)target.y][(int)target.x].corY);
-
         //Pain animation
+
 
         //dead animation
         if (elapsedTime < 5 && live == false && health == 0) {
@@ -294,12 +277,6 @@ public class Hero extends TextureAtlas {
         else if (elapsedTime >= 5 && live == false && health == 0) {
             health = -1;
         }
-
-//        deltaTime = ability[8].getSkillAction(1f).getAnimationDuration();
-//            game.batch.draw(ability[8].getSkillAction(1f).getKeyFrame(elapsedTime, true),
-//                   200,
-//                    200);
-
     }
 
     public void setFacing(State facing) {

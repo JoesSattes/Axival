@@ -30,7 +30,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class ScreenPlay implements Screen, InputProcessor{
+public class ScreenPlay implements Screen, InputProcessor {
     public Stage stage;
 
     private ParticleEffect prototype;
@@ -43,9 +43,9 @@ public class ScreenPlay implements Screen, InputProcessor{
     public boolean solveUp, solveDown, solveLeft, solveRight;
 
     public Image[] cardDeck;
-    private int maxCard=10, currentCard=0;
+    private int maxCard = 10, currentCard = 0;
 
-    public int cardInHand=0;
+    public int cardInHand = 0;
     public float cardCountPosY1;
 
     private CardAction cardAction;
@@ -56,8 +56,10 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     private MapScreen mapScreen;
 
+    private int chooseSkill = 0;
 
-    public ScreenPlay(final CardPlay cardPlay){
+
+    public ScreenPlay(final CardPlay cardPlay) {
         this.cardPlay = cardPlay;
         this.stage = new Stage(new StretchViewport(CardPlay.V_WIDTH, CardPlay.V_HEIGHT, cardPlay.camera));
         this.cardCountPosY1 = 0;
@@ -65,12 +67,12 @@ public class ScreenPlay implements Screen, InputProcessor{
         Gdx.input.setInputProcessor(inputMultiplexer);
 
         Pixmap pm = new Pixmap(Gdx.files.internal("cursorImage2.png"));
-        Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth()/2, pm.getHeight()/2));
+        Gdx.graphics.setCursor(Gdx.graphics.newCursor(pm, pm.getWidth() / 2, pm.getHeight() / 2));
         pm.dispose();
 
         prototype = new ParticleEffect();
         prototype = cardPlay.assetManager.get("effect01.party");
-        prototype.getEmitters().first().setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+        prototype.getEmitters().first().setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
         prototype.start();
 
         randomCard = new RandomCard(cardPlay);
@@ -86,28 +88,23 @@ public class ScreenPlay implements Screen, InputProcessor{
         System.out.println("screen");
     }
 
-    public void setCardHandR(int indexCard){
+    public void setCardHandR(int indexCard) {
         stage.addActor(cardDeck[indexCard]);
     }
 
-    public void cardHandAction(){
-        System.out.println("Size Count Hand : "+randomCard.sizeCountCardInHand());
-        if(randomCard.sizeCountCardInHand()==1){
+    public void cardHandAction() {
+        System.out.println("Size Count Hand : " + randomCard.sizeCountCardInHand());
+        if (randomCard.sizeCountCardInHand() == 1) {
             cardAction.cardHandActionFirst(currentCard);
-        }
-        else if(randomCard.sizeCountCardInHand()==2){
+        } else if (randomCard.sizeCountCardInHand() == 2) {
             cardAction.cardHandActionSecond(currentCard);
-        }
-        else if(randomCard.sizeCountCardInHand()==3){
+        } else if (randomCard.sizeCountCardInHand() == 3) {
             cardAction.cardHandActionThirst(currentCard);
-        }
-        else if(randomCard.sizeCountCardInHand()==4){
+        } else if (randomCard.sizeCountCardInHand() == 4) {
             cardAction.cardHandActionFourth(currentCard);
-        }
-        else if(randomCard.sizeCountCardInHand()==5){
+        } else if (randomCard.sizeCountCardInHand() == 5) {
             cardAction.cardHandActionFifth(currentCard);
-        }
-        else if(randomCard.sizeCountCardInHand()==6){
+        } else if (randomCard.sizeCountCardInHand() == 6) {
             cardAction.cardHandActionFull(currentCard);
             System.out.println("Out Hand");
         }
@@ -116,16 +113,16 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public void render(float delta) {
-        if(solveUp) {
+        if (solveUp) {
             /*
             cardHandR.getChildren().get(0).addAction(Actions.parallel(Actions.moveTo(200, 0, 5),
                     Actions.rotateBy(90, 5)));*/
             //cardHandAction();
         }
-        if(solveLeft){
+        if (solveLeft) {
             //cardHandR.getChildren().get(0).addAction(Actions.sequence(Actions.moveTo(1200, 500)));
         }
-        Gdx.gl.glClearColor(.25f,.25f,.25f,1f);
+        Gdx.gl.glClearColor(.25f, .25f, .25f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         update(delta);
         cardPlay.batch.setProjectionMatrix(cardPlay.camera.combined);
@@ -136,13 +133,12 @@ public class ScreenPlay implements Screen, InputProcessor{
         prototype.draw(cardPlay.batch);
         cardPlay.batch.end();
         stage.draw();
-        if(prototype.isComplete()){
+        if (prototype.isComplete()) {
             prototype.reset();
         }
     }
 
-    public void update(float delta)
-    {
+    public void update(float delta) {
 //        mapScreen.update(delta);
         stage.act(delta);
         prototype.update(delta);
@@ -176,29 +172,29 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public boolean keyDown(int keycode) {
-        if (keycode== Input.Keys.UP) {
+        if (keycode == Input.Keys.UP) {
             solveUp = true;
         }
-        if (keycode== Input.Keys.DOWN){
+        if (keycode == Input.Keys.DOWN) {
             solveDown = true;
         }
-        if (keycode== Input.Keys.LEFT){
+        if (keycode == Input.Keys.LEFT) {
             solveLeft = true;
         }
-        if (keycode== Input.Keys.RIGHT){
+        if (keycode == Input.Keys.RIGHT) {
             solveRight = true;
         }
-        if (keycode==Input.Keys.O){
+        if (keycode == Input.Keys.O) {
             currentCard++;
-            if (currentCard<maxCard){
+            if (currentCard < maxCard) {
                 setCardHandR(currentCard);
                 randomCard.setCardInHandIndex(currentCard);
             }
         }
-        if (keycode==Input.Keys.P && currentCard<maxCard){
+        if (keycode == Input.Keys.P && currentCard < maxCard) {
             cardHandAction();
         }
-        if (keycode==Input.Keys.Z) {
+        if (keycode == Input.Keys.Z) {
 
         }
         return false;
@@ -206,16 +202,16 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public boolean keyUp(int keycode) {
-        if (keycode== Input.Keys.UP) {
+        if (keycode == Input.Keys.UP) {
             solveUp = false;
         }
-        if (keycode== Input.Keys.DOWN){
+        if (keycode == Input.Keys.DOWN) {
             solveDown = false;
         }
-        if (keycode== Input.Keys.LEFT){
+        if (keycode == Input.Keys.LEFT) {
             solveLeft = false;
         }
-        if (keycode== Input.Keys.RIGHT){
+        if (keycode == Input.Keys.RIGHT) {
             solveRight = false;
         }
         return false;
@@ -223,6 +219,42 @@ public class ScreenPlay implements Screen, InputProcessor{
 
     @Override
     public boolean keyTyped(char character) {
+        if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
+            System.out.println("N.Atk is Activated");
+            chooseSkill = 0;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+            System.out.println("1st Skill is Activated");
+            chooseSkill = 1;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.E)) {
+            System.out.println("2nd Skill is Activated");
+            chooseSkill = 2;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+            System.out.println("3rd Skill is Activated");
+            chooseSkill = 3;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.Z)) {
+            System.out.println("Potion is Activated");
+            chooseSkill = 4;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.X)) {
+            System.out.println("Mega Potion is Activated");
+            chooseSkill = 5;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.C)) {
+            System.out.println("Shield is Activated");
+            chooseSkill = 6;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.V)) {
+            System.out.println("Super Armor is Activated");
+            chooseSkill = 7;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.B)) {
+            System.out.println("Thunder Bolt is Activated");
+            chooseSkill = 8;
+        }
         return false;
     }
 
@@ -261,19 +293,19 @@ public class ScreenPlay implements Screen, InputProcessor{
         if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
             if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) && mapScreen.player[mapScreen.idx].attacking == false) {
                 System.out.println("Skill is used.");
-                if (goal.x < mapScreen.player[mapScreen.idx].col ) {
+                mapScreen.player[mapScreen.idx].setTarget(goal);
+                if (goal.x < mapScreen.player[mapScreen.idx].col) {
                     if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.RIGHT) == 0) {
                         mapScreen.player[mapScreen.idx].facing = Hero.State.LEFT;
                     }
-                }
-                else {
+                } else {
                     if (mapScreen.player[mapScreen.idx].facing.compareTo(Hero.State.LEFT) == 0) {
                         mapScreen.player[mapScreen.idx].facing = Hero.State.RIGHT;
                     }
                 }
                 mapScreen.player[mapScreen.idx].resetElapsedTime();
                 mapScreen.player[mapScreen.idx].setStartTime();
-                mapScreen.player[mapScreen.idx].skillUsing = 3;
+                mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
                 mapScreen.player[mapScreen.idx].attacking = true;
 //                mapScreen.statusPhase[6] = 2;
             }
@@ -282,32 +314,28 @@ public class ScreenPlay implements Screen, InputProcessor{
     }
 
     @Override
-    public boolean touchUp ( int screenX, int screenY, int pointer, int button)
-    {
+    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         Gdx.app.log("Mouse", "Up");
         return false;
     }
 
     @Override
-    public boolean touchDragged ( int screenX, int screenY, int pointer)
-    {
+    public boolean touchDragged(int screenX, int screenY, int pointer) {
         Gdx.app.log("Mouse", "Dragged");
 
         return false;
     }
 
     @Override
-    public boolean mouseMoved ( int screenX, int screenY)
-    {
-                //Gdx.app.log("Mouse Position", screenX+", "+screenY);
-                //rendexX = screenX - texture.getWidth();
-                //renderY = Gdx.graphics.getHeight() - screenY - texture.getHeight();
+    public boolean mouseMoved(int screenX, int screenY) {
+        //Gdx.app.log("Mouse Position", screenX+", "+screenY);
+        //rendexX = screenX - texture.getWidth();
+        //renderY = Gdx.graphics.getHeight() - screenY - texture.getHeight();
         return false;
     }
 
     @Override
-    public boolean scrolled ( int amount)
-    {
+    public boolean scrolled(int amount) {
         //Gdx.app.log("Mouse", "Scroll :"+amount);
         return false;
     }

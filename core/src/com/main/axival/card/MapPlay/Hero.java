@@ -11,7 +11,7 @@ import com.main.axival.card.CardPlay;
 import java.util.ArrayList;
 
 public class Hero extends TextureAtlas {
-    public enum State {STANDING, WALKING, LEFT, RIGHT};
+    public enum State {STANDING, WALKING, LEFT, RIGHT, PAIN, DEAD}
     public int job;
     public int col;
     public int row;
@@ -19,56 +19,63 @@ public class Hero extends TextureAtlas {
     public State facing;
     public State currentState;
     public State previousState;
-    public int walk=4;
-    public boolean live=true;
-    public boolean attacking=false;
-    public int skillUsing=-1;
+    public int walk = 4;
+    public boolean attacking = false;
+    public int skillUsing = -1;
     public Skill[] ability;
     private int frame;
     private Texture img;
     private TextureAtlas atlas, skill;
     private Animation<TextureRegion> animation;
     private Animation<TextureRegion> skillAnimation[];
-    private Vector2 coordinates, des, src;
+    private Vector2 coordinates, target, des, src;
     private float frameDuration;
     private float elapsedTime = 0f;
     private float startTime = 0f;
     private float widthErr = 0;
     private float heightErr = 0;
-    private static int walking=0;
+    private static int walking = 0;
     private CardPlay game;
     private MapScreen screen;
     private Board board;
 
+    public boolean live = true;
+    public int health;
+
     public Hero(CardPlay game, MapScreen screen, Board board, Vector2 vector, int job, String path) {
         this.job = job;
         this.setAtlas(path);
-        ability = new Skill[4];
-        skillAnimation = new Animation[5];
+        ability = new Skill[9];
+        skillAnimation = new Animation[7];
         frameDuration = 0.2f;
         if (job == 1) {
-            widthErr = -140f;
-            heightErr = -100f;
+            health = 200;
             ability[0] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill0_Spritesheet/dt_skill0.atlas", "dt0");
             ability[1] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill1_Spritesheet/dt_skill1.atlas", "dt1");
-            ability[2] = new Skill("skills/Cd_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas", "cd3");
+
+            //No effect in 2nd skill
+            ability[2] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas", "dt3");
+
             ability[3] = new Skill("skills/DT_Skill_Spritesheet/DT_Skill3_Spritesheet/dt_skill3.atlas", "dt3");
             skillAnimation[0] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingOF"));
             skillAnimation[1] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("fortify"));
             skillAnimation[2] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("stabOF"));
             skillAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO1"));
-        }
-        else if (job == 2) {
+        } else if (job == 2) {
+            health = 150;
             ability[0] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill0_Spritesheet/wz_skill0.atlas", "wz0");
             ability[1] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill1_Spritesheet/wz_skill1.atlas", "wz1");
-            //Wizard have no 2nd ability.
+
+            //No effect in 2nd skill
+            ability[2] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas", "wz3");
+
             ability[3] = new Skill("skills/WZ_Skill_Spritesheet/WZ_Skill3_Spritesheet/wz_skill3.atlas", "wz3");
             skillAnimation[0] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO1"));
             skillAnimation[1] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO2"));
             //Wizard have no 2nd ability.
             skillAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO3"));
-        }
-        else {
+        } else {
+            health = 120;
             ability[0] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill0_Spritesheet/pr_skill0.atlas", "pr0");
             ability[1] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill1_Spritesheet/pr_skill1.atlas", "pr1");
             ability[2] = new Skill("skills/PR_Skill_Spritesheet/PR_Skill2_Spritesheet/pr_skill2.atlas", "pr2");
@@ -78,7 +85,14 @@ public class Hero extends TextureAtlas {
             skillAnimation[2] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("swingO2"));
             skillAnimation[3] = new Animation<TextureRegion>(frameDuration, this.atlas.findRegions("stabO1"));
         }
-        skillAnimation[4] = new Animation<TextureRegion>(1/2f, this.atlas.findRegions("alert"));
+        ability[4] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill0_Spritesheet/cd_skill0.atlas", "cd0");
+        ability[5] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill1_Spritesheet/cd_skill1.atlas", "cd1");
+        ability[6] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill2_Spritesheet/cd_skill2.atlas", "cd2");
+        ability[7] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill3_Spritesheet/cd_skill3.atlas", "cd3");
+        ability[8] = new Skill("skills/CD_Skill_Spritesheet/CD_Skill4_Spritesheet/cd_skill4.atlas", "cd4");
+        skillAnimation[4] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("alert"));
+        skillAnimation[5] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("pain"));
+        skillAnimation[6] = new Animation<TextureRegion>(1 / 2f, this.atlas.findRegions("dead"));
         this.game = game;
         this.screen = screen;
         this.board = board;
@@ -87,7 +101,7 @@ public class Hero extends TextureAtlas {
         this.src = new Vector2(col, row);
         this.des = new Vector2();
         this.coordinates = new Vector2();
-        this.coordinates.set(board.map[row][col].corX , board.map[row][col].corY);
+        this.coordinates.set(board.map[row][col].corX, board.map[row][col].corY);
         this.des.set(screen.board.map[row][col].corX, screen.board.map[row][col].corY);
         facing = State.RIGHT;
         currentState = State.STANDING;
@@ -95,9 +109,17 @@ public class Hero extends TextureAtlas {
     }
 
     public void update(float delta) {
-        if (elapsedTime > 100) { elapsedTime = 0;}
+        if (health < 0 && live == true) {
+            health = 0;
+            live = false;
+            this.resetElapsedTime();
+            this.setStartTime();
+        }
+        if (elapsedTime > 100) {
+            elapsedTime = 0;
+        }
         this.elapsedTime += delta;
-        for (Skill skill: ability) {
+        for (Skill skill : ability) {
             skill.update(delta);
         }
     }
@@ -106,27 +128,46 @@ public class Hero extends TextureAtlas {
         this.img = new Texture(path);
     }
 
-    public void setWalking(int n) { this.walking = n; }
+    public void setWalking(int n) {
+        this.walking = n;
+    }
 
-    public int getWalking() { return walking; }
+    public int getWalking() {
+        return walking;
+    }
 
     public void setCoordinates(float x, float y) {
         this.coordinates = coordinates.set(x, y);
     }
+
     public void setDes(float x, float y) {
         this.des.set(x, y);
     }
-    public void setRowCol(int row, int col) {this.row = row; this.col = col; }
-    public void setSrc() { this.src = new Vector2(col, row); }
+
+    public void setRowCol(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+
+    public void setSrc() {
+        this.src = new Vector2(col, row);
+    }
 
     public Vector2 getCoordinates() {
         return this.coordinates;
     }
-    public Vector2 getDes() { return  this.des; }
+
+    public Vector2 getDes() {
+        return this.des;
+    }
+
     public Vector2 getRowCol() {
         return new Vector2(this.col, this.row);
     }
-    public Vector2 getSrc() { return this.src;}
+
+    public Vector2 getSrc() {
+        return this.src;
+    }
 
     public void setAtlas(String path) {
         this.atlas = new TextureAtlas(path);
@@ -134,9 +175,10 @@ public class Hero extends TextureAtlas {
 
     public Animation<TextureRegion> walkAction() {
         action = "stand1";
-        float frameDuration=1/3f;
+        float frameDuration = 1 / 3f;
         if (this.currentState.compareTo(State.WALKING) == 0) {
-            action = "walk1"; }
+            action = "walk1";
+        }
         return new Animation<TextureRegion>(frameDuration, this.atlas.findRegions(action));
     }
 
@@ -158,67 +200,89 @@ public class Hero extends TextureAtlas {
         //Hero Action
         if (facing.compareTo(Hero.State.RIGHT) == 0) {
             game.batch.draw(this.walkAction().getKeyFrame(elapsedTime, true),
-                    this.getCoordinates().x + (this.walkAction().getKeyFrame(elapsedTime,true).getRegionWidth()) + errR,
+                    this.getCoordinates().x + (this.walkAction().getKeyFrame(elapsedTime, true).getRegionWidth()) + errR,
                     this.getCoordinates().y,
                     -(this.walkAction().getKeyFrame(elapsedTime, true).getRegionWidth()),
                     this.walkAction().getKeyFrame(elapsedTime, true).getRegionHeight());
-        }
-        else {
+        } else {
             game.batch.draw(this.walkAction().getKeyFrame(elapsedTime, true),
                     this.getCoordinates().x + errL, this.getCoordinates().y);
         }
     }
 
     public void useSkill() {
-      //debugging
+        //debugging
         int ide = 0;
-        if (skillUsing < 0) {
+        if (skillUsing < 0 || 3 < skillUsing) {
             ide = 0;
-        }
-        else {
+        } else {
             ide = skillUsing;
         }
+        //Basic Skills & Stand
         float deltaTime = skillAnimation[ide].getAnimationDuration();
-        if (elapsedTime < startTime + deltaTime && attacking == true && skillUsing > -1) {
+        if (elapsedTime < startTime + deltaTime && attacking == true && (skillUsing > -1 && skillUsing < 4) && live == true) {
             if (facing.compareTo(State.RIGHT) == 0) {
                 game.batch.draw(skillAnimation[skillUsing].getKeyFrame(elapsedTime, true),
                         coordinates.x + skillAnimation[skillUsing].getKeyFrame(elapsedTime, true).getRegionWidth(),
                         coordinates.y,
                         -(skillAnimation[skillUsing].getKeyFrame(elapsedTime, true).getRegionWidth()),
                         skillAnimation[skillUsing].getKeyFrame(elapsedTime, true).getRegionHeight());
-                game.batch.draw(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime,true),
+                game.batch.draw(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
                         coordinates.x + ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime,
                                 true).getRegionWidth() + widthErr,
                         coordinates.y + heightErr,
-                        -(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime,true).getRegionWidth()),
+                        -(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionWidth()),
                         ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true).getRegionHeight());
-            }
-            else {
+            } else {
                 game.batch.draw(skillAnimation[skillUsing].getKeyFrame(elapsedTime, true), coordinates.x, coordinates.y);
-                game.batch.draw(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime,
-                        true), coordinates.x + widthErr, coordinates.y + heightErr);
+                game.batch.draw(ability[skillUsing].getSkillAction(deltaTime).getKeyFrame(elapsedTime, true),
+                        coordinates.x + widthErr,
+                        coordinates.y + heightErr);
             }
-
-
-        }
-        else if (startTime + deltaTime <= elapsedTime &&
-                elapsedTime <= startTime + deltaTime + skillAnimation[4].getAnimationDuration()) {
+        } else if (startTime + deltaTime <= elapsedTime &&
+                elapsedTime <= startTime + deltaTime + skillAnimation[4].getAnimationDuration() && live == true) {
             if (facing.compareTo(State.RIGHT) == 0) {
                 game.batch.draw(skillAnimation[4].getKeyFrame(elapsedTime, true),
                         coordinates.x + skillAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth(),
                         coordinates.y,
                         -(skillAnimation[4].getKeyFrame(elapsedTime, true).getRegionWidth()),
                         skillAnimation[4].getKeyFrame(elapsedTime, true).getRegionHeight());
+            } else {
+                game.batch.draw(skillAnimation[4].getKeyFrame(elapsedTime, true),
+                        coordinates.x - 30,
+                        coordinates.y);
             }
-            else {
-                game.batch.draw(skillAnimation[4].getKeyFrame(elapsedTime, true), coordinates.x, coordinates.y);
-            }
-        }
-        else {
+        } else if (live == true) {
             skillUsing = -1;
             attacking = false;
             this.renderWalking();
         }
+
+
+        //Card animation
+//        deltaTime = skillAnimation[ide].getAnimationDuration();
+//        if (elapsedTime < startTime + deltaTime && attacking == true && 3 < skillUsing && live == true) {
+//            game.batch.draw(skillAnimation[4].getKeyFrame(elapsedTime, true),
+//                    board.map[(int)target.y][(int)target.x].corX,
+//                    board.map[(int)target.y][(int)target.x].corY);
+//        }
+//        else {
+//            skillUsing = -1;
+//            attacking = false;
+//        }
+
+        //Pain animation
+
+        //dead animation
+        if (elapsedTime < 5 && live == false && health == 0) {
+            game.batch.draw(skillAnimation[6].getKeyFrame(elapsedTime, true),
+                    coordinates.x + elapsedTime,
+                    coordinates.y + elapsedTime * 100);
+        }
+        else if (elapsedTime >= 5 && live == false && health == 0) {
+            health = -1;
+        }
+
     }
 
     public void setFacing(State facing) {
@@ -238,11 +302,19 @@ public class Hero extends TextureAtlas {
         return src;
     }
 
+    public void setTarget(Vector2 target) {
+        this.target = target;
+    }
+
     public void resetElapsedTime() {
         elapsedTime = 0;
     }
 
     public void setStartTime() {
         startTime = elapsedTime;
+    }
+
+    public boolean isAvlive() {
+        return live;
     }
 }

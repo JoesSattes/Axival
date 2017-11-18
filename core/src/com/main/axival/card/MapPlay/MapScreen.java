@@ -385,14 +385,19 @@ public class MapScreen implements Screen {
     }
 
     public void renderingHero(int idx, float delta) {
-        if (statusPhase[5] == idx && statusPhase[6] == 2 && player[idx].attacking == false) {
+        if (statusPhase[5] == idx && statusPhase[6] == 2 && player[idx].attacking == false && player[idx].live == true) {
             //render walking overlay
             overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
         }
+
         overlay.showOverlay(player[idx].col, player[idx].row, player[idx].walk);
+
         //Color Overlay under Hero feet.
-        game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
-                tile[idx].getWidth() * 0.75f, tile[idx].getHeight() * 0.75f);
+        if (player[idx].live == true) {
+            game.batch.draw(tile[idx], player[idx].getCoordinates().x + 8, player[idx].getCoordinates().y,
+                    tile[idx].getWidth() * 0.75f, tile[idx].getHeight() * 0.75f);
+        }
+
 
         //render hero every action
         player[idx].useSkill();

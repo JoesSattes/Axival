@@ -14,7 +14,6 @@ public class Skill {
     private Animation<TextureRegion> animation;
     public Skill(String atlasPath, String name) {
         this.name = name;
-        this.frame = frame;
         this.atlas = new TextureAtlas(atlasPath);
         this.frame = atlas.getRegions().size;
     }

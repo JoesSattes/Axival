@@ -64,9 +64,9 @@ public class Board {
         }
         HeroCoordinates = new LinkedList<Vector2>();
         HeroCoordinates.add(new Vector2(7, 4));
-        HeroCoordinates.add(new Vector2(23, 0));
+        HeroCoordinates.add(new Vector2(15, 5));
         HeroCoordinates.add(new Vector2(7, 7));
-        HeroCoordinates.add(new Vector2(23, 12));
+        HeroCoordinates.add(new Vector2(16, 7));
     }
 
     public List<Vector2> getPath(Vector2 source, Vector2 destination) {

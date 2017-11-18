@@ -25,6 +25,7 @@ import com.main.axival.card.MapPlay.Hero;
 import com.main.axival.card.MapPlay.MapScreen;
 import com.main.axival.card.RandomCard;
 import com.main.axival.card.UIplay;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -57,6 +58,7 @@ public class ScreenPlay implements Screen, InputProcessor {
     private MapScreen mapScreen;
 
     private int chooseSkill = 0;
+    private int chooseCard = 0;
 
 
     public ScreenPlay(final CardPlay cardPlay) {
@@ -191,12 +193,73 @@ public class ScreenPlay implements Screen, InputProcessor {
                 randomCard.setCardInHandIndex(currentCard);
             }
         }
+        //Testing all animation
         if (keycode == Input.Keys.P && currentCard < maxCard) {
             cardHandAction();
         }
-        if (keycode == Input.Keys.Z) {
-
+        if (keycode == Input.Keys.Q) {
+            System.out.println("N.Atk is Activated");
+            chooseSkill = 0;
         }
+        if (keycode == Input.Keys.W) {
+            System.out.println("1st Skill is Activated");
+            chooseSkill = 1;
+        }
+        if (keycode == Input.Keys.E) {
+            System.out.println("2nd Skill is Activated");
+            chooseSkill = 2;
+        }
+        if (keycode == Input.Keys.R) {
+            System.out.println("3rd Skill is Activated");
+            chooseSkill = 3;
+        }
+        if (keycode == Input.Keys.Z) {
+            System.out.println("Potion is Activated");
+            chooseSkill = 4;
+            chooseCard = 0;
+        }
+        if (keycode == Input.Keys.X) {
+            System.out.println("Mega Potion is Activated");
+            chooseSkill = 5;
+            chooseCard = 1;
+        }
+        if (keycode == Input.Keys.C) {
+            System.out.println("Shield is Activated");
+            chooseSkill = 6;
+            chooseCard = 2;
+        }
+        if (keycode == Input.Keys.V) {
+            System.out.println("Super Armor is Activated");
+            chooseSkill = 7;
+            chooseCard = 3;
+        }
+        if (keycode == Input.Keys.B) {
+            System.out.println("Thunder Bolt is Activated");
+            chooseSkill = 8;
+            chooseCard = 4;
+        }
+        if (keycode == Input.Keys.NUM_1) {
+            System.out.println("Changed to 1st Player");
+            mapScreen.idx = 0;
+        }
+        if (keycode == Input.Keys.NUM_2) {
+            System.out.println("Changed to 2nd Player");
+            mapScreen.idx = 1;
+        }
+        if (keycode == Input.Keys.NUM_3) {
+            System.out.println("Changed to 3rd Player");
+            mapScreen.idx = 2;
+        }
+        if (keycode == Input.Keys.NUM_4) {
+            System.out.println("Changed to 4th Player");
+            mapScreen.idx = 3;
+        }
+        if (keycode == Input.Keys.NUM_5) {
+            System.out.println("Commit Suicide");
+            mapScreen.player[mapScreen.idx].health = -1;
+        }
+
+
         return false;
     }
 
@@ -219,42 +282,6 @@ public class ScreenPlay implements Screen, InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
-            System.out.println("N.Atk is Activated");
-            chooseSkill = 0;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
-            System.out.println("1st Skill is Activated");
-            chooseSkill = 1;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.E)) {
-            System.out.println("2nd Skill is Activated");
-            chooseSkill = 2;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            System.out.println("3rd Skill is Activated");
-            chooseSkill = 3;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.Z)) {
-            System.out.println("Potion is Activated");
-            chooseSkill = 4;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.X)) {
-            System.out.println("Mega Potion is Activated");
-            chooseSkill = 5;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.C)) {
-            System.out.println("Shield is Activated");
-            chooseSkill = 6;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.V)) {
-            System.out.println("Super Armor is Activated");
-            chooseSkill = 7;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.B)) {
-            System.out.println("Thunder Bolt is Activated");
-            chooseSkill = 8;
-        }
         return false;
     }
 
@@ -289,7 +316,18 @@ public class ScreenPlay implements Screen, InputProcessor {
                 mapScreen.walker.routing();
             }
         }
-        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In screenPLay");
+        else if (Gdx.input.isButtonPressed(Input.Buttons.LEFT) && mapScreen.statusPhase[6] == 1 ||
+                mapScreen.statusPhase[6] == 3 && mapScreen.player[mapScreen.idx].skillUsing == -1){
+            mapScreen.player[mapScreen.idx].resetElapsedTime();
+            mapScreen.player[mapScreen.idx].setStartTime();
+            mapScreen.player[mapScreen.idx].skillUsing = chooseSkill;
+            mapScreen.player[mapScreen.idx].cardUsing = chooseCard;
+            mapScreen.player[mapScreen.idx].attacking = true;
+            System.out.println("cardUsing = " + mapScreen.player[mapScreen.idx].cardUsing );
+//            System.out.println("Kuy 0/0 left click");
+//            int k = 0/0;
+        }
+        System.out.println("statusPhase = " + mapScreen.statusPhase[6] + " In screenPlay");
         if (mapScreen.statusPhase[6] == 1 || mapScreen.statusPhase[6] == 3) {
             if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT) && mapScreen.player[mapScreen.idx].attacking == false) {
                 System.out.println("Skill is used.");

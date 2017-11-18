@@ -137,9 +137,9 @@ public class MapScreen implements Screen {
         //create phase status
         statusPhase = new int[9];
         statusPhase[1] = 4;
-        statusPhase[2] = 1;
-        statusPhase[3] = 1;
-        statusPhase[4] = 1;
+        statusPhase[2] = 2;
+        statusPhase[3] = 3;
+        statusPhase[4] = 3;
         statusPhase[5] = 0;
 
         //set actionPhase
